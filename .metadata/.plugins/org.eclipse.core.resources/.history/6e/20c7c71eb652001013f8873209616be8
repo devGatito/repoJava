@@ -1,0 +1,83 @@
+package ejemplo04;
+
+import java.util.HashMap;
+import java.util.Map.Entry;
+
+public class Implementacion implements metodos {
+	HashMap<Integer, Productos> hash = new HashMap<Integer, Productos>();
+
+	@Override
+	public void guardar(Productos productos) {
+
+		if (hash.isEmpty()) {
+			hash.put(productos.getCodigo(), productos);
+			System.out.println("Cargaron los productos");
+		} else
+			hash.put(productos.getCodigo(), productos);
+		System.out.println("Cargaron los productos");
+
+	}
+
+	@Override
+	public void editar(Productos productos) {
+		// TODO Auto-generated method stub
+		hash.put(productos.getCodigo(), productos);
+		System.out.println("Editaron los productos");
+
+	}
+
+	@Override
+	public void eliminar(Productos productos) {
+		// TODO Auto-generated method stub
+		hash.remove(productos.getCodigo(), productos);
+		System.out.println("Borraron los productos");
+
+	}
+
+	@Override
+	public Productos buscar(Productos producto) {
+		// TODO Auto-generated method stub
+
+		return hash.get(producto.getCodigo());
+	}
+
+	@Override
+	public HashMap<Integer, Productos> listar() {
+		// TODO Auto-generated method stub
+		return hash;
+	}
+
+	public String keyValue() {
+		for (Entry<Integer, Productos> p : hash.entrySet()) {
+			System.out.print("key" + p.getValue());
+
+		}
+		return "key, value";
+	}
+
+	public Productos buscarporNombre(String nombre) {
+		Productos buscarporNombre = null;
+		for (Entry<Integer, Productos> p : hash.entrySet()) {
+			if (p.getValue().getNombre().equalsIgnoreCase(nombre)) {
+				buscarporNombre = p.getValue();
+			}
+
+		}
+		return buscarporNombre;
+	}
+
+	public Productos buscarSabor(String sabor) {
+		Productos buscarSabor = null;
+
+		for (Productos p : hash.values()) {
+			if (p.getSabor().equalsIgnoreCase(sabor)) {
+				buscarSabor = p;
+
+			}
+
+		}
+
+		return buscarSabor;
+	}
+
+}

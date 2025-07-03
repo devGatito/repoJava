@@ -1,0 +1,222 @@
+package libros;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+    	 Scanner lec = new Scanner(System.in);
+         Implementacion imp = new Implementacion();
+         DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+        int menu, subMenu, indice,id = 0;
+        do {
+            System.out.println("\n=== MENÚ PRINCIPAL ===");
+            System.out.println("1.- Empleados");
+            System.out.println("2.- Libros");
+            System.out.println("3.- Salir");
+            System.out.print("Seleccione una opción: ");
+            
+            
+            menu = lec.nextInt();
+            lec.nextLine(); // Limpiar buffer
+
+            switch (menu) {
+                case 1:
+                    gestionarEmpleados(lec, imp, formatoFecha);
+                    break;
+                case 2:
+                    gestionarLibros(lec, imp, formatoFecha);
+                    break;
+                case 3:
+                    System.out.println("Saliendo del programa...");
+                    break;
+                default:
+                    System.out.println("\033[31mOpción no válida\033[0m");
+            }
+        } while (menu != 3);
+        lec.close();
+    }
+
+    private static void gestionarEmpleados(Scanner lec, Implementacion imp, DateTimeFormatter formatoFecha) {
+        int subMenu;
+        do {
+            System.out.println("\n=== GESTIÓN DE EMPLEADOS ===");
+            System.out.println("1. Alta rápida");
+            System.out.println("2. Registrar nuevo empleado");
+            System.out.println("3. Buscar empleado");
+            System.out.println("4. Editar empleado");
+            System.out.println("5. Eliminar empleado");
+            System.out.println("6. Listar empleados");
+            System.out.println("7. Volver al menú principal");
+            System.out.print("Seleccione una opción: ");
+            
+            subMenu = lec.nextInt();
+            lec.nextLine(); // Limpiar buffer
+
+            switch (subMenu) {
+                case 1:
+                    Empleados e1 = new Empleados("Ejemplo", "Demo", LocalDateTime.now(), 30, "Masculino", "ejemplo@demo.com", 1234567890);
+                    imp.guardar(e1, "empleado");
+                    System.out.println("Empleado demo creado.");
+                    break;
+                case 2:
+                    System.out.print("Nombre: ");
+                    String nombre = lec.nextLine();
+                    
+                    System.out.print("Apellido: ");
+                    String app = lec.nextLine();
+                    
+                    System.out.print("Fecha de nacimiento (YYYY-MM-DD): ");
+                    LocalDate fecha = LocalDate.parse(lec.nextLine(), formatoFecha);
+                    LocalDateTime fechaNacimiento = fecha.atStartOfDay();
+                    
+                    System.out.print("Sexo: ");
+                    String sexo = lec.nextLine();
+                    
+                    System.out.print("Correo: ");
+                    String correo = lec.nextLine();
+                    
+                    System.out.print("Teléfono: ");
+                    int telefono = lec.nextInt();
+                    lec.nextLine();
+                    
+                    Empleados nuevoEmpleado = new Empleados(nombre, app, fechaNacimiento, 0, sexo, correo, telefono);
+                    imp.guardar(nuevoEmpleado, "empleado");
+                    break;
+                case 3:
+                    System.out.print("Índice del empleado a buscar: ");
+                    id = lec.nextInt();
+                    lec.nextLine();
+                    
+                    Empleados empleado = (Empleados) imp.buscar(id, "empleado");
+                    if (empleado != null) {
+                        System.out.println(empleado);
+                    } else {
+                        System.out.println("Empleado no encontrado.");
+                    }
+                    break;
+                case 4:
+                    System.out.print("Índice del empleado a editar: ");
+                    indice = lec.nextInt();
+                    lec.nextLine();
+                    
+                    Empleados empExistente = (Empleados) imp.buscar(indice, "empleado");
+                    if (empExistente != null) {
+                        System.out.println("Editando empleado: " + empExistente.getNombre());
+                        
+                        System.out.print("Nuevo nombre (" + empExistente.getNombre() + "): ");
+                        String nuevoNombre = lec.nextLine();
+                        if (!nuevoNombre.isEmpty()) empExistente.setNombre(nuevoNombre);
+                        
+                        // Agregar edición para otros campos de manera similar
+                        
+                        imp.editar(indice, empExistente, "empleado");
+                    } else {
+                        System.out.println("Empleado no encontrado.");
+                    }
+                    break;
+                case 5:
+                    System.out.print("Índice del empleado a eliminar: ");
+                    indice = lec.nextInt();
+                    lec.nextLine();
+                    imp.eliminar(indice, "empleado");
+                    break;
+                case 6:
+                    imp.listar("empleados");
+                    break;
+                case 7:
+                    break;
+                default:
+                    System.out.println("\033[31mOpción no válida\033[0m");
+            }
+        } while (subMenu != 7);
+    }
+
+    private static void gestionarLibros(Scanner lec, Implementacion imp, DateTimeFormatter formatoFecha) {
+        int subMenu;
+        do {
+            System.out.println("\n=== GESTIÓN DE LIBROS ===");
+            System.out.println("1. Registrar nuevo libro");
+            System.out.println("2. Buscar libro");
+            System.out.println("3. Editar libro");
+            System.out.println("4. Eliminar libro");
+            System.out.println("5. Listar libros");
+            System.out.println("6. Volver al menú principal");
+            System.out.print("Seleccione una opción: ");
+            
+            subMenu = lec.nextInt();
+            lec.nextLine(); // Limpiar buffer
+
+            switch (subMenu) {
+                case 1:
+                    System.out.print("Título del libro: ");
+                    String titulo = lec.nextLine();
+                    
+                    System.out.print("Autor: ");
+                    String autor = lec.nextLine();
+                    
+                    System.out.print("Número de páginas: ");
+                    int paginas = lec.nextInt();
+                    lec.nextLine();
+                    
+                    System.out.print("Color: ");
+                    String color = lec.nextLine();
+                    
+                    System.out.print("Categoría: ");
+                    String categoria = lec.nextLine();
+                    
+                    Libros nuevoLibro = new Libros(titulo, autor, paginas, color, LocalDateTime.now(), categoria);
+                    imp.guardar(nuevoLibro, "libro");
+                    break;
+                case 2:
+                    System.out.print("Índice del libro a buscar: ");
+                    indice = lec.nextInt();
+                    lec.nextLine();
+                    
+                    Libros libro = (Libros) imp.buscar(indice, "libro");
+                    if (libro != null) {
+                        System.out.println(libro);
+                    } else {
+                        System.out.println("Libro no encontrado.");
+                    }
+                    break;
+                case 3:
+                    System.out.print("Índice del libro a editar: ");
+                    indice = lec.nextInt();
+                    lec.nextLine();
+                    
+                    Libros libExistente = (Libros) imp.buscar(indice, "libro");
+                    if (libExistente != null) {
+                        System.out.println("Editando libro: " + libExistente.getNombre());
+                        
+                        System.out.print("Nuevo título (" + libExistente.getNombre() + "): ");
+                        String nuevoTitulo = lec.nextLine();
+                        if (!nuevoTitulo.isEmpty()) libExistente.setNombre(nuevoTitulo);
+                        
+                        // Agregar edición para otros campos de manera similar
+                        
+                        imp.editar(indice, libExistente, "libro");
+                    } else {
+                        System.out.println("Libro no encontrado.");
+                    }
+                    break;
+                case 4:
+                    System.out.print("Índice del libro a eliminar: ");
+                    indice = lec.nextInt();
+                    lec.nextLine();
+                    imp.eliminar(indice, "libro");
+                    break;
+                case 5:
+                    imp.listar("libros");
+                    break;
+                case 6:
+                    break;
+                default:
+                    System.out.println("\033[31mOpción no válida\033[0m");
+            }
+        } while (subMenu != 6);
+    }
+}

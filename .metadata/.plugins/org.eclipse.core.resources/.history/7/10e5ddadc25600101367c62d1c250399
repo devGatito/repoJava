@@ -1,0 +1,133 @@
+
+package com.mx.servicio;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.mx.Dao.metodos;
+import com.mx.Dominio.Clientes;
+import com.mx.Dominio.Empleados;
+
+public class Implementacion implements metodos {
+
+	List<Clientes> listaC = new ArrayList<Clientes>();
+	Clientes cliente = null;
+
+	List<Empleados> listE = new ArrayList<Empleados>();
+	Empleados empleado = null;
+
+	@Override
+	public void guardar(Object obj, String clase) {
+		switch (clase) {
+		case "cliente":
+			cliente = (Clientes) obj;
+			if (listaC.isEmpty()) {
+				listaC.add(cliente);
+				System.out.print("\n Se guardo el cliente");
+			} else {
+				System.out.print("\n No se guardo el cliente");
+
+			}
+			break;
+		case "empleados":
+			empleado = (Empleados) obj;
+
+			if (listE.isEmpty()) {
+				listE.add(empleado);
+				System.out.print("\n Se guardo el empleado");
+			} else {
+				System.out.print("\n No se guardo el empleado");
+
+			}
+
+			break;
+		}
+
+	}
+
+	@Override
+	public void eliminar(int indice, String clase) {
+		switch(clase) {
+		case "cliente":
+			if(listaC.isEmpty()) {
+				listaC.remove(indice);
+				System.out.print("Se elimino el cliente");
+			}
+			break;
+			
+		case "empleado":
+			if(listaC.isEmpty()) {
+				listE.remove(indice);
+				System.out.print("Se elimino el empleado");
+			}
+			break;
+		
+		}
+
+
+	}
+
+	@Override
+	public void editar(int indice, Object obj, String clase) {
+		switch(clase) {
+		case "cliente":
+			cliente = (Clientes) obj;
+			if(listaC.isEmpty()) {
+				listaC.set(indice, cliente);
+				System.out.print("Se actualizo el cliente");
+			}else {
+				System.out.print("No se actualizo el cliente");
+			}
+			
+			break;
+			
+		case "empleado":
+			empleado = (Empleados) obj;
+			
+			if(listE.isEmpty()) {
+				listE.set(indice, empleado);
+				System.out.print("Se actualizo el empleado");
+			}else {
+				System.out.print("No se actualizo el empleado");
+			}
+			
+			break;
+		}
+
+
+	}
+
+	@Override
+	public void buscar(int indice, String clase) {
+		if(clase.equals("cliente")) {
+			System.out.print(listaC.get(indice));
+			return;
+		}else if(clase.equals("empleado")) {
+			cliente = listaC.get(0);
+			System.out.print(cliente);
+			return;
+			
+		}
+		
+		
+		
+	
+		
+
+
+	}
+
+	@Override
+	public void listar(String clase) {
+		if(clase.equals("cliente")) {
+			System.out.print("\n Lista de Clientes \n" + listaC);
+		}else if(clase.equals("empleados")) {
+			System.out.print("\n Lista de empleados \n " + listE);
+			
+		}
+		
+
+
+	}
+
+}

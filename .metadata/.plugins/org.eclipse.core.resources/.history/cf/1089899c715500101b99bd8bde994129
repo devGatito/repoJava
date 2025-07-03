@@ -1,0 +1,121 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		int id;
+		String titulo;
+		String director;
+		String genero;
+		int duracion;
+		boolean cartelera;
+
+		int menu;
+		Scanner lec = null;
+		
+		List<Peliculas> lista = new ArrayList<Peliculas>();
+
+		
+		// System.out.print(pe);
+
+		do {
+
+			System.out.print("MENU");
+			System.out.print("\n 1.Agregar películas precargadas");
+			System.out.print("\n 2. Agregar nueva película");
+			System.out.print("\n 3.Buscar película por ID");
+			System.out.print("\n 4. Editar película (por ID)");
+			System.out.print("\n 5. Eliminar película (por ID)");
+			System.out.print("\n 6.Mostrar todas las películas");
+			System.out.print("\n 7.Salir");
+			lec = new Scanner(System.in);
+			menu = lec.nextInt();
+
+			if (menu < 0 || menu > 5) {
+				System.out.print("selecciona una opcion valida");
+			} else {
+				switch (menu) {
+				case 1:
+					Peliculas pe1 = new Peliculas(1, "Zombies", "Johan", "Violencia", 300, false);
+					Peliculas pe2 = new Peliculas(2, "Fantacia", "El Moustro sin Nombre", "Violencia", 300, false);
+					Peliculas pe3 = new Peliculas(3, "Zombies", "Johan", "Violencia", 300, false);
+					Peliculas pe4 = new Peliculas(4, "Fantacia", "El Moustro sin Nombre", "Violencia", 300, false);
+
+					lista.add(pe1);
+					lista.add(pe2);
+					lista.add(pe3);
+					lista.add(pe4);
+					System.out.print("Lista cargada:" + lista);
+
+					break;
+
+				case 2:
+					System.out.print("Ingresa un Id");
+					lec = new Scanner(System.in);
+					id = lec.nextInt();
+
+					System.out.print("Ingresa un titulo");
+					lec = new Scanner(System.in);
+					titulo = lec.nextLine();
+
+					System.out.print("Ingresa un director");
+					lec = new Scanner(System.in);
+					director = lec.nextLine();
+
+					System.out.print("Ingresa un genero");
+					lec = new Scanner(System.in);
+					genero = lec.nextLine();
+
+					System.out.print("Ingresa un duracion");
+					lec = new Scanner(System.in);
+					duracion = lec.nextInt();
+
+					System.out.print("Ingresa si esta en cartelera");
+					lec = new Scanner(System.in);
+					cartelera = lec.nextBoolean();
+
+					Peliculas peliculas = new Peliculas(id,titulo,director, genero, duracion, cartelera);
+					lista.add(peliculas);
+					
+				case 3:
+					System.out.print("Ingresa un ID para validar");
+					lec = new Scanner(System.in);
+					id = lec.nextInt();
+					
+					for(Peliculas p: lista) {
+						if(p.getId()==id) {
+							Peliculas a =lista.get(id);
+							System.out.print(a);
+							
+						}
+						
+					}
+						
+					
+					break;
+					
+				case 4:
+					System.out.print("Ingresa el id a editar");
+					lec = new Scanner(System.in);
+					id = lec.nextInt();
+					
+					if(id < 0 && id >lista.size() ) {
+						
+					}
+					
+					
+					break;
+
+				}
+			}
+
+		} while (menu != 5);
+
+		// TODO Auto-generated method stub
+
+	}
+
+}

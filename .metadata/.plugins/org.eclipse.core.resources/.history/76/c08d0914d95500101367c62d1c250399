@@ -1,0 +1,42 @@
+package ejemplo06;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Implementacion implements metodos {
+
+	
+	List<Clientes> listaClientes = new ArrayList<Clientes>();
+	Clientes cliente = null;
+	List<Productos> listaProductos = new ArrayList<Productos>();
+	@Override
+	public void guardar(Object obj, String clase) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void editar(int indice, Object obj, String clase) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void eliminar(int indice, Object obj, String clase) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Object buscar(int indice, Object obj) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Object> listar(String clase) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

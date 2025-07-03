@@ -1,0 +1,16 @@
+package ejemplo04;
+
+import java.util.Date;
+
+public class Productos {
+	int codigo;
+	String nombre;
+	String marca;
+	String sabor;
+	int cantidad;
+	Date fechaCaudidad;
+	double precio;
+	
+
+	
+}

@@ -1,0 +1,48 @@
+package ejercicio5;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+
+public class Implementacion implements metodos {
+
+	Videojuegos video = null;
+	HashMap<String, Object> hash = new HashMap<>();
+
+	@Override
+	public void guardar(Videojuegos videojuegos) {
+		video = (Videojuegos) videojuegos;
+
+		if (Arrays.asList("ZELDA", "FORZA", "MINECRAFT").contains(video.getNombre())) {
+			hash.put(video.getCodigo(), video);
+			System.out.print("Se guardo el videojuego");
+		}else {
+			System.out.print("Solo tenemos los siguientes videojuegos");
+		}
+		
+
+	}
+
+	@Override
+	public void eliminar(Videojuegos videojuegos) {
+
+	}
+
+	@Override
+	public void editar(Videojuegos videojuegos) {
+
+	}
+
+	@Override
+	public Videojuegos buscarId(String codigo) {
+
+		return null;
+	}
+
+	@Override
+	public List<Videojuegos> listar() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

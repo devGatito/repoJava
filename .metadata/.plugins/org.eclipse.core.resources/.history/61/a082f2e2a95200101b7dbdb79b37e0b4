@@ -1,0 +1,67 @@
+package estudio;
+
+public class Cass {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int a = 2;
+		int b = 9;
+		
+		double division;
+		
+		division = (double) b /  (double) a;
+		//System.out.print("Forzar valor" + division);
+		
+		/* ==== EJERCICIOS */
+		
+		int x = 149;
+		int y = 999;
+		
+		int suma = x + y;
+		int res = y - y;
+		int mult = x * y;
+		double div = (double)x/ (double)y;
+		
+		System.out.print("\n La suma es: " + suma + "\n La resta es: " + res  + "\n La multiplicacion es: " + mult + "\n La divicion es: " + div);
+		
+		String nombre = "\033[32m Elias Misael Soto jimenez \033[0m";
+		String dire = "\033[33m Calle de la plata \033[0m";
+		String telefono = "\033[34m 7621240911";
+		System.out.print( "\n" +nombre + "\n" + dire + "\n" +telefono);
+		
+		double paseta, euro;
+		double conversion;
+		
+		paseta =  0.00601012;
+		euro = 20;
+		conversion =  paseta *  euro;
+		System.out.print("\n El resultado es" + conversion);
+		
+		paseta =  20;
+		euro = 166.386;
+		conversion =  paseta *  euro;
+		
+		System.out.print("\n El resultado es" + conversion);
+		
+		double Factura = 3000;
+		double baseIva = 0.16;
+		double increment = Factura * baseIva;
+		double value = increment + Factura;
+		
+		System.out.print( "\033[0m \n"+"Factura Base:" + Factura +"\n el precio a incrementar el iva es" + increment + "\n y el valor tota es" + value);
+		
+		
+		
+		
+
+		
+		
+		
+		
+		
+		
+		
+	}
+
+}

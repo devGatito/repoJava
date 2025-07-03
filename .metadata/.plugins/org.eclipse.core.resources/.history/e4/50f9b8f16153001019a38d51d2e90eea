@@ -1,0 +1,7 @@
+package ejemplo5;
+
+public interface metodos {
+public void guardar(Celulares celulares);
+public void eliminar(Celulares celulares);
+public void editar  (Celulares celulares);
+}

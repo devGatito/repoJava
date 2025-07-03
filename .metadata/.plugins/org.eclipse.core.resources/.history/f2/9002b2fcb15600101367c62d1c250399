@@ -1,0 +1,52 @@
+package proyecto_practica;
+
+import java.time.LocalDateTime;
+
+public class Estudiantes {
+
+	String nombre;
+	int edad;
+	LocalDateTime fechaRegistro;
+
+	public Estudiantes() {
+		super();
+	}
+
+	public Estudiantes(String nombre, int edad, LocalDateTime fechaRegistro) {
+		super();
+		this.nombre = nombre;
+		this.edad = edad;
+		this.fechaRegistro = fechaRegistro;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public int getEdad() {
+		return edad;
+	}
+
+	public void setEdad(int edad) {
+		this.edad = edad;
+	}
+
+	public LocalDateTime getFechaRegistro() {
+		return fechaRegistro;
+	}
+
+	public void setFechaRegistro(LocalDateTime fechaRegistro) {
+		this.fechaRegistro = fechaRegistro;
+	}
+
+	@Override
+	public String toString() {
+		return "===Estudiantes=== \n nombres: " + nombre + "\n edad=" + edad + "\n fechaRegistro:" + fechaRegistro;
+	}
+
+	
+}

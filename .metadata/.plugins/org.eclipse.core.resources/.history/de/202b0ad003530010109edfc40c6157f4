@@ -1,0 +1,290 @@
+package ejercicio4;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.sql.Date;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner lec;
+        Implementacion newImplementacion = new Implementacion();
+        List<Integer> RAM_PERMITIDA = Arrays.asList(4, 8, 12, 16);
+        Computadoras computadora = null;
+        int menu = 10, submenu;
+
+        int id;
+        String modelo;
+        String marca;
+        String so;
+        int capacidadRAm;
+        String color;
+        Date fechaHoraVenta;
+        double precio;
+
+        DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+        do {
+            System.out.println("\n--- MENÚ PRINCIPAL ---");
+            System.out.println("1.- Alta código duro");
+            System.out.println("2.- Guardar nueva computadora");
+            System.out.println("3.- Buscar por ID");
+            System.out.println("4.- Editar computadora");
+            System.out.println("5.- Eliminar computadora");
+            System.out.println("6.- Listar todas las computadoras");
+            System.out.println("7.- Buscar por modelo (expresión lambda)");
+            System.out.println("8.- Mostrar key-value");
+            System.out.println("9.- Buscar por color (forEach)");
+            System.out.println("10.- Cerrar sesión");
+
+            System.out.print("\nIngresa una opción: ");
+            lec = new Scanner(System.in);
+
+            menu = lec.nextInt();
+            if (menu < 0 || menu > 10) {
+                System.out.println("Opción no válida. Intente de nuevo.");
+            } else {
+                switch (menu) {
+                    case 1:
+                        System.out.println("\n--- Alta código duro ---");
+                        Computadoras newComputadoras = new Computadoras(1, "36B", "ASUS", "Windows", 12, "negra",
+                                java.sql.Date.valueOf("2021-03-12"), 23000);
+                        Computadoras newComputadoras1 = new Computadoras(2, "Gaming", "Thinkpad", "Windows", 12, "amarilla",
+                                java.sql.Date.valueOf("2021-03-12"), 23000);
+                        newImplementacion.guardar(newComputadoras);
+                        newImplementacion.guardar(newComputadoras1);
+                        System.out.println("Computadoras de ejemplo agregadas correctamente.");
+                        break;
+
+                    case 2:
+                        System.out.println("\n--- Guardar nueva computadora ---");
+                        System.out.print("Ingresa el ID de la computadora: ");
+                        id = lec.nextInt();
+
+                        System.out.print("Ingresa el modelo: ");
+                        lec.nextLine(); // Limpiar buffer
+                        modelo = lec.nextLine();
+
+                        System.out.print("Ingresa la marca: ");
+                        marca = lec.nextLine();
+
+                        System.out.print("Ingresa el sistema operativo: ");
+                        so = lec.nextLine();
+
+                        System.out.print("Ingresa la capacidad de RAM (GB): ");
+                        capacidadRAm = lec.nextInt();
+
+                        System.out.print("Ingresa el color: ");
+                        lec.nextLine(); // Limpiar buffer
+                        color = lec.nextLine();
+
+                        System.out.print("Ingresa la fecha de venta [yyyy-MM-dd]: ");
+                        String dateString = lec.nextLine();
+                        LocalDate fechaNueva = LocalDate.parse(dateString, formatoFecha);
+                        fechaHoraVenta = Date.valueOf(fechaNueva);
+
+                        System.out.print("Ingresa el precio: ");
+                        precio = lec.nextDouble();
+
+                        computadora = new Computadoras(id, modelo, marca, so, capacidadRAm, color, fechaHoraVenta, precio);
+                        newImplementacion.guardar(computadora);
+                        System.out.println("Computadora guardada exitosamente!");
+                        break;
+
+                    case 3:
+                        System.out.println("\n--- Buscar por ID ---");
+                        System.out.print("Ingresa el ID a buscar: ");
+                        id = lec.nextInt();
+                        Computadoras buscada = newImplementacion.buscarComputadoras(new Computadoras(id));
+                        if (buscada != null) {
+                            System.out.println("Computadora encontrada:");
+                            System.out.println(buscada);
+                        } else {
+                            System.out.println("No se encontró ninguna computadora con ese ID.");
+                        }
+                        break;
+
+                    case 4:
+                        System.out.println("\n--- Editar computadora ---");
+                        
+                        
+                        
+                        System.out.print("Ingresa el ID de la computadora a editar: ");
+                        id = lec.nextInt();
+                        
+                        Computadoras existente = newImplementacion.buscarComputadoras(new Computadoras(id));
+                        if (existente == null) {
+                            System.out.println("No existe una computadora con ese ID.");
+                            break;
+                        }
+                        
+                        System.out.println("Datos actuales:");
+                        System.out.println(existente);
+                        
+                        do {
+                            System.out.println("\n--- SUBMENÚ DE EDICIÓN ---");
+                            System.out.println("1. Editar modelo");
+                            System.out.println("2. Editar marca");
+                            System.out.println("3. Editar sistema operativo");
+                            System.out.println("4. Modificar RAM");
+                            System.out.println("5. Editar color");
+                            System.out.println("6. Editar fecha de venta");
+                            System.out.println("7. Editar precio");
+                            System.out.println("8. Incrementar RAM en 4GB");
+                            System.out.println("9. Volver al menú principal");
+                            System.out.print("\nSelecciona qué campo editar: ");
+                            
+                            submenu = lec.nextInt();
+                            lec.nextLine(); // Limpiar buffer
+                            
+                            switch(submenu) {
+                                case 1:
+                                    System.out.print("Nuevo modelo (" + existente.getModelo() + "): ");
+                                    modelo = lec.nextLine();
+                                    existente.setModelo(modelo);
+                                    break;
+                                    
+                                case 2:
+                                    System.out.print("Nueva marca (" + existente.getMarca() + "): ");
+                                    marca = lec.nextLine();
+                                    existente.setMarca(marca);
+                                    break;
+                                    
+                                case 3:
+                                    System.out.print("Nuevo sistema operativo (" + existente.getSo() + "): ");
+                                    so = lec.nextLine();
+                                    existente.setSo(so);
+                                    break;
+                                    
+                                case 4:
+                                    System.out.print("Nueva capacidad RAM (" + existente.getCapacidadRAm() + "GB): ");
+                                    capacidadRAm = lec.nextInt();
+                                    if (RAM_PERMITIDA.contains(capacidadRAm)) {
+                                        existente.setCapacidadRAm(capacidadRAm);
+                                    } else {
+                                        System.out.println("Error: La RAM debe ser uno de estos valores: " + RAM_PERMITIDA);
+                                    }
+                                    break;
+                                    
+                                case 5:
+                                    System.out.print("Nuevo color (" + existente.getColor() + "): ");
+                                    color = lec.nextLine();
+                                    existente.setColor(color);
+                                    break;
+                                    
+                                case 6:
+                                    System.out.print("Nueva fecha de venta (" + existente.getFechaHoraVenta() + ") [yyyy-MM-dd]: ");
+                                    dateString = lec.nextLine();
+                                    fechaNueva = LocalDate.parse(dateString, formatoFecha);
+                                    existente.setFechaHoraVenta(Date.valueOf(fechaNueva));
+                                    break;
+                                    
+                                case 7:
+                                    System.out.print("Nuevo precio (" + existente.getPrecio() + "): ");
+                                    precio = lec.nextDouble();
+                                    existente.setPrecio(precio);
+                                    break;
+                                    
+                                case 8:
+                                    // Incrementar RAM en 4GB
+                                    int nuevaRAM = existente.getCapacidadRAm() + 4;
+                                    if (RAM_PERMITIDA.contains(nuevaRAM)) {
+                                        existente.setCapacidadRAm(nuevaRAM);
+                                        System.out.println("RAM incrementada a " + nuevaRAM + "GB");
+                                    } else {
+                                        System.out.println("No se puede incrementar. El nuevo valor (" + nuevaRAM + 
+                                                          "GB) no está en los valores permitidos: " + RAM_PERMITIDA);
+                                    }
+                                    break;
+                                    
+                                case 9:
+                                    System.out.println("Guardando cambios y volviendo al menú principal...");
+                                    break;
+                                    
+                                default:
+                                    System.out.println("Opción no válida");
+                            }
+                            
+                            if (submenu != 9) {
+                                System.out.println("\nDatos actualizados:");
+                                System.out.println(existente);
+                            }
+                            
+                        } while (submenu != 9);
+                        
+                        newImplementacion.editar(existente);
+                        System.out.println("Cambios guardados exitosamente!");
+                        break;
+                        
+
+
+                        
+
+                    case 5:
+                        System.out.println("\n--- Eliminar computadora ---");
+                        System.out.print("Ingresa el ID de la computadora a eliminar: ");
+                        id = lec.nextInt();
+                        Computadoras aEliminar = newImplementacion.buscarComputadoras(new Computadoras(id));
+                        if (aEliminar != null) {
+                            newImplementacion.eliminar(aEliminar);
+                            System.out.println("Computadora eliminada exitosamente.");
+                        } else {
+                            System.out.println("No se encontró ninguna computadora con ese ID.");
+                        }
+                        break;
+
+                    case 6:
+                        System.out.println("\n--- Listar todas las computadoras ---");
+                        HashMap<Integer, Computadoras> lista = newImplementacion.listar();
+                        if (lista.isEmpty()) {
+                            System.out.println("No hay computadoras registradas.");
+                        } else {
+                            System.out.println("Total de computadoras: " + lista.size());
+                            for (Computadoras c : lista.values()) {
+                                System.out.println(c);
+                            }
+                        }
+                        break;
+
+                    case 7:
+                        System.out.println("\n--- Buscar por modelo (lambda) ---");
+                        System.out.print("Ingresa el modelo a buscar: ");
+                        lec.nextLine();
+                        String modeloBuscar = lec.nextLine();
+                        newImplementacion.eliminarLamnda(modeloBuscar);
+                        System.out.println("Operación completada.");
+                        break;
+
+                    case 8:
+                        System.out.println("\n--- Mostrar key-value ---");
+                        newImplementacion.llave();
+                        break;
+
+                    case 9:
+                        System.out.println("\n--- Buscar por marca ---");
+                        System.out.print("Ingresa la marca a buscar: ");
+                        lec.nextLine();
+                        String buscarMarca = lec.nextLine();
+                        Computadoras porMarca = newImplementacion.buscarMarca(buscarMarca);
+                        if (porMarca != null) {
+                            System.out.println("Computadora encontrada:");
+                            System.out.println(porMarca);
+                        } else {
+                            System.out.println("No se encontró ninguna computadora con ese color.");
+                        }
+                        break;
+
+                    case 10:
+                        System.out.println("\nSaliendo del programa...");
+                        break;
+                }
+            }
+
+        } while (menu != 10);
+        lec.close();
+    }
+}

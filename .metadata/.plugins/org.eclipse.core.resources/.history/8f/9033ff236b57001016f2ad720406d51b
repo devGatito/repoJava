@@ -1,0 +1,10 @@
+package ClaseAbstracta;
+
+public class Snippet {
+	@Override
+		public String toString() {
+			return "SuperMercado [id=" + id + ", nombreSuper=" + nombreSuper + ", direccion=" + direccion + ", telefono="
+					+ telefono + "]";
+		}
+}
+

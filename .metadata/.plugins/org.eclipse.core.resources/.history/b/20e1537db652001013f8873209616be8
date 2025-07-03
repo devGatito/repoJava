@@ -1,0 +1,16 @@
+package ejemplo04;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Scanner lec = null;
+		int menu,submenu;
+		Implementacion newImplementacion = new Implementacion();
+		
+	}
+
+}

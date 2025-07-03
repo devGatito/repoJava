@@ -1,0 +1,45 @@
+package com.mx.controller;
+
+import com.mx.dominio.Electronica;
+import com.mx.dominio.Farmacia;
+import com.mx.dominio.Ropa;
+import com.mx.servicio.Implementacion;
+
+public class Main {
+
+    public static void main(String[] args) {
+        
+        Implementacion imp = new Implementacion();
+        
+        // Creación de objetos
+        Electronica laptop = new Electronica(1, "WALMART", "TOLUCA", 4343L, "compuDell", "DELL", "zs400", 3200);
+        Farmacia medicamento = new Farmacia(2,"ASPIRINA ","HOSPITAL GENERAL,", 43343L,"ELIAS","MARCA","300",240);
+        Ropa ropa = new Ropa(3, "WALMART", "CALLE", 423L,"LONG","ED","ROJO",240);
+        // Guardar objetos
+        imp.guardar(laptop, "electronica");
+        
+        imp.guardar(medicamento, "farmacia");
+        imp.guardar(ropa, "ropa");
+        
+        System.out.println("\n--- LISTA DE PRODUCTOS ---");
+        imp.listar();
+        
+        System.out.println("\n--- BÚSQUEDA ---");
+        System.out.println("Producto con ID 1: " + imp.buscar(1));
+        System.out.println("Producto con ID 2: " + imp.buscar(2));
+        System.out.println("Producto con ID 3: " + imp.buscar(3));
+        
+
+        
+        // Editar un producto
+        Electronica laptopActualizada = new Electronica(1, "BESTBUY", "QUERETARO", 4343L, "compuDell", "DELL", "zs400", 3500);
+        imp.editar(laptopActualizada, "electronica");
+        System.out.println("\n--- DESPUÉS DE EDITAR ---");
+        System.out.println("Producto actualizado: " + imp.buscar(0));
+        
+        // Eliminar un producto
+       // imp.eliminar(medicamento, "farmacia");
+        System.out.println("\n--- DESPUÉS DE ELIMINAR ---");
+        imp.listar();
+    }
+}

@@ -1,0 +1,380 @@
+package ejercicio4;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.sql.Date;
+import java.util.Scanner;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+
+public class Main {
+
+    // Lista de capacidades de RAM permitidas
+    private static final List<Integer> RAM_PERMITIDA = Arrays.asList(4, 8, 12, 16);
+    
+    public static void main(String[] args) {
+        Scanner lec = new Scanner(System.in);
+        Implementacion newImplementacion = new Implementacion();
+        int menuPrincipal = 0;
+        int submenu = 0;
+
+        DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+        do {
+            System.out.println("\n=== SISTEMA DE GESTIÓN DE COMPUTADORAS ===");
+            System.out.println("1.- Gestión de Computadoras");
+            System.out.println("2.- Búsquedas Especiales");
+            System.out.println("3.- Reportes");
+            System.out.println("4.- Salir");
+            System.out.print("\nSeleccione una opción principal: ");
+            
+            menuPrincipal = lec.nextInt();
+            
+            switch (menuPrincipal) {
+                case 1:
+                    gestionComputadoras(lec, newImplementacion, formatoFecha);
+                    break;
+                case 2:
+                    busquedasEspeciales(lec, newImplementacion);
+                    break;
+                case 3:
+                    generarReportes(newImplementacion);
+                    break;
+                case 4:
+                    System.out.println("\nSaliendo del sistema...");
+                    break;
+                default:
+                    System.out.println("Opción no válida. Intente de nuevo.");
+            }
+        } while (menuPrincipal != 4);
+        
+        lec.close();
+    }
+
+    private static void gestionComputadoras(Scanner lec, Implementacion impl, DateTimeFormatter formatoFecha) {
+        int submenu = 0;
+        do {
+            System.out.println("\n--- GESTIÓN DE COMPUTADORAS ---");
+            System.out.println("1.- Alta rápida (código duro)");
+            System.out.println("2.- Registrar nueva computadora");
+            System.out.println("3.- Editar computadora existente");
+            System.out.println("4.- Eliminar computadora");
+            System.out.println("5.- Volver al menú principal");
+            System.out.print("\nSeleccione una opción: ");
+            
+            submenu = lec.nextInt();
+            
+            switch (submenu) {
+                case 1:
+                    altaRapida(impl);
+                    break;
+                case 2:
+                    registrarComputadora(lec, impl, formatoFecha);
+                    break;
+                case 3:
+                    editarComputadora(lec, impl, formatoFecha);
+                    break;
+                case 4:
+                    eliminarComputadora(lec, impl);
+                    break;
+                case 5:
+                    System.out.println("Volviendo al menú principal...");
+                    break;
+                default:
+                    System.out.println("Opción no válida. Intente de nuevo.");
+            }
+        } while (submenu != 5);
+    }
+
+    private static void busquedasEspeciales(Scanner lec, Implementacion impl) {
+        int submenu = 0;
+        do {
+            System.out.println("\n--- BÚSQUEDAS ESPECIALES ---");
+            System.out.println("1.- Buscar por ID");
+            System.out.println("2.- Buscar por modelo");
+            System.out.println("3.- Buscar por marca");
+            System.out.println("4.- Buscar por color");
+            System.out.println("5.- Volver al menú principal");
+            System.out.print("\nSeleccione una opción: ");
+            
+            submenu = lec.nextInt();
+            
+            switch (submenu) {
+                case 1:
+                    buscarPorId(lec, impl);
+                    break;
+                case 2:
+                    buscarPorModelo(lec, impl);
+                    break;
+                case 3:
+                    buscarPorMarca(lec, impl);
+                    break;
+                case 4:
+                    buscarPorColor(lec, impl);
+                    break;
+                case 5:
+                    System.out.println("Volviendo al menú principal...");
+                    break;
+                default:
+                    System.out.println("Opción no válida. Intente de nuevo.");
+            }
+        } while (submenu != 5);
+    }
+
+    private static void generarReportes(Implementacion impl) {
+        System.out.println("\n--- REPORTES ---");
+        System.out.println("1.- Listar todas las computadoras");
+        System.out.println("2.- Mostrar relación key-value");
+        System.out.println("3.- Volver al menú principal");
+        System.out.print("\nSeleccione una opción: ");
+        
+        Scanner lec = new Scanner(System.in);
+        int opcion = lec.nextInt();
+        
+        switch (opcion) {
+            case 1:
+                listarComputadoras(impl);
+                break;
+            case 2:
+                mostrarKeyValue(impl);
+                break;
+            case 3:
+                System.out.println("Volviendo al menú principal...");
+                break;
+            default:
+                System.out.println("Opción no válida.");
+        }
+    }
+
+    private static void altaRapida(Implementacion impl) {
+        System.out.println("\n--- ALTA RÁPIDA ---");
+        Computadoras comp1 = new Computadoras(1, "36B", "ASUS", "Windows", 8, "negra",
+                java.sql.Date.valueOf("2021-03-12"), 23000);
+        Computadoras comp2 = new Computadoras(2, "Gaming", "Thinkpad", "Windows", 16, "amarilla",
+                java.sql.Date.valueOf("2021-03-12"), 23000);
+        impl.guardar(comp1);
+        impl.guardar(comp2);
+        System.out.println("Se han agregado 2 computadoras de ejemplo.");
+    }
+
+    private static void registrarComputadora(Scanner lec, Implementacion impl, DateTimeFormatter formatoFecha) {
+        System.out.println("\n--- REGISTRAR NUEVA COMPUTADORA ---");
+        
+        System.out.print("Ingresa el ID: ");
+        int id = lec.nextInt();
+        
+        System.out.print("Modelo: ");
+        lec.nextLine();
+        String modelo = lec.nextLine();
+        
+        System.out.print("Marca: ");
+        String marca = lec.nextLine();
+        
+        System.out.print("Sistema operativo: ");
+        String so = lec.nextLine();
+        
+        int capacidadRAM;
+        do {
+            System.out.print("Capacidad RAM (4, 8, 12 o 16 GB): ");
+            capacidadRAM = lec.nextInt();
+            if (!RAM_PERMITIDA.contains(capacidadRAM)) {
+                System.out.println("Error: La RAM debe ser 4, 8, 12 o 16 GB.");
+            }
+        } while (!RAM_PERMITIDA.contains(capacidadRAM));
+        
+        System.out.print("Color: ");
+        lec.nextLine();
+        String color = lec.nextLine();
+        
+        System.out.print("Fecha de venta [yyyy-MM-dd]: ");
+        String fechaStr = lec.nextLine();
+        LocalDate fecha = LocalDate.parse(fechaStr, formatoFecha);
+        
+        System.out.print("Precio: ");
+        double precio = lec.nextDouble();
+        
+        Computadoras nueva = new Computadoras(id, modelo, marca, so, capacidadRAM, color, 
+                Date.valueOf(fecha), precio);
+        impl.guardar(nueva);
+        System.out.println("\n¡Computadora registrada exitosamente!");
+    }
+
+    private static void editarComputadora(Scanner lec, Implementacion impl, DateTimeFormatter formatoFecha) {
+        System.out.println("\n--- EDITAR COMPUTADORA ---");
+        System.out.print("Ingrese el ID de la computadora a editar: ");
+        int id = lec.nextInt();
+        
+        Computadoras existente = impl.buscarComputadoras(new Computadoras(id));
+        if (existente == null) {
+            System.out.println("No se encontró una computadora con ese ID.");
+            return;
+        }
+        
+        System.out.println("\nDatos actuales:");
+        System.out.println(existente);
+        System.out.println("\nIngrese los nuevos datos (deje en blanco para mantener el valor actual):");
+        
+        System.out.print("Modelo [" + existente.getModelo() + "]: ");
+        lec.nextLine();
+        String modelo = lec.nextLine();
+        if (!modelo.isEmpty()) existente.setModelo(modelo);
+        
+        System.out.print("Marca [" + existente.getMarca() + "]: ");
+        String marca = lec.nextLine();
+        if (!marca.isEmpty()) existente.setMarca(marca);
+        
+        System.out.print("SO [" + existente.getSo() + "]: ");
+        String so = lec.nextLine();
+        if (!so.isEmpty()) existente.setSo(so);
+        
+        // Validación especial para RAM
+        System.out.print("RAM [" + existente.getCapacidadRAm() + "]: ");
+        String ramStr = lec.nextLine();
+        if (!ramStr.isEmpty()) {
+            try {
+                int nuevaRAM = Integer.parseInt(ramStr);
+                if (RAM_PERMITIDA.contains(nuevaRAM)) {
+                    existente.setCapacidadRAm(nuevaRAM);
+                } else {
+                    System.out.println("Error: La RAM debe ser 4, 8, 12 o 16 GB. Se mantendrá el valor actual.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Error: Ingrese un número válido. Se mantendrá el valor actual.");
+            }
+        }
+        
+        System.out.print("Color [" + existente.getColor() + "]: ");
+        String color = lec.nextLine();
+        if (!color.isEmpty()) existente.setColor(color);
+        
+        System.out.print("Fecha [" + existente.getFechaHoraVenta() + "]: ");
+        String fechaStr = lec.nextLine();
+        if (!fechaStr.isEmpty()) {
+            try {
+                LocalDate nuevaFecha = LocalDate.parse(fechaStr, formatoFecha);
+                existente.setFechaHoraVenta(Date.valueOf(nuevaFecha));
+            } catch (Exception e) {
+                System.out.println("Error en el formato de fecha. Se mantendrá la fecha actual.");
+            }
+        }
+        
+        System.out.print("Precio [" + existente.getPrecio() + "]: ");
+        String precioStr = lec.nextLine();
+        if (!precioStr.isEmpty()) {
+            try {
+                existente.setPrecio(Double.parseDouble(precioStr));
+            } catch (NumberFormatException e) {
+                System.out.println("Error: Ingrese un número válido. Se mantendrá el precio actual.");
+            }
+        }
+        
+        impl.editar(existente);
+        System.out.println("\n¡Computadora actualizada exitosamente!");
+    }
+
+    private static void eliminarComputadora(Scanner lec, Implementacion impl) {
+        System.out.println("\n--- ELIMINAR COMPUTADORA ---");
+        System.out.print("Ingrese el ID de la computadora a eliminar: ");
+        int id = lec.nextInt();
+        
+        Computadoras aEliminar = impl.buscarComputadoras(new Computadoras(id));
+        if (aEliminar != null) {
+            System.out.println("\nComputadora a eliminar:");
+            System.out.println(aEliminar);
+            System.out.print("\n¿Está seguro de eliminar esta computadora? (S/N): ");
+            lec.nextLine();
+            String confirmacion = lec.nextLine();
+            
+            if (confirmacion.equalsIgnoreCase("S")) {
+                impl.eliminar(aEliminar);
+                System.out.println("Computadora eliminada exitosamente.");
+            } else {
+                System.out.println("Eliminación cancelada.");
+            }
+        } else {
+            System.out.println("No se encontró una computadora con ese ID.");
+        }
+    }
+
+    // Métodos para búsquedas especiales
+    private static void buscarPorId(Scanner lec, Implementacion impl) {
+        System.out.println("\n--- BUSCAR POR ID ---");
+        System.out.print("Ingrese el ID a buscar: ");
+        int id = lec.nextInt();
+        
+        Computadoras encontrada = impl.buscarComputadoras(new Computadoras(id));
+        if (encontrada != null) {
+            System.out.println("\nComputadora encontrada:");
+            System.out.println(encontrada);
+        } else {
+            System.out.println("No se encontró ninguna computadora con ese ID.");
+        }
+    }
+
+    private static void buscarPorModelo(Scanner lec, Implementacion impl) {
+        System.out.println("\n--- BUSCAR POR MODELO ---");
+        System.out.print("Ingrese el modelo a buscar: ");
+        lec.nextLine();
+        String modelo = lec.nextLine();
+        
+        impl.eliminarLamnda(modelo); // Este método parece ser para búsqueda por modelo
+    }
+
+    private static void buscarPorMarca(Scanner lec, Implementacion impl) {
+        System.out.println("\n--- BUSCAR POR MARCA ---");
+        System.out.print("Ingrese la marca a buscar: ");
+        lec.nextLine();
+        String marca = lec.nextLine();
+        
+        Computadoras encontrada = impl.buscarMarca(marca);
+        if (encontrada != null) {
+            System.out.println("\nComputadora encontrada:");
+            System.out.println(encontrada);
+        } else {
+            System.out.println("No se encontró ninguna computadora de esa marca.");
+        }
+    }
+
+    private static void buscarPorColor(Scanner lec, Implementacion impl) {
+        System.out.println("\n--- BUSCAR POR COLOR ---");
+        System.out.print("Ingrese el color a buscar: ");
+        lec.nextLine();
+        String color = lec.nextLine();
+        
+        // Implementación alternativa para buscar por color
+        boolean encontrado = false;
+        for (Computadoras c : impl.listar().values()) {
+            if (c.getColor().equalsIgnoreCase(color)) {
+                System.out.println("\nComputadora encontrada:");
+                System.out.println(c);
+                encontrado = true;
+            }
+        }
+        
+        if (!encontrado) {
+            System.out.println("No se encontraron computadoras con ese color.");
+        }
+    }
+
+    // Métodos para reportes
+    private static void listarComputadoras(Implementacion impl) {
+        System.out.println("\n--- LISTADO DE COMPUTADORAS ---");
+        HashMap<Integer, Computadoras> lista = impl.listar();
+        
+        if (lista.isEmpty()) {
+            System.out.println("No hay computadoras registradas.");
+        } else {
+            System.out.println("Total de computadoras: " + lista.size());
+            for (Computadoras c : lista.values()) {
+                System.out.println(c);
+                System.out.println("-----------------------------");
+            }
+        }
+    }
+
+    private static void mostrarKeyValue(Implementacion impl) {
+        System.out.println("\n--- RELACIÓN KEY-VALUE ---");
+        impl.llave();
+    }
+}

@@ -1,0 +1,73 @@
+package libros;
+
+import java.time.LocalDateTime;
+
+public class Libros {
+String nombre;
+String autor;
+int numeroPaginas;
+String color;
+int fechaPublicacion;
+String numeroCatoria;
+public Libros() {
+	super(); 
+}
+public Libros(String nombre) {
+	super();
+	this.nombre = nombre;
+}
+public Libros(String nombre, String autor, int numeroPaginas, String color, int fechaPublicacion,
+		String numeroCatoria) {
+	super();
+	this.nombre = nombre;
+	this.autor = autor;
+	this.numeroPaginas = numeroPaginas;
+	this.color = color;
+	this.fechaPublicacion = fechaPublicacion;
+	this.numeroCatoria = numeroCatoria;
+}
+public String getNombre() {
+	return nombre;
+}
+public void setNombre(String nombre) {
+	this.nombre = nombre;
+}
+public String getAutor() {
+	return autor;
+}
+public void setAutor(String autor) {
+	this.autor = autor;
+}
+public int getNumeroPaginas() {
+	return numeroPaginas;
+}
+public void setNumeroPaginas(int numeroPaginas) {
+	this.numeroPaginas = numeroPaginas;
+}
+public String getColor() {
+	return color;
+}
+public void setColor(String color) {
+	this.color = color;
+}
+public LocalDateTime getFechaPublicacion() {
+	return fechaPublicacion;
+}
+public void setFechaPublicacion(LocalDateTime fechaPublicacion) {
+	this.fechaPublicacion = fechaPublicacion;
+}
+public String getNumeroCatoria() {
+	return numeroCatoria;
+}
+public void setNumeroCatoria(String numeroCatoria) {
+	this.numeroCatoria = numeroCatoria;
+}
+@Override
+public String toString() {
+	return "\n Libros \n nombre:" + nombre + "\n autor:" + autor + "\n numeroPaginas:" + numeroPaginas + "\n color:" + color
+			+ "\n fechaPublicacion: " + fechaPublicacion + "\n numeroCatoria:" + numeroCatoria ;
+}
+
+
+
+}

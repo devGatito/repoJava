@@ -1,0 +1,18 @@
+package ejemplo02;
+
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Herramientas herramientas = null;
+		Scanner lec = null;
+		int menu, submenu, indice;
+		List<Herramientas> lista = ArrayList<Herramientas>
+
+	}
+
+}

@@ -1,0 +1,14 @@
+
+public class Libros {
+	
+	private int id;
+    private String titulo;
+    private String autor;
+    private String genero;
+    private int añoPublicacion;
+    private boolean disponible;
+    private double precio;
+    
+    
+
+}

@@ -1,0 +1,40 @@
+package ejemplo5;
+
+import java.util.List;
+
+public class Implementacion implements metodos{
+	
+	Celulares newCelulares = new Celulares();
+
+	@Override
+	public void guardar(Object obj) {
+		
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void editar(Object obj) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void eliminar(Object obj) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Celulares buscarId(String codigo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Object> listar() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,69 @@
+package ejemplo5;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+
+public class Implementacion implements metodos {
+
+	Celulares cel = null;
+	HashMap<String, Object> hash = new HashMap<>();
+
+	@Override
+	public void guardar(Object obj) {
+
+		cel = (Celulares) obj; // casteo
+		if (Arrays.asList("MOTOROLA", "SAMSUNG", "LENOVO").contains(cel.getMarca())) {
+			hash.put(cel.getCodigo(), cel);
+			System.out.print("Se guardo el celular");
+
+		} else {
+			System.out.print("Solo manejamos las siguientes marcas: " + "\n MOTOROLA" + "\n SAMSUNG" + "\n LENOVO");
+		}
+
+	}
+
+	@Override
+	public void editar(Object obj) {
+		cel = (Celulares) obj;
+		if (!hash.isEmpty()) {
+			if (Arrays.asList("MOTOROLA", "SAMSUNG", "LENOVO").contains(cel.getMarca())) {
+				hash.put(cel.getCodigo(), cel);
+				System.out.print("Se edito el celular");
+
+			} else {
+
+				System.out.print("Solo manejamos las siguientes marcas: " + "\n MOTOROLA" + "\n SAMSUNG" + "\n LENOVO");
+			}
+		}else {
+			System.out.print("No existen objetos a eliminar");
+		}
+
+	}
+
+	@Override
+	public void eliminar(Object obj) {
+		cel = (Celulares) obj;
+		if(!hash.isEmpty()) {
+			hash.remove(cel.getCodigo());
+			System.out.print("se elimino el celular");
+			
+		}else {
+			System.out.print("No existen celulares a eliminar");
+		}
+
+	}
+
+	@Override
+	public Celulares buscarId(String codigo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Object> listar() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,121 @@
+package com.mx.servicio;
+
+import java.util.HashMap;
+import java.util.List;
+
+import com.mx.dao.Metodos;
+import com.mx.dominio.Electronica;
+import com.mx.dominio.Farmacia;
+import com.mx.dominio.Jugueteria;
+import com.mx.dominio.Ropa;
+
+public class Implementacion implements Metodos {
+
+	HashMap<Integer, Object> hash = new HashMap<Integer, Object>();
+
+	@Override
+	public void guardar(Object obj, String clase) {
+		switch (clase) {
+		case "electronica":
+			Electronica electronica = (Electronica) obj;
+			hash.put(electronica.getId(), electronica);
+			System.out.print("\n Se guardo el objeto");
+
+			break;
+		case "farmacia":
+			Farmacia farmacia = (Farmacia) obj;
+			hash.put(farmacia.getId(), farmacia);
+			System.out.print("\n Se guardo el objeto");
+
+			break;
+		case "jugueteria":
+			Jugueteria jugueteria = (Jugueteria) obj;
+			hash.put(jugueteria.getId(), jugueteria);
+			System.out.print("\n Se guardo el objeto");
+
+			break;
+		case "ropa":
+			Ropa ropa = (Ropa) obj;
+			hash.put(ropa.getId(), ropa);
+			System.out.print("\n Se guardo el objeto");
+
+			break;
+		}
+
+	}
+
+	@Override
+	public void eliminar(Object obj, String clase) {
+		switch (clase) {
+		case "electronica":
+			Electronica electronica = (Electronica) obj;
+			hash.remove(electronica.getId(), electronica);
+			System.out.print("\n Se borro el objeto");
+
+			break;
+		case "farmacia":
+			Farmacia farmacia = (Farmacia) obj;
+			hash.remove(farmacia.getId(), farmacia);
+			System.out.print("\n Se borro el objeto");
+
+			break;
+		case "jugueteria":
+			Jugueteria jugueteria = (Jugueteria) obj;
+			hash.remove(jugueteria.getId(), jugueteria);
+			System.out.print("\n Se borro el objeto");
+
+			break;
+		case "ropa":
+			Ropa ropa = (Ropa) obj;
+			hash.remove(ropa.getId(), ropa);
+			System.out.print("\n Se borro el objeto");
+
+			break;
+		}
+
+	}
+
+	@Override
+	public void editar(Object obj, String clase) {
+		switch (clase) {
+		case "electronica":
+			Electronica electronica = (Electronica) obj;
+			hash.put(electronica.getId(), electronica);
+			System.out.print("\n Se edito el objeto");
+
+			break;
+		case "farmacia":
+			Farmacia farmacia = (Farmacia) obj;
+			hash.put(farmacia.getId(), farmacia);
+			System.out.print("\n Se edito el objeto");
+
+			break;
+		case "jugueteria":
+			Jugueteria jugueteria = (Jugueteria) obj;
+			hash.put(jugueteria.getId(), jugueteria);
+			System.out.print("\n Se edito el objeto");
+
+			break;
+		case "ropa":
+			Ropa ropa = (Ropa) obj;
+			hash.put(ropa.getId(), ropa);
+			System.out.print("\n Se edito el objeto");
+
+			break;
+		}
+
+	}
+
+	@Override
+	public Object buscar(int indice) {
+
+		return null;
+	}
+
+	@Override
+	public List<Object> listar() {
+
+		return null;
+	}
+
+}

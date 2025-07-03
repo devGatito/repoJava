@@ -1,0 +1,26 @@
+
+public class Libros {
+
+	
+    int ID;
+
+    String Título;
+
+    String Autor;
+
+    char genero;
+
+    int yearPublicacion;
+    
+
+    boolean Disponible;
+
+	double Precio;
+	
+	public Libros() {
+		
+	}
+
+	
+
+}

@@ -1,0 +1,31 @@
+package ejemplo02;
+
+public class Herramientas {
+	int id;
+	String marca;
+	String tipo;
+	String color;
+	String descripcion;
+	int stock;
+	double precio;
+	
+	public Herramientas(int id, String marca, String tipo, String color, String descripcion, int stock, double precio) {
+		this.id = id;
+		this.marca = marca;
+		this.tipo = tipo;
+		this.color = color;
+		this.descripcion = descripcion;
+		this.stock = stock;
+		this.precio = precio;
+	}
+
+	@Override
+	public String toString() {
+		return "Herramientas [id=" + id + ", marca=" + marca + ", tipo=" + tipo + ", color=" + color + ", descripcion="
+				+ descripcion + ", stock=" + stock + ", precio=" + precio + "]";
+	}
+	
+	
+	
+
+}

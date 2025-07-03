@@ -1,0 +1,86 @@
+package ejemplo02;
+
+class Herramientas {
+    private int id;
+    private String marca;
+    private String tipo;
+    private String color;
+    private String descripcion;
+    private int cantidad;
+    private double precio;
+    
+    public Herramientas(int id, String marca, String tipo, String color, String descripcion, int cantidad, double precio) {
+        this.id = id;
+        this.marca = marca;
+        this.tipo = tipo;
+        this.color = color;
+        this.descripcion = descripcion;
+        this.cantidad = cantidad;
+        this.precio = precio;
+    }
+    
+    // Getters y Setters
+    public int getId() {
+        return id;
+    }
+    
+    public String getMarca() {
+        return marca;
+    }
+    
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+    
+    public String getTipo() {
+        return tipo;
+    }
+    
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+    
+    public String getColor() {
+        return color;
+    }
+    
+    public void setColor(String color) {
+        this.color = color;
+    }
+    
+    public String getDescripcion() {
+        return descripcion;
+    }
+    
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+    
+    public int getCantidad() {
+        return cantidad;
+    }
+    
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+    
+    public double getPrecio() {
+        return precio;
+    }
+    
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+    
+    @Override
+    public String toString() {
+        return "ID: " + id + 
+               "\nMarca: " + marca + 
+               "\nTipo: " + tipo + 
+               "\nColor: " + color + 
+               "\nDescripción: " + descripcion + 
+               "\nCantidad: " + cantidad + 
+               "\nPrecio: $" + String.format("%.2f", precio);
+    }
+
+}

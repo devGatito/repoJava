@@ -1,0 +1,41 @@
+package com.mx.controller;
+
+import com.mx.dominio.Electronica;
+import com.mx.dominio.Farmacia;
+import com.mx.dominio.Ropa;
+import com.mx.servicio.Implementacion;
+
+public class Main {
+
+    public static void main(String[] args) {
+        
+        Implementacion imp = new Implementacion();
+        
+        // Create some sample products
+        Electronica laptop = new Electronica(1, "WALMART", "TOLUCA", 4343L, "compuDell", "DELL", "zs400", 3200);
+        Farmacia medicine = new Farmacia(2, "FARMACIA GUADALAJARA", "MONTERREY", 1234L, "Paracetamol", "Genérico", "Analgésico", 50.50);
+        Ropa shirt = new Ropa(3, "ZARA", "CDMX", 5678L, "Camisa", "M", "Algodón", 299.99);
+        
+        // Test the methods
+        System.out.println("=== Adding products ===");
+        imp.guardar(laptop, "electronica");
+        imp.guardar(medicine, "farmacia");
+        imp.guardar(shirt, "ropa");
+        
+        System.out.println("\n=== Listing all products ===");
+        imp.listar();
+        
+        System.out.println("\n=== Searching for product with id 1 ===");
+        System.out.println("Found: " + imp.buscar(1));
+        
+        System.out.println("\n=== Editing a product ===");
+        Electronica updatedLaptop = new Electronica(1, "BESTBUY", "TOLUCA", 4343L, "compuDell Pro", "DELL", "zs500", 3500);
+        imp.editar(updatedLaptop, "electronica");
+        System.out.println("Updated: " + imp.buscar(1));
+        
+        System.out.println("\n=== Deleting a product ===");
+        imp.eliminar(shirt, "ropa");
+        System.out.println("After deletion:");
+        imp.listar();
+    }
+}

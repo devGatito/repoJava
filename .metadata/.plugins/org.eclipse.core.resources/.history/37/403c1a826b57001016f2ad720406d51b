@@ -1,0 +1,15 @@
+package com.mx.dominio;
+
+import ClaseAbstracta.SuperMercado;
+
+public class Electronica extends SuperMercado{
+String nombreElectronica;
+String marca;
+String modelo;
+double precio;
+
+
+public Electronica() {
+	
+}
+}

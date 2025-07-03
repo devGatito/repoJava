@@ -1,0 +1,94 @@
+package Estudios;
+
+import java.util.Scanner;
+
+public class FUN1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		// Ejercicio 1
+		Scanner lec;
+		int a, b, suma, resta, mult;
+		double div;
+
+		/*
+		 * System.out.print("Ingresa el valor del numero 1: \n"); lec = new
+		 * Scanner(System.in); a = lec.nextInt();
+		 * System.out.print("El valor ingresado del numero 1 es: " + a);
+		 * 
+		 * System.out.print("\n Ingresa el valor del numero 2: \n"); lec = new
+		 * Scanner(System.in); b = lec.nextInt();
+		 * System.out.print("El valor ingresado del numero 2 es: " + b);
+		 * 
+		 * suma = a + b; resta = a - b; div = a / b; mult = a * b;
+		 * 
+		 * System.out.print("\n  ==== Lista de Operaciones====");
+		 * System.out.printf("\n ==== Suma  		  ==== " + suma);
+		 * System.out.printf("\n ==== Resta  		  ==== " + resta);
+		 * System.out.printf("\n ==== Division  	  ==== " + div);
+		 * System.out.printf("\n ==== Multiplicacion ==== " + mult);
+		 */
+		// Ejercicio 2: Conversor de caracteres
+
+//		char pos, pos1, pos2, pos3;
+		System.out.print("\n Ingresa los 4 caracteres ");
+		
+		lec = new Scanner(System.in);
+		System.out.print("\n Ingresa el primer caracter \n");
+		//pos = lec.next().charAt(0);
+
+		lec = new Scanner(System.in);
+		System.out.print("\n Ingresa el segundo caracter \n");
+		//pos1 = lec.next().charAt(0);
+		lec = new Scanner(System.in);
+		System.out.print("\n Ingresa el tercer caracter \n");
+		//pos2 = lec.next().charAt(0);
+		
+		lec = new Scanner(System.in);
+		System.out.print("\n Ingresa el cuarto caracter\n");
+		//pos3 = lec.next().charAt(0);
+
+		//System.out.print("el mensaje es: " + pos + pos1 + pos2 + pos3);
+		
+		long valueMax = Long.MAX_VALUE;
+		long valueMin = Long.MIN_VALUE;
+		
+		int numero;
+		System.out.print("Ingresa un numero para saber el rango: \n");
+		lec = new Scanner(System.in);
+		numero = lec.nextInt();
+		
+		
+		int numeroMax = Integer.MAX_VALUE;
+
+		
+		if(numero > Integer.MIN_VALUE || numero < Integer.MIN_VALUE) {
+			System.out.print("\n El numero Int esta dentro del rango" + numero);
+			
+		}if((byte) numero> Byte.MIN_VALUE || (byte) numero < Byte.MAX_VALUE) {
+			System.out.print("\n El numero Byte esta dentro del rango"  + numero);
+		}
+		if((short) numero> Short.MIN_VALUE || (short) numero < Short.MAX_VALUE) {
+			System.out.print("\n El numero Short esta dentro del rango"  + numero);
+		}if((long) numero> Long.MIN_VALUE || (long)numero < Long.MAX_VALUE) {
+			System.out.print("\n El numero long esta dentro del rango"  + numero);
+		}
+		// Crea un juego donde:
+		// 1. El programa "piensa" un número aleatorio entre 1 y 100 (investiga Math.random())
+		// 2. Pide al usuario que adivine el número
+		// 3. Usa variables booleanas para indicar si:
+//		    - El número es mayor
+//		    - El número es menor
+//		    - El usuario acertó
+		// 4. Muestra mensajes de feedback en colores según el caso (verde para acierto, amarillo para mayor, rojo para menor)
+		// 5. Muestra el símbolo ♫ cuando el usuario gana
+		
+		System.out.print("El programa piensa");
+		
+		
+		
+
+	}
+
+}

@@ -1,0 +1,13 @@
+package ejemplo06;
+
+import java.util.List;
+
+public interface metodos {
+public void guardar(Object obj,String clase);
+public void editar(int indice,Object obj,String clase);
+public void eliminar(int indice,Object obj,String clase);
+public Object buscar(int indice, Object obj);
+public List<Object> listar();
+
+
+}

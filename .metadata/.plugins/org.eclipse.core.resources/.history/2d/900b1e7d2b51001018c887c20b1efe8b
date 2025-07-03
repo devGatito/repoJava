@@ -1,0 +1,91 @@
+package ejercicio_02;
+
+public class Contacto {
+	int id;
+	String nombre;
+	String apodo;
+	String telefono;
+	String correo;
+	String direction;
+	String tipoContacto;
+
+	public Contacto() {
+
+	}
+
+	public Contacto(int id, String nombre, String apodo, String telefono, String correo, String direction,
+			String tipoContacto) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.apodo = apodo;
+		this.telefono = telefono;
+		this.correo = correo;
+		this.direction = direction;
+		this.tipoContacto = tipoContacto;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getApodo() {
+		return apodo;
+	}
+
+	public void setApodo(String apodo) {
+		this.apodo = apodo;
+	}
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+	public String getCorreo() {
+		return correo;
+	}
+
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
+
+	public String getDirection() {
+		return direction;
+	}
+
+	public void setDirection(String direction) {
+		this.direction = direction;
+	}
+
+	public String getTipoContacto() {
+		return tipoContacto;
+	}
+
+	public void setTipoContacto(String tipoContacto) {
+		this.tipoContacto = tipoContacto;
+	}
+
+	@Override
+	public String toString() {
+		return "Contacto [id=" + id + ", nombre=" + nombre + ", apodo=" + apodo + ", telefono=" + telefono + ", correo="
+				+ correo + ", direction=" + direction + ", tipoContacto=" + tipoContacto + "]";
+	}
+
+	
+}

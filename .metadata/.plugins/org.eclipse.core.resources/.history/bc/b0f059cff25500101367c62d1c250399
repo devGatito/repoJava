@@ -1,0 +1,14 @@
+package libros;
+
+import java.time.LocalDateTime;
+
+public class Libros {
+String nombre;
+String autor;
+int numeroPaginas;
+String color;
+LocalDateTime fechaPublicacion;
+String numeroCatoria;
+
+
+}

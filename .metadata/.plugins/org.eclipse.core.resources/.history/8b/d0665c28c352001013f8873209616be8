@@ -1,0 +1,194 @@
+package ejemplo04;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.sql.Date;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int codigo;
+		String nombre;
+		String marca;
+		String sabor;
+		int cantidad;
+		Date fechaCaducidad;
+		double precio;
+
+		Productos productos = null;
+		Scanner lec = null;
+		int menu, submenu;
+		Implementacion newImplementacion = new Implementacion();
+
+		DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		do {
+			System.out.print("\n =====Productos 3B=====");
+			System.out.print("\n =====Opcion 1: Alta de Productos =====");
+			System.out.print("\n =====Opcion 2: Guardar Productos =====");
+			System.out.print("\n =====Opcion 3: Editar  Productos =====");
+			System.out.print("\n =====Opcion 4: Eliminar Productos=====");
+			System.out.print("\n =====Opcion 5: Listar   Productos=====");
+			System.out.print("\n =====Opcion 6: Buscar 	 Productos=====");
+			System.out.print("\n =====Opcion 7: key value         =====");
+			System.out.print("\n =====Opcion 8: Buscar por Sabor  =====");
+			System.out.print("\n =====Opcion 9: Salir=====");
+			lec = new Scanner(System.in);
+			menu = lec.nextInt();
+
+			switch (menu) {
+			case 1:
+				Productos producto1 = new Productos(1,"refresco", "coca", "",300,java.sql.Date.valueOf("2025-05-01"),21);
+				newImplementacion.guardar(producto1);
+				break;
+
+			case 2:
+				System.out.print("Ingrese la clave");
+				lec = new Scanner(System.in);
+				codigo = lec.nextInt();
+				
+				System.out.print("Ingrese el nombre");
+				lec = new Scanner(System.in);
+				nombre = lec.nextLine();
+				
+				System.out.print("Ingrese la marca");
+				lec = new Scanner(System.in);
+				marca = lec.nextLine();
+				
+				System.out.print("Ingrese el sabor");
+				lec = new Scanner(System.in);
+				sabor = lec.nextLine();
+				
+				System.out.print("Ingrese la cantidad");
+				lec = new Scanner(System.in);
+				cantidad = lec.nextInt();
+				
+				System.out.print("Ingrese la fecha de caducidad [yyyy-MM-dd ]:");
+				lec = new Scanner(System.in);
+				String dateString = lec.nextLine();
+				
+				//casteo
+				LocalDate fechaNueva = LocalDate.parse(dateString,formatoFecha);
+				fechaCaducidad = Date.valueOf(fechaNueva);
+				
+				System.out.print("Ingrese el precio");
+				lec = new Scanner(System.in);
+				precio = lec.nextDouble();
+				
+				productos = new Productos(codigo,nombre,marca,sabor,cantidad,fechaCaducidad,precio);
+				newImplementacion.guardar(productos);
+				
+				
+				
+				
+				
+				
+				break;
+			case 3:
+			    System.out.print("Ingrese la clave");
+			    codigo = lec.nextInt();
+			    
+			    productos = new Productos(codigo);
+			    productos = newImplementacion.buscar(productos);
+			    if(productos != null) {
+			        System.out.print("Se encontro el producto" + productos);
+			        
+			        do {
+			            System.out.println("1. Nombre");
+			            System.out.println("2. Marca");
+			            System.out.println("3. Eliminar");
+			            System.out.println("4. Salir");
+			            
+			            submenu = lec.nextInt();
+			            
+			            switch(submenu) {
+			                case 1:
+			                    System.out.println("Ingrese el Nombre");
+			                    lec.nextLine(); // Limpiar buffer
+			                    nombre = lec.nextLine();
+			                    productos.setNombre(nombre);
+			                    newImplementacion.editar(productos);
+			                    break;
+			                case 2:
+			                    System.out.println("Ingrese la Marca");
+			                    lec.nextLine(); // Limpiar buffer
+			                    marca = lec.nextLine();
+			                    productos.setMarca(marca);
+			                    newImplementacion.editar(productos);
+			                    break;
+			                case 3:
+			                    newImplementacion.eliminar(productos);
+			                    submenu = 4; // Para salir después de eliminar
+			                    break;
+			            }
+			        } while(submenu != 4);
+			    } else {
+			        System.out.println("Producto no encontrado");
+			    }
+			    break;
+
+			case 4:
+				
+				  System.out.print("Ingrese la clave del producto a eliminar");
+				    codigo = lec.nextInt();
+				    productos = new Productos(codigo);
+				    newImplementacion.eliminar(productos);
+				    break;
+			case 5:
+				System.out.print("lISTA DE PRODUCTOS \n" + newImplementacion.listar());
+				break;
+				
+			case 6:
+			    System.out.println("\n===== Buscar Producto =====");
+			    System.out.println("1. Buscar por código");
+			    System.out.println("2. Buscar por nombre");
+			    System.out.print("Seleccione una opción: ");
+			    int opcionBusqueda = lec.nextInt();
+			    
+			    if (opcionBusqueda == 1) {
+			        System.out.print("Ingrese el código del producto: ");
+			        int codigoBuscar = lec.nextInt();
+			        Productos productoEncontrado = newImplementacion.buscar(new Productos(codigoBuscar));
+			        if (productoEncontrado != null) {
+			            System.out.println("Producto encontrado: " + productoEncontrado);
+			        } else {
+			            System.out.println("❌ Producto no encontrado.");
+			        }
+			    } else if (opcionBusqueda == 2) {
+			        System.out.print("Ingrese el nombre del producto: ");
+			        lec.nextLine(); 
+			        String nombreBuscar = lec.nextLine();
+			        Productos productoEncontrado = newImplementacion.buscarporNombre(nombreBuscar);
+			        if (productoEncontrado != null) {
+			            System.out.println("Producto encontrado: " + productoEncontrado);
+			        } else {
+			            System.out.println("❌ Producto no encontrado.");
+			        }
+			    } else {
+			        System.out.println("Opción inválida.");
+			    }
+			    break;
+			    
+			case 8:
+			    System.out.print("\n===== Buscar por Sabor =====");
+			    System.out.print("\nIngrese el sabor a buscar: ");
+			    lec.nextLine(); // Limpiar buffer
+			    String saborBuscar = lec.nextLine();
+			    
+			    Productos productoConSabor = newImplementacion.buscarSabor(saborBuscar);
+			    if (productoConSabor != null) {
+			        System.out.println("Producto encontrado: " + productoConSabor);
+			    } else {
+			        System.out.println("❌ No hay productos con ese sabor.");
+			    }
+			    break;
+
+			}
+
+		} while (menu != 9);
+
+	}
+
+}

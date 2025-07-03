@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+/home/devgatito/repos/curso-intensivo/.metadata/.plugins/org.eclipse.jdt.core
+332360702.index
+4033303851.index
+2613518761.index

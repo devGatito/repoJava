@@ -1,0 +1,11 @@
+package prueba;
+
+public class Main {
+
+	public static void main(String[] args) {
+		var newEmpleado = new Empleado();
+		
+		newEmpleado.nombre ="Elias";
+		System.out.print("nombre del empleado " + newEmpleado.nombre);
+	}
+}

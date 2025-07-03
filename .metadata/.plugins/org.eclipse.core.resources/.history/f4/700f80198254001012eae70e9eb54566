@@ -1,0 +1,11 @@
+package java0;
+
+public class Atributos {
+	String nombre;
+	int numeroPuertas;
+	String color;
+	
+	
+	
+
+}

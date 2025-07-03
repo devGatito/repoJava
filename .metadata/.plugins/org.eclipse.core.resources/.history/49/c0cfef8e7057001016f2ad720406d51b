@@ -1,0 +1,27 @@
+package com.mx.controller;
+
+import com.mx.dominio.Electronica;
+import com.mx.servicio.Implementacion;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Implementacion imp = new Implementacion();
+		
+		Electronica laptop = new Electronica(1,"WALMART","TOLUCA",4343L,"compuDell","DELL","zs400",3200);
+		
+		imp.guardar(laptop, "electronica");
+		
+		imp.listar();
+		
+		Electronica laptop1 = null;
+		laptop1 = (Electronica) imp.buscar(0);
+		
+		
+		
+
+
+	}
+
+}

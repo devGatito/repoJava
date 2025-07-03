@@ -1,0 +1,90 @@
+package ejemplo04;
+
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int codigo;
+		String nombre;
+		String marca;
+		String sabor;
+		int cantidad;
+		Date fechaCaudidad;
+		double precio;
+
+		Productos productos = null;
+		Scanner lec = null;
+		int menu, submenu;
+		Implementacion newImplementacion = new Implementacion();
+
+		DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		do {
+			System.out.print("\n =====Productos 3B=====");
+			System.out.print("\n =====Opcion 1: Alta de Productos =====");
+			System.out.print("\n =====Opcion 2: Guardar Productos =====");
+			System.out.print("\n =====Opcion 3: Editar  Productos =====");
+			System.out.print("\n =====Opcion 4: Eliminar Productos=====");
+			System.out.print("\n =====Opcion 5: Listar   Productos=====");
+			System.out.print("\n =====Opcion 6: Buscar 	 Productos=====");
+			System.out.print("\n =====Opcion 7: key value         =====");
+			System.out.print("\n =====Opcion 8: Buscar por Sabor  =====");
+			System.out.print("\n =====Opcion 9: Salir=====");
+			lec = new Scanner(System.in);
+			menu = lec.nextInt();
+
+			switch (menu) {
+			case 1:
+				Productos producto1 = new Productos(1,"refresco", "coca", "",300,java.sql.Date.valueOf("2025-05-01"),21);
+				newImplementacion.guardar(producto1);
+				break;
+
+			case 2:
+				System.out.print("Ingrese la clave");
+				lec = new Scanner(System.in);
+				codigo = lec.nextInt();
+				
+				System.out.print("Ingrese el nombre");
+				lec = new Scanner(System.in);
+				nombre = lec.nextLine();
+				
+				System.out.print("Ingrese la marca");
+				lec = new Scanner(System.in);
+				marca = lec.nextLine();
+				
+				System.out.print("Ingrese el sabor");
+				lec = new Scanner(System.in);
+				sabor = lec.nextLine();
+				
+				System.out.print("Ingrese la cantidad");
+				lec = new Scanner(System.in);
+				cantidad = lec.nextInt();
+				
+				System.out.print("Ingrese la fecha de caducidad [ yyyy - MM - dd ]:");
+				lec = new Scanner(System.in);
+				cantidad = lec.nextInt(); 
+				
+				
+				
+				
+				
+				break;
+			case 3:
+				break;
+			case 4:
+				break;
+			case 5:
+				System.out.print("lISTA DE PRODUCTOS \n" + newImplementacion.listar());
+				break;
+
+			}
+
+		} while (menu != 9);
+
+	}
+
+}

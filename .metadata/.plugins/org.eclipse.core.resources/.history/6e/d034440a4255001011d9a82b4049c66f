@@ -1,0 +1,102 @@
+
+public class Libros {
+
+	
+    int ID;
+
+    String Título;
+
+    String Autor;
+
+    char genero;
+
+    int yearPublicacion;
+    
+
+    boolean Disponible;
+
+	double Precio;
+	
+	public Libros() {
+		
+	}
+
+	public Libros(int iD, String título, String autor, char genero, int yearPublicacion, boolean disponible,
+			double precio) {
+		super();
+		ID = iD;
+		Título = título;
+		Autor = autor;
+		this.genero = genero;
+		this.yearPublicacion = yearPublicacion;
+		Disponible = disponible;
+		Precio = precio;
+	}
+
+	public int getID() {
+		return ID;
+	}
+
+	public void setID(int iD) {
+		ID = iD;
+	}
+
+	public String getTítulo() {
+		return Título;
+	}
+
+	public void setTítulo(String título) {
+		Título = título;
+	}
+
+	public String getAutor() {
+		return Autor;
+	}
+
+	public void setAutor(String autor) {
+		Autor = autor;
+	}
+
+	public char getGenero() {
+		return genero;
+	}
+
+	public void setGenero(char genero) {
+		this.genero = genero;
+	}
+
+	public int getYearPublicacion() {
+		return yearPublicacion;
+	}
+
+	public void setYearPublicacion(int yearPublicacion) {
+		this.yearPublicacion = yearPublicacion;
+	}
+
+	public boolean isDisponible() {
+		return Disponible;
+	}
+
+	public void setDisponible(boolean disponible) {
+		Disponible = disponible;
+	}
+
+	public double getPrecio() {
+		return Precio;
+	}
+
+	public void setPrecio(double precio) {
+		Precio = precio;
+	}
+
+	@Override
+	public String toString() {
+		return "\n ====Libros==== \n ID: " + ID + "\n Título: " + Título + "\n Autor: " + Autor + "\n genero:" + genero
+				+ "\n yearPublicacion" + yearPublicacion + "\n Disponible" + Disponible + "\\n Precio=" + Precio + "]";
+	}
+
+	
+	
+	
+
+}

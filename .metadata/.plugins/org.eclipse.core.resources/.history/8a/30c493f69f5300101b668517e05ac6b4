@@ -1,0 +1,60 @@
+package ejercicio6;
+
+import java.time.LocalDateTime;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int codigo;
+		String nombreCliente;
+		String app;
+		LocalDateTime fechaNacimiento;
+		int edad = 0;
+		String tipoVuelo;
+		LocalDateTime fechaLlegada;
+		String destino;
+		int horaVuelo = 0;
+		double precio;
+		double ganancias;
+		
+		Vuelos v = new Vuelos();
+		incrementacion imp = new incrementacion();
+		Scanner lec;
+		int menu;
+		
+		
+		
+		do {
+			System.out.println("\n===MENU===");
+			System.out.println("1.- Alta CD");
+			System.out.println("2.- Guardar");
+			System.out.println("3.- eliminar");
+			System.out.println("4.- editar");
+			System.out.println("5.- buscar");
+			System.out.println("6.- listar");
+			System.out.println("7.- buscar Por Destino");
+			System.out.println("8.- buscar Por Tipo Vuelo");
+			System.out.println("9.- calcular Ganancias Totales");
+			System.out.println("10.- salir");
+			
+			lec = new Scanner(System.in);
+			menu = lec.nextInt();			
+			
+			
+			
+
+
+			
+			
+			
+		}while(menu != 10);
+		
+		
+		
+
+	}
+
+}

@@ -1,0 +1,15 @@
+package ejemplo5;
+
+public class Celulares {
+	
+	String codigo;
+	String marca;
+	String modelo;
+	String color;
+	int capacidad;
+	int inventarId;
+	int cantidadVendidas;
+	
+	
+
+}

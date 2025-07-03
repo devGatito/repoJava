@@ -1,0 +1,11 @@
+package ejemplo5;
+
+public interface metodos {
+public void guardar (Object obj);
+public void editar  (Object obj);
+public void eliminar(Object obj);
+
+public Celulares buscarId(String codigo);
+public List<Object> listar;
+
+}

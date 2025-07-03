@@ -1,0 +1,91 @@
+package com.mx.servicio;
+
+import java.util.HashMap;
+import java.util.List;
+
+import com.mx.dao.Metodos;
+import com.mx.dominio.Electronica;
+import com.mx.dominio.Farmacia;
+
+public class Implementacion implements Metodos {
+
+	HashMap<Integer,Object> hash = new HashMap<Integer,Object>();
+	
+	@Override
+	public void guardar(Object obj, String clase) {
+		switch(clase) {
+		case "electronica":
+			Electronica electronica = (Electronica) obj;
+			hash.put(electronica.getId(), electronica);
+			System.out.print("\n Se guardo el objeto");
+			
+			break;
+		case "farmacia":
+			Farmacia farmacia = (Farmacia) obj;
+			hash.put(farmacia.getId(), farmacia);
+			System.out.print("\n Se guardo el objeto");
+			
+			break;
+		case "jugueteria":
+			Electronica electronica = (Electronica) obj;
+			hash.put(electronica.getId(), electronica);
+			System.out.print("\n Se guardo el objeto");
+			
+			break;
+		case "ropa":
+			Electronica electronica = (Electronica) obj;
+			hash.put(electronica.getId(), electronica);
+			System.out.print("\n Se guardo el objeto");
+			
+			break;
+		}
+
+		
+	}
+
+	@Override
+	public void eliminar(Object obj, String clase) {
+		switch(clase) {
+		case "electronica":
+			break;
+		case "farmacia":
+			break;
+		case "jugueteria":
+			break;
+		case "ropa":
+			break;
+		}
+
+		
+	}
+
+	@Override
+	public void editar(Object obj, String clase) {
+		switch(clase) {
+		case "electronica":
+			break;
+		case "farmacia":
+			break;
+		case "jugueteria":
+			break;
+		case "ropa":
+			break;
+		}
+
+		
+	}
+
+	@Override
+	public Object buscar(int indice) {
+			
+
+		return null;
+	}
+
+	@Override
+	public List<Object> listar() {
+
+		return null;
+	}
+
+}

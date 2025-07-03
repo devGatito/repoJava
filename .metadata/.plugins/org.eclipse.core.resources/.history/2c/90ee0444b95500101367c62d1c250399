@@ -1,0 +1,64 @@
+import java.util.ArrayList;
+
+import java.util.List;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner lec;
+		
+		 int id;
+		 String nombre;
+		 String plataforma;
+		 String genero;
+		 int añoLanzamiento;
+		 boolean multiplayer;
+		 double precio;
+		 
+		 Videojuegos v = null;
+		 List<Videojuegos> lista = new ArrayList<Videojuegos>();
+		 
+		 
+		 int menu;
+		
+		 
+		 do {
+			 
+			 
+			
+			System.out.print("\n SISTEMA MENU");
+			System.out.print("\n 1. Agregar videojuegos precargados (ejemplos)");
+			System.out.print("\n 2. Agregar nuevo videojuego");
+			System.out.print("\n 3. Buscar videojuego por ID");
+			System.out.print("\n 4. Buscar videojuegos por plataforma");
+			System.out.print("\n 5. Buscar videojuegos multiplayer");
+			System.out.print("\n 6. Editar precio (por ID)");
+			System.out.print("\n 7. Eliminar videojuego (por ID)");
+			System.out.print("\n 8. Mostrar todos los videojuegos");
+			System.out.print("\n 9. Salir");
+			
+			
+			lec = new Scanner(System.in);
+			menu = lec.nextInt();
+			
+			
+			
+			 if(menu < 0 || menu > 9) {
+				 System.out.print("Debes escoger una opcion valida");
+				 }else {
+					 switch(menu) {
+					 case 1:
+						 break;
+					 
+					 }
+				 }
+			
+			
+			
+			 
+		 }while(menu !=7);
+		
+	}
+
+}

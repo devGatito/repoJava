@@ -1,0 +1,61 @@
+package ejercicio6;
+
+import java.time.LocalDate;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+
+import ejemplo03.Empleados;
+public class incrementacion implements metodos{
+	
+	Vuelos vuelo = null;
+	HashMap<String,Object> hash = new HashMap<>();
+	List<Vuelos> newVuelos = new ArrayList<Vuelos>();
+
+
+	@Override
+	public void guardar(Vuelos vuelo) {
+		vuelo = (Vuelos) vuelo;
+		
+		if(newVuelos.isEmpty()) {
+			System.out.print("La lista esta vacio");
+			
+				System.out.println("datos.ok ==success");
+
+			
+		}else {
+			
+		}
+		
+		 
+		
+	}
+
+	@Override
+	public void eliminar(Vuelos vuelo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void editar(Vuelos vuelo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Vuelos buscarVuelo(int codigo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Object> listar() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+
+}

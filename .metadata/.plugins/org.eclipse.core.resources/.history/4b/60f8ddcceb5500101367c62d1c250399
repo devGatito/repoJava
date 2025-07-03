@@ -1,0 +1,266 @@
+package ejemplo06;
+
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		// valores cliente
+		String nombreC;
+		String appC;
+		LocalDateTime fechaNacimientoC;
+		int edadC = 0;
+		String sexoC;
+		String correoC;
+		long telefonoC;
+
+		String nombreP;
+		String marcaP;
+		String saborP;
+		int cantidadP;
+		double precioP;
+
+		Clientes c = null;
+		Productos p = null;
+
+		Implementacion imp = new Implementacion();
+
+		Scanner lec;
+		int indice, menu, menuC, menuP;
+		DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+		do {
+			System.out.print("\n MENU");
+			System.out.print("\n 1.- modulo clientes");
+			System.out.print("\n 2.- modulo productos");
+			System.out.print("\n 3.- salir");
+
+			lec = new Scanner(System.in);
+			menu = lec.nextInt();
+
+			if (menu < 0 || menu > 3) {
+				System.out.print("SELECCIONA UNA OPCION VALIDA");
+
+			} else {
+				switch (menu) {
+				case 1:
+					do {
+						System.out.print("Lista de Opciones");
+						System.out.print("1. alta codigo DR");
+						System.out.print("2 guardar");
+						System.out.print("3. buscar");
+						System.out.print("4. editar");
+						System.out.print("5. eliminar");
+						System.out.print("6. listar");
+
+						System.out.print("7. salir");
+						lec = new Scanner(System.in);
+						menuC = lec.nextInt();
+
+						switch (menuC) {
+						case 1:
+							Clientes cliente = new Clientes("Juan", "Morales", LocalDateTime.now(), 30, "M",
+									"elias@gmail.com", 7621240911L);
+							Clientes cliente1 = new Clientes("Juana", "Ortega", LocalDateTime.now(), 30, "M",
+									"elias@gmail.com", 5524240911L);
+							Clientes cliente2 = new Clientes("Victor", "Morales", LocalDateTime.now(), 30, "M",
+									"elias@gmail.com", 3221240911L);
+							Clientes cliente3 = new Clientes("Maria", "Morales", LocalDateTime.now(), 30, "M",
+									"elias@gmail.com", 1621240911L);
+							imp.guardar(cliente, "cliente");
+							imp.guardar(cliente1, "cliente");
+							imp.guardar(cliente2, "cliente");
+							imp.guardar(cliente3, "cliente");
+
+							break;
+						case 2:
+							System.out.print("Ingresa el nombre");
+							lec = new Scanner(System.in);
+							nombreC = lec.nextLine();
+
+							System.out.print("Ingresa el apellido");
+							lec = new Scanner(System.in);
+							appC = lec.nextLine();
+
+							System.out.print("Ingresa la fecha");
+							lec = new Scanner(System.in);
+							String fechaString = lec.nextLine();
+
+							LocalDate fechaConvertir = LocalDate.parse(fechaString, formatoFecha);
+							LocalDateTime formatoFechaSalida = fechaConvertir.atStartOfDay();
+							fechaNacimientoC = formatoFechaSalida;
+
+							System.out.print("Ingresa la edad");
+							lec = new Scanner(System.in);
+							edadC = lec.nextInt();
+
+							System.out.print("Ingresa el sexo");
+							lec = new Scanner(System.in);
+							sexoC = lec.nextLine();
+
+							System.out.print("Ingresa el correo");
+							lec = new Scanner(System.in);
+							correoC = lec.nextLine();
+
+							System.out.print("Ingresa el apellido");
+							lec = new Scanner(System.in);
+							telefonoC = lec.nextLong();
+
+							cliente = new Clientes(nombreC, appC, fechaNacimientoC, edadC, sexoC, correoC, telefonoC);
+
+							imp.guardar(cliente, "cliente");
+
+							break;
+						case 3:
+							System.out.print("Ingresa el id");
+							lec = new Scanner(System.in);
+							int id = lec.nextInt();
+
+							cliente = (Clientes) imp.buscar(id, "cliente");
+							System.out.print("Se encontro el cliente" + cliente);
+
+							break;
+						case 4:
+							int submenuCliente;
+							System.out.print("Ingresa el id a editar");
+							lec = new Scanner(System.in);
+							id = lec.nextInt();
+
+							cliente = (Clientes) imp.buscar(id, "cliente");
+							System.out.print("Se encontro cliente" + cliente);
+							do {
+								System.out.print("1.-Ingresa la fecha de Nacimiento");
+								System.out.print("2.-Editar la fecha");
+								System.out.print("3. Salir");
+
+								System.out.print("selecciona el menu ");
+								lec = new Scanner(System.in);
+								submenuCliente = lec.nextInt();
+
+								switch (submenuCliente) {
+								case 1:
+									System.out.print("Ingresa el sexo");
+									lec = new Scanner(System.in);
+									sexoC = lec.nextLine();
+
+									System.out.print("Ingresa la fecha");
+									lec = new Scanner(System.in);
+									fechaString = lec.nextLine();
+
+									fechaConvertir = LocalDate.parse(fechaString, formatoFecha);
+									formatoFechaSalida = fechaConvertir.atStartOfDay();
+									fechaNacimientoC = formatoFechaSalida;
+
+									cliente.setFechaNacimiento(fechaNacimientoC);
+									imp.editar(id, cliente, "cliente");
+
+									break;
+								case 2:
+									System.out.print("Ingresa el nombre");
+									lec = new Scanner(System.in);
+									nombreC = lec.nextLine();
+									imp.editar(id, cliente, "cliente");
+									break;
+								case 3:
+									System.out.print("Saliendo");
+									break;
+								}
+
+							} while (submenuCliente < 3);
+
+							break;
+						case 5:
+							System.out.print("Ingrese el indice");
+							lec = new Scanner(System.in);
+							id = lec.nextInt();
+							imp.eliminar(id, c, "cliente");
+							break;
+						case 6:
+							System.out.print("Listas" + c);
+							break;
+						case 7:
+							System.out.print("Saliendo");
+							break;
+
+						}
+
+					} while (menuC != 7);
+					break;
+				case 2:
+					do {
+						System.out.print("Lista de Opciones");
+						System.out.print("1. alta codigo DR");
+						System.out.print("2 guardar");
+						System.out.print("3. buscar");
+						System.out.print("4. editar");
+						System.out.print("5. eliminar");
+						System.out.print("6. listar");
+
+						System.out.print("7. salir");
+
+						lec = new Scanner(System.in);
+						menuP = lec.nextInt();
+						
+						switch(menuP){
+						case 1:
+							Productos p1 = new Productos("Papas", "Sabritas","Salado",12,250);
+							Productos p2 = new Productos("Galletas", "Gamesa","Dulce",12,250);
+							
+
+							
+							// LocalDateTime.now(), 30, "M",
+							//"elias@gmail.com", 7621240911L
+							
+							imp.guardar(p1, "producto");
+							imp.guardar(p2, "producto");
+						
+							break;
+							
+						case 2:
+							System.out.print("Ingresa el nombre del producto");
+							lec = new Scanner(System.in);
+							nombreP = lec.nextLine();
+							
+							System.out.print("Ingresa la marca del producto");
+							lec = new Scanner(System.in);
+							marcaP = lec.nextLine();
+							
+							System.out.print("Ingresa el sabor del producto");
+							lec = new Scanner(System.in);
+							saborP = lec.nextLine();
+							
+							System.out.print("Ingresa la cantidad del producto");
+							lec = new Scanner(System.in);
+							cantidadP = lec.nextInt();
+							
+
+							System.out.print("Ingresa el precio del producto");
+							lec = new Scanner(System.in);
+							precioP = lec.nextInt();
+							
+						
+							
+							 p = new Productos(nombreP, marcaP,saborP,cantidadP,precioP);
+							
+							break;
+						
+						}
+					} while (menuP != 7);
+					break;
+				case 3:
+					break;
+
+				}
+			}
+
+		} while (menu != 3);
+		lec.close();
+
+	}
+
+}

@@ -1,0 +1,22 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		int id;
+		String titulo;
+		String director;
+		String genero;
+		int duracion;
+		boolean cartelera;
+		
+		Peliculas pe = new Peliculas();
+
+	
+		
+		
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,9 @@
+package com.mx.dao;
+
+public interface Metodos {
+public void guardar(Object obj, String clase);
+public void eliminar(int indice,Object obj, String clase);
+public void editar(int indice,Object obj, String clase);
+public Object buscar(Object obj, String clase);
+List<Object> listar();
+}

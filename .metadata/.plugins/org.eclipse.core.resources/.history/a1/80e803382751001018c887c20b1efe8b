@@ -1,0 +1,12 @@
+package ejercicio_02;
+
+public class Contacto {
+int id;
+String nombre;
+String apodo;
+int telefono;
+String correo;
+String direction;
+String tipoContacto;
+
+}

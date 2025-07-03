@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="ejemplo_03.Empleados"/>
+    <fullyQualifiedTypeName name="java.lang.System.LoggerFinder"/>
+    <fullyQualifiedTypeName name="java.io.Console"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="java.util.Map.Entry"/>
+    <fullyQualifiedTypeName name="java.lang.Long"/>
+    <fullyQualifiedTypeName name="java.lang.Math"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="java.time.LocalDate"/>
+    <fullyQualifiedTypeName name="java.time.format.DateTimeFormatter"/>
+    <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
+    <fullyQualifiedTypeName name="java.sql.Date"/>
+    <fullyQualifiedTypeName name="java0.Implementacion"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="com.mx.Dominio.Empleados"/>
+    <fullyQualifiedTypeName name="SuperClase.Animal"/>
+    <fullyQualifiedTypeName name="com.mx.dominio.Perro"/>
+    <fullyQualifiedTypeName name="com.mx.dominio.Gato"/>
+    <fullyQualifiedTypeName name="ClaseAbstracta.SuperMercado"/>
+    <fullyQualifiedTypeName name="com.mx.dao.metodos"/>
+    <fullyQualifiedTypeName name="com.mx.Dao.metodos"/>
+    <fullyQualifiedTypeName name="ClaseAbstract.MercadoLibre"/>
+    <fullyQualifiedTypeName name="com.mx.service.Implementacion"/>
+    <fullyQualifiedTypeName name="com.mx.dominio.Belleza"/>
+    <fullyQualifiedTypeName name="com.mx.dominio.Refacciones"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="com.sun.tools.javac.util.List"/>
+    <fullyQualifiedTypeName name="claseAbstracta.SuperMercado"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.mx.dao.Metodos"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="com.mx.servicio.Implementacion"/>
+    <fullyQualifiedTypeName name="com.mx.dominio.Electronica"/>
+    <fullyQualifiedTypeName name="com.mx.dominio.Farmacia"/>
+    <fullyQualifiedTypeName name="com.mx.dominio.Ropa"/>
+    <fullyQualifiedTypeName name="com.mx.dominio.Jugueteria"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,78 @@
+package java0;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Implementacion implements metodos {
+	Atributos newAtributos = null;
+
+	
+	
+	public void Salir() {
+		// TODO Auto-generated method stub
+		System.out.print("\n Saliendo del programa");
+
+	}
+	public void incrementarFor() {
+		for(int i = 0; i < 10; i++) {
+			System.out.print("valor: " + i + "\n");
+			
+		}
+	}
+	
+	public void incrementarForExample() {
+		int suma = 0;
+		for(int i = 0; i< 10; i++) {
+			if(i ==1) {
+				System.out.print("\n La posicion es: " + i);
+				continue;
+			}if(i==3) {
+				
+				suma += i;
+				System.out.print("\n La posicion es: " + suma);
+				break;
+				
+			}
+		}
+	}
+	
+	public void While() {
+		int i = 0;
+		while( i<10) {
+			i++;
+			System.out.print("\n la posicion es" + i);
+			
+		}
+		
+	}
+	
+	public void incrementForEch() {
+		List<Integer> numbers = new ArrayList<>();
+		for(int i = 0; i < 10; i++) {
+			numbers.add(i);
+		}
+		int suma = 0;
+		for(int number : numbers ) {
+			suma += number;
+			System.out.print("\n" + suma);
+			
+		}
+	}
+		public void recorrerLista() {
+			int[] numeros = {1,2,3,4,5,6,67};
+			for(int i: numeros) {
+				System.out.print(i);
+			}
+			
+			for(int i = 0; i== 10; i++) {
+				System.out.print("\n La posicion" + i);
+
+				
+				
+			}
+			
+		}
+		
+
+
+}

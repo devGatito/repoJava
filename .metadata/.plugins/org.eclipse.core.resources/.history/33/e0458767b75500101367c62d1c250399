@@ -1,0 +1,83 @@
+
+public class Peliculas {
+    
+
+int id;
+String titulo;
+String director;
+String genero;
+int duracion;
+boolean cartelera;
+
+public Peliculas() {
+	
+}
+
+public Peliculas(int id, String titulo, String director, String genero, int duracion, boolean cartelera) {
+	super();
+	this.id = id;
+	this.titulo = titulo;
+	this.director = director;
+	this.genero = genero;
+	this.duracion = duracion;
+	this.cartelera = cartelera;
+}
+
+public int getId() {
+	return id;
+}
+
+public void setId(int id) {
+	this.id = id;
+}
+
+public String getTitulo() {
+	return titulo;
+}
+
+public void setTitulo(String titulo) {
+	this.titulo = titulo;
+}
+
+public String getDirector() {
+	return director;
+}
+
+public void setDirector(String director) {
+	this.director = director;
+}
+
+public String getGenero() {
+	return genero;
+}
+
+public void setGenero(String genero) {
+	this.genero = genero;
+}
+
+public int getDuracion() {
+	return duracion;
+}
+
+public void setDuracion(int duracion) {
+	this.duracion = duracion;
+}
+
+public boolean isCartelera() {
+	return cartelera;
+}
+
+public void setCartelera(boolean cartelera) {
+	this.cartelera = cartelera;
+}
+
+@Override
+public String toString() {
+	return "\n ===Peliculas===" + id + "\n titulo:" + titulo + "\n director:" + director + "\n genero:" + genero
+			+ "\n duracion:" + duracion + "\n cartelera:" + cartelera + "\n";
+}
+
+
+	
+	
+}

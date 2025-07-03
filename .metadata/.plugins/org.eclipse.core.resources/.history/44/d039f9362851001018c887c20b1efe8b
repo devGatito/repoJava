@@ -1,0 +1,23 @@
+package ejercicio_02;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Contacto newContacto = new Contacto(1,"Elias", "Soto", "7621240911","eliasmisaelsotojimenez1@gmail.com","calle de lomas","");
+		Contacto newContacto1 = new Contacto(2,"Batman", "", "7621240911","eliasmisaelsotojimenez1@gmail.com","calle de pedro martin","");
+
+		System.out.println(newContacto);
+		List<Contacto> lista = new ArrayList<Contacto>();
+		lista.add(newContacto);
+		lista.add(newContacto1);
+
+		
+
+	}
+
+}

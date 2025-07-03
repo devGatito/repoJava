@@ -1,0 +1,53 @@
+package ejemplo5;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+
+public class Implementacion implements metodos {
+
+	Celulares cel = null;
+	HashMap<String, Object> hash = new HashMap<>();
+
+	@Override
+	public void guardar(Object obj) {
+
+		cel = (Celulares) obj; // casteo
+		if(Arrays.asList("MOTOROLA", "SAMSUNG", "LENOVO").contains(cel.getMarca())) {
+			hash.put(cel.getCodigo(), cel);
+			System.out.print("Se guardo el celular");
+			
+		}else {
+			System.out.print("Solo manejamos las siguientes marcas: "
+					+ "\n MOTOROLA"
+					+ "\n SAMSUNG"
+					+ "\n LENOVO");
+		}
+
+	}
+
+	@Override
+	public void editar(Object obj) {
+		cel = (Celulares) obj; 
+
+	}
+
+	@Override
+	public void eliminar(Object obj) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public Celulares buscarId(String codigo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Object> listar() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

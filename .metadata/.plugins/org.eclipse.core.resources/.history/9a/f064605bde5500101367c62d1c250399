@@ -1,0 +1,106 @@
+package ejemplo06;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Implementacion implements metodos {
+
+	List<Clientes> listaClientes = new ArrayList<Clientes>();
+	List<Productos> listaProductos = new ArrayList<Productos>();
+	Productos producto = null;
+	Clientes cliente = null;
+
+	@Override
+	public void guardar(Object obj, String clase) {
+		try {
+			switch (clase) {
+			case "cliente":
+				cliente = (Clientes) obj;
+				LocalDateTime hoy = LocalDateTime.now();
+				int fechaNacimientoActual = hoy.getYear() - cliente.fechaNacimiento.getYear();
+				cliente.setEdad(fechaNacimientoActual);
+				listaClientes.add(cliente);
+				System.out.print("Se guardo el cliente");
+
+				break;
+
+			case "producto":
+				producto = (Productos) obj;
+				listaProductos.add(producto);
+				System.out.print("Se guardo el producto");
+
+				break;
+
+			}
+		} catch (Exception e) {
+			System.out.print("causado por: " + e.getCause());
+
+		} finally {
+			System.out.print("Disculpe las molestias ");
+		}
+
+	}
+
+	@Override
+	public void editar(int indice, Object obj, String clase) {
+		switch (clase) {
+
+		case "cliente":
+			cliente = (Clientes) obj;
+			LocalDateTime hoy = LocalDateTime.now();
+			int fechaNacimientoActual = hoy.getYear() - cliente.fechaNacimiento.getYear();
+			listaClientes.set(indice, cliente);
+			System.out.print("Se edito el cliente");
+
+			break;
+
+		case "producto":
+			producto = (Productos) obj;
+			listaProductos.set(indice, producto);
+			System.out.print("Se edito el cliente");
+
+			break;
+
+		}
+	}
+
+	public void eliminar(int indice, Object obj, String clase) {
+		switch (clase) {
+		case "cliente":
+			listaClientes.remove(indice);
+			System.out.print("Se borro el cliente");
+			break;
+
+		case "producto":
+			listaProductos.remove(indice);
+			System.out.print("Se elimino el producto");
+			break;
+		}
+
+	}
+
+	@Override
+	public Object buscar(int indice, String clase) {
+
+		if (clase.equals("cliente")) {
+			return listaClientes.get(indice);
+
+		}else if(clase.equals("producto")) {
+			return listaProductos.get(indice);
+			
+		}
+
+		return null;
+	}
+
+	@Override
+	public List<Object> listar(String clase) {
+		if(clase.equals("cliente")) {
+			
+		}
+
+		return null;
+	}
+
+}

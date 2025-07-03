@@ -1,0 +1,24 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		Libros libro = null;
+
+		int ID;
+
+		String Título;
+
+		String Autor;
+
+		char genero;
+
+		int yearPublicacion;
+
+		boolean Disponible;
+
+		double Precio;
+
+	}
+
+}

@@ -1,0 +1,101 @@
+package ejercicio4;
+
+import java.util.HashMap;
+import java.util.Map.Entry;
+
+
+
+public class Implementacion implements metodos{
+	HashMap<Integer,Computadoras> hash = new HashMap<Integer,Computadoras>();
+
+	@Override
+	public void eliminar(Computadoras computadora) {
+		if(hash.isEmpty()) {
+			System.out.print("Que voy a borrar si no hay nada");
+		}else {
+			hash.remove(computadora.getId(), computadora);
+			System.out.println("Borraron los productos");
+		}
+	}
+
+	@Override
+	public void editar(Computadoras computadora) {
+		// TODO Auto-generated method stub
+		hash.put(computadora.getId(), computadora);
+		System.out.println("Editaron los productos");
+		
+	}
+
+	@Override
+	public void guardar(Computadoras computadora) {
+		// TODO Auto-generated method stub
+		if (hash.isEmpty()) {
+			hash.put(computadora.getId(), computadora);
+			System.out.println("Cargaron los productos");
+		} else
+			hash.put(computadora.getId(), computadora);
+		System.out.println("\n Cargaron los productos");
+
+		
+	}
+
+	@Override
+	public Computadoras buscarComputadoras(Computadoras computadora) {
+		// TODO Auto-generated method stub
+		return hash.get(computadora.getId());
+		
+	}
+
+	@Override
+	public HashMap<Integer, Computadoras> listar() {
+		// TODO Auto-generated method stub
+		return hash;
+	}
+	
+
+	public String llave() {
+		for (Entry<Integer, Computadoras> p : hash.entrySet()) {
+			System.out.print("key" + p.getValue());
+
+		}
+		return "productos totales";
+	}
+	
+	
+	public Computadoras buscarporNombre(String nombre) {
+		Computadoras buscarporNombre = null;
+		for (Entry<Integer, Computadoras> p : hash.entrySet()) {
+			if (p.getValue().getModelo().equalsIgnoreCase(nombre)) {
+				buscarporNombre = p.getValue();
+			}
+
+		}
+		return buscarporNombre;
+	}
+
+	public Computadoras buscarMarca(String marca) {
+		Computadoras buscarMarca = null;
+
+		for (Computadoras c : hash.values()) {
+			if (c.getMarca().equalsIgnoreCase(marca)) {
+				buscarMarca = c;
+
+			}
+
+		}
+
+		return buscarMarca;
+	}
+	
+	
+	
+	public void  eliminarLamnda(String nombre) {
+		hash.values().removeIf(a -> a.getModelo().contentEquals(nombre));
+		System.out.print("Se elimino el producto");
+		
+	
+	}
+	
+	
+
+}

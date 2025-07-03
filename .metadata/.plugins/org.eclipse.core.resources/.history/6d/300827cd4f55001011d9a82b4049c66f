@@ -1,0 +1,204 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		List<Libros> lista = new ArrayList<Libros>();
+		Libros libro = null;
+		Scanner lec;
+
+		int ID;
+
+		char genero;
+
+		int yearPublicacion;
+		int menu;
+
+		boolean Disponible;
+
+		double Precio;
+
+		String Título;
+
+		String Autor;
+
+		do {
+			System.out.print("\n ###MENU###");
+			System.out.print("\n 1.-Alta de libros con código duro");
+			System.out.print("\n 2.-Agregar nuevo libro");
+			System.out.print("\n 3.-Buscar libro");
+			System.out.print("\n 4.-Editar libro");
+			System.out.print("\n 5.-Eliminar libro");
+			System.out.print("\n 6.-Listar todos los libros");
+			System.out.print("\n 7.- Salir");
+
+			lec = new Scanner(System.in); // limpiar el bufer
+			menu = lec.nextInt();
+
+			switch (menu) {
+			case 1:
+
+				Libros l = new Libros(1, "Cien años de soledad", "Gabriel García Márquez", 'a', 2021, true, 200);
+				Libros l1 = new Libros(2, "", "", 'a', 2021, false, 200);
+				Libros l2 = new Libros(3, "", "", 'a', 2021, true, 200);
+
+				lista.add(l);
+				lista.add(l1);
+				lista.add(l2);
+				System.out.print("Se cargaron los libros");
+
+				break;
+			case 2:
+				System.out.print("Ingresa el Id del libro");
+				lec = new Scanner(System.in);
+				ID = lec.nextInt();
+
+				System.out.print("Ingresa el Genero del libro");
+				lec = new Scanner(System.in);
+				genero = lec.next().charAt(0);
+
+				System.out.print("Ingresa la fecha de publicacion libro");
+				lec = new Scanner(System.in);
+				yearPublicacion = lec.nextInt();
+
+				System.out.print("Ingresa si esta activo (true), (falso) si inactivo");
+				lec = new Scanner(System.in);
+				Disponible = lec.hasNext();
+
+				System.out.print("Ingresa el precio del libro");
+				lec = new Scanner(System.in);
+				Precio = lec.nextInt();
+
+				System.out.print("Ingresa el Nombre del Título");
+				lec = new Scanner(System.in);
+				Título = lec.nextLine();
+
+				System.out.print("Ingresa el Autor del Libro");
+				lec = new Scanner(System.in);
+				Autor = lec.nextLine();
+
+				Libros l3 = new Libros(ID, Título, Autor, genero, yearPublicacion, Disponible, Precio);
+				System.out.print("\n libros" + l3);
+				break;
+			case 3:
+				System.out.print("Ingresa la pos a buscar");
+				lec = new Scanner(System.in);
+				ID = lec.nextInt();
+
+				if (ID >= 0 && ID < lista.size()) {
+					System.out.print("Se encontro la lista");
+					libro = lista.get(ID);
+					System.out.print(libro);
+
+				} else {
+					System.out.print("NO Se encontro la lista");
+				}
+
+				break;
+			case 4:
+			    System.out.print("Ingresa el ID del libro a editar: ");
+			    int idEditar = lec.nextInt();
+			    
+			    // Buscar el libro por ID (no por índice)
+			    Libros libroAEditar = null;
+			    for (Libros li : lista) {
+			        if (li.getID() == idEditar) {
+			            libroAEditar = li;
+			            break;
+			        }
+			    }
+			    
+			    if (libroAEditar != null) {
+			        System.out.println("Libro encontrado: " + libroAEditar);
+			        
+			        System.out.println("\n¿Qué campo deseas editar?");
+			        System.out.println("1. Título");
+			        System.out.println("2. Autor");
+			        System.out.println("3. Género");
+			        System.out.println("4. Año de publicación");
+			        System.out.println("5. Disponibilidad");
+			        System.out.println("6. Precio");
+			        System.out.println("7. Terminar edición");
+			        
+			        int opcionEdicion;
+			        do {
+			            System.out.print("Elige una opción (1-7): ");
+			            opcionEdicion = lec.nextInt();
+			            lec.nextLine(); // Limpiar buffer
+			            
+			            switch (opcionEdicion) {
+			                case 1:
+			                    System.out.print("Nuevo título: ");
+			                    libroAEditar.setTítulo(lec.nextLine());
+			                    break;
+			                case 2:
+			                    System.out.print("Nuevo autor: ");
+			                    libroAEditar.setAutor(lec.nextLine());
+			                    break;
+			                case 3:
+			                    System.out.print("Nuevo género (carácter): ");
+			                    libroAEditar.setGenero(lec.next().charAt(0));
+			                    break;
+			                case 4:
+			                    System.out.print("Nuevo año de publicación: ");
+			                    libroAEditar.setYearPublicacion(lec.nextInt());
+			                    break;
+			                case 5:
+			                    System.out.print("¿Disponible? (true/false): ");
+			                    libroAEditar.setDisponible(lec.nextBoolean());
+			                    break;
+			                case 6:
+			                    System.out.print("Nuevo precio: ");
+			                    libroAEditar.setPrecio(lec.nextDouble());
+			                    break;
+			                case 7:
+			                    System.out.println("Edición terminada.");
+			                    break;
+			                default:
+			                    System.out.println("Opción no válida.");
+			            }
+			        } while (opcionEdicion != 7);
+			        
+			    } else {
+			        System.out.println("Libro con ID " + idEditar + " no encontrado.");
+			    }
+			    break;
+			case 5:
+				   System.out.print("Ingresa el ID del libro a eliminar: ");
+				    int idEliminar = lec.nextInt();
+				    
+				    // Buscar el libro por ID
+				    boolean eliminado = false;
+				    for (int i = 0; i < lista.size(); i++) {
+				        if (lista.get(i).getID() == idEliminar) {
+				            lista.remove(i);
+				            eliminado = true;
+				            System.out.println("Libro eliminado correctamente.");
+				            break;
+				        }
+				    }
+				    
+				    if (!eliminado) {
+				        System.out.println("Libro con ID " + idEliminar + " no encontrado.");
+				    }
+				    break;
+				break;
+			case 6:
+				System.out.print(lista);
+				break;
+			case 7:
+				System.out.print("Saliendo");
+				break;
+
+			}
+
+		} while (menu != 7);
+
+		lec.close();
+
+	}
+
+}

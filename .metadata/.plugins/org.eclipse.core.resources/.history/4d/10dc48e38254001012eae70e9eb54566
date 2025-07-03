@@ -1,0 +1,28 @@
+package java0;
+
+public class Atributos {
+	String nombre;
+	String color;
+	int numeroPuertas;
+	int id;
+	
+	
+	
+	public Atributos() {
+		
+	}
+
+
+	public Atributos( int id, String nombre, int numeroPuertas, String color) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.numeroPuertas = numeroPuertas;
+		this.color = color;
+	}
+	
+	
+	
+	
+
+}

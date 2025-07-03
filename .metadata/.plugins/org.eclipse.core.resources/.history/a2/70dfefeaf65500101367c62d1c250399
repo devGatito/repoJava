@@ -1,0 +1,82 @@
+package libros;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+import ejemplo06.Productos;
+
+public class Implementacion implements metodos {
+
+	List<Empleados> listaEmpleados = new ArrayList<Empleados>();
+	List<Libros> listaLibros = new ArrayList<Libros>();
+	
+	Libros l = null;
+	Empleados e = null; 
+
+
+	@Override
+	public void guardar(Objects obj, String nombre) {
+		System.out.print("Guardar");
+
+		try {
+			switch(nombre) {
+			case "empleado":
+				LocalDateTime hoy = LocalDateTime.now();
+				int fechaNacimiento = hoy.getYear() - e.getFechaNacimiento().getYear();
+				e.setEdad(fechaNacimiento);
+				listaEmpleados.add(e);
+				System.out.print("Se guardo la lista de empleados");
+				
+				break;
+				
+			case "libros":
+				 hoy = LocalDateTime.now();
+				 fechaNacimiento = hoy.getYear() - l.getFechaPublicacion().getYear();
+				l.setFechaPublicacion(hoy);
+				listaLibros.add(l);
+				System.out.print("Se guardo la lista de libros");
+				break;
+				
+			
+			}
+
+		} catch (Exception e) {
+			System.out.print("\n Error causado por: " + e.getCause());
+		}
+
+	}
+
+	@Override
+	public void editar(int indice, Objects obj, String nombre) {
+		switch(nombre) {
+		case "empleado":
+			e = (Empleados) obj;
+			
+			System.out.print("\n Se edito el cliente");
+			
+			break;
+		}
+		
+
+	}
+
+	@Override
+	public void eliminar(int indice, Objects obj, String nombre) {
+
+	}
+
+	@Override
+	public Objects buscar(int indice, String nombre) {
+
+		return null;
+	}
+
+	@Override
+	public List<Objects> listar(String nombre) {
+
+		return null;
+	}
+
+}

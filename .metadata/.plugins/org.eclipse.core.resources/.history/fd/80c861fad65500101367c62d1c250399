@@ -1,0 +1,25 @@
+package ejemplo06;
+
+import java.time.LocalDateTime;
+
+public class Clientes {
+
+	String nombre;
+	String app;
+	LocalDateTime fechaNacimiento;
+	int edad;
+	String sexo;
+	String correo;
+	long telefono;
+
+	public Clientes() {
+	}
+
+	public Clientes(String nombre) {
+
+	}
+	
+	public Clientes(int id) {
+		
+	}
+}

@@ -1,0 +1,11 @@
+package libros;
+
+import java.util.Objects;
+
+public interface metodos {
+	public void guardar(Objects obj, String nombre);
+	public void editar(int indice,Objects obj, String nombre);
+	public void eliminar(int indice,Objects obj, String nombre);
+	public Objects buscar(Objects obj);
+
+}

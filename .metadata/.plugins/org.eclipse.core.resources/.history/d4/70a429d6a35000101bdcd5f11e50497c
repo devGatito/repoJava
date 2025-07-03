@@ -1,0 +1,18 @@
+package prueba;
+
+public class Empleado {
+
+	String nombre;
+	int edad;
+	char genero;
+	String puesto;
+	
+	public Empleado() {
+		
+		
+	}
+	
+	
+	
+	
+}

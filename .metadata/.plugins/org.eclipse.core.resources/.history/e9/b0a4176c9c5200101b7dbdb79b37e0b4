@@ -1,0 +1,32 @@
+package estudio;
+
+public class Cass {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int a = 2;
+		int b = 9;
+		
+		double division;
+		
+		division = (double) b /  (double) a;
+		//System.out.print("Forzar valor" + division);
+		
+		/* ==== EJERCICIOS */
+		
+		int x = 149;
+		int y = 999;
+		
+		int suma = x + y;
+		int res = y - y;
+		int mult = x * y;
+		double div = (double)x/ (double)y;
+		
+		System.out.print("\n La suma es: " + suma + "\n La resta es: " + res  + "\n La multiplicacion: es " + mult + "\n La divicion es: " + div);
+		
+		
+		
+	}
+
+}

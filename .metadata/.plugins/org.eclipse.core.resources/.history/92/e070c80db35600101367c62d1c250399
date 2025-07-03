@@ -1,0 +1,16 @@
+package proyecto_practica;
+
+public class Becas extends Estudiantes {
+	String tipoBeca;
+	
+	public Becas() {
+		
+	}
+
+	public Becas(String nombre,int edad,String tipoBeca) {
+		super();
+		this.tipoBeca = tipoBeca;
+	}
+	
+
+}

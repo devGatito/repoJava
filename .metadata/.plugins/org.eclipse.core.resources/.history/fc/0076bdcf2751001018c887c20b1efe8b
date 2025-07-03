@@ -1,0 +1,13 @@
+package ejercicio_02;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Contacto newContacto = new Contacto(1,"Elias", "Soto", "7621240911","eliasmisaelsotojimenez1@gmail.com","calle de lomas", "");
+		
+		
+
+	}
+
+}

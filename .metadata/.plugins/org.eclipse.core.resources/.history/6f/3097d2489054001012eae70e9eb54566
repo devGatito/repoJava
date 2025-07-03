@@ -1,0 +1,15 @@
+package java0;
+
+public class Implementacion implements metodos {
+	Atributos newAtributos = null;
+
+	
+	
+	public void Salir() {
+		// TODO Auto-generated method stub
+		System.out.print("\n Saliendo del programa");
+
+	}
+
+
+}

@@ -1,0 +1,141 @@
+import java.util.ArrayList;
+
+import java.util.List;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner lec;
+
+		int id;
+		String nombre;
+		String plataforma;
+		String genero;
+		int añoLanzamiento;
+		boolean multiplayer;
+		double precio;
+
+		Videojuegos v = null;
+		List<Videojuegos> lista = new ArrayList<Videojuegos>();
+
+		int menu;
+
+		do {
+
+			System.out.print("\n SISTEMA MENU");
+			System.out.print("\n 1. Agregar videojuegos precargados (ejemplos)");
+			System.out.print("\n 2. Agregar nuevo videojuego");
+			System.out.print("\n 3. Buscar videojuego por ID");
+			System.out.print("\n 4. Buscar videojuegos por plataforma");
+			System.out.print("\n 5. Buscar videojuegos multiplayer");
+			System.out.print("\n 6. Editar precio (por ID)");
+			System.out.print("\n 7. Eliminar videojuego (por ID)");
+			System.out.print("\n 8. Mostrar todos los videojuegos");
+			System.out.print("\n 9. Salir");
+
+			lec = new Scanner(System.in);
+			menu = lec.nextInt();
+
+			if (menu < 0 || menu > 9) {
+				System.out.print("Debes escoger una opcion valida");
+			} else {
+				switch (menu) {
+				case 1:
+
+					Videojuegos v1 = new Videojuegos(1, "gta5", "xbox", "violencia", 2021, false, 5000);
+					Videojuegos v2 = new Videojuegos(2, "videojuego", "xbox12", "violencia", 2021, false, 5000);
+					Videojuegos v3 = new Videojuegos(3, "minecraft", "xbox", "violencia", 2021, false, 5000);
+
+					lista.add(v1);
+					lista.add(v2);
+					lista.add(v3);
+					System.out.print("Listas cargadas correctamente");
+					break;
+
+				case 2:
+					System.out.print("Ingresa un id");
+					lec = new Scanner(System.in);
+					id = lec.nextInt();
+
+					System.out.print("Ingresa un nombre");
+					lec = new Scanner(System.in);
+					nombre = lec.nextLine();
+
+					System.out.print("Ingresa el nombre de la plataforma");
+					lec = new Scanner(System.in);
+					plataforma = lec.nextLine();
+
+					System.out.print("Ingresa el genero");
+					lec = new Scanner(System.in);
+					genero = lec.nextLine();
+
+					System.out.print("Ingresa el año de Lanzamiento");
+					lec = new Scanner(System.in);
+					añoLanzamiento = lec.nextInt();
+
+					System.out.print("Ingresa si es multiplayer");
+					lec = new Scanner(System.in);
+					multiplayer = lec.nextBoolean();
+
+					System.out.print("Ingresa el precio");
+					lec = new Scanner(System.in);
+					precio = lec.nextDouble();
+
+					
+					Videojuegos v4 = new Videojuegos(id, nombre, plataforma, genero, añoLanzamiento, multiplayer, precio);
+					lista.add(v4);
+					System.out.print("Se guardo el videojuego");
+
+					break;
+
+				case 3:
+					System.out.print("Ingresa un id a buscar");
+					lec = new Scanner(System.in);
+					id = lec.nextInt();
+					
+					for(Videojuegos vd: lista) {
+						if(vd.getId()==id) {
+							System.out.print( "\n se encontro" + lista.get(id));
+						}
+						
+					}
+					
+					break;
+
+				case 4:
+					
+					System.out.print("Ingresa la plataforma a buscar");
+					lec = new Scanner(System.in);
+					plataforma = lec.nextLine();
+					
+					for(Videojuegos p: lista) {
+						if(p.getPlataforma().equalsIgnoreCase(plataforma)) {
+							System.out.print( "\n se encontro" + p);
+						}
+						
+					}
+					
+					break;
+				case 5:
+					break;
+				case 6:
+					break;
+				case 7:
+					break;
+
+				case 8:
+					System.out.print(lista);
+					break;
+				case 9:
+					System.out.print("Saliendo del programa");
+					break;
+
+				}
+			}
+
+		} while (menu != 9);
+
+	}
+
+}

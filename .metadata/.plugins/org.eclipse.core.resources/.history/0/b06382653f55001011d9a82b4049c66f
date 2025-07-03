@@ -1,0 +1,93 @@
+package java0;
+
+public class Atributos {
+	String nombre;
+	String color;
+	int numeroPuertas;
+	int id;
+	
+	
+	
+	public Atributos() {
+		
+	}
+	
+
+
+	public Atributos(int id) {
+		super();
+		this.id = id;
+	}
+
+
+
+	public Atributos( int id, String nombre, int numeroPuertas, String color) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.numeroPuertas = numeroPuertas;
+		this.color = color;
+	}
+
+
+
+	public String getNombre() {
+		return nombre;
+	}
+
+
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+
+
+	public String getColor() {
+		return color;
+	}
+
+
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+
+
+	public int getNumeroPuertas() {
+		return numeroPuertas;
+	}
+
+
+
+	public void setNumeroPuertas(int numeroPuertas) {
+		this.numeroPuertas = numeroPuertas;
+	}
+
+
+
+	public int getId() {
+		return id;
+	}
+
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "Atributos [nombre=" + nombre + ", color=" + color + ", numeroPuertas=" + numeroPuertas + ", id=" + id
+				+ "]";
+	}
+	
+	
+	
+	
+	
+
+}

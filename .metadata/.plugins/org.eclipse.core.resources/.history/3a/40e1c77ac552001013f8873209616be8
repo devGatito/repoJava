@@ -1,0 +1,94 @@
+package ejemplo04;
+
+import java.util.Date;
+
+public class Productos {
+	int codigo;
+	String nombre;
+	String marca;
+	String sabor;
+	int cantidad;
+	Date fechaCaudidad;
+	double precio;
+
+	public Productos(int codigo) {
+		super();
+		this.codigo = codigo;
+	}
+
+	public Productos(int codigo, String nombre, String marca, String sabor, int cantidad, Date fechaCaudidad,
+			double precio) {
+		super();
+		this.codigo = codigo;
+		this.nombre = nombre;
+		this.marca = marca;
+		this.sabor = sabor;
+		this.cantidad = cantidad;
+		this.fechaCaudidad = fechaCaudidad;
+		this.precio = precio;
+	}
+
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getMarca() {
+		return marca;
+	}
+
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
+
+	public String getSabor() {
+		return sabor;
+	}
+
+	public void setSabor(String sabor) {
+		this.sabor = sabor;
+	}
+
+	public int getCantidad() {
+		return cantidad;
+	}
+
+	public void setCantidad(int cantidad) {
+		this.cantidad = cantidad;
+	}
+
+	public Date getFechaCaudidad() {
+		return fechaCaudidad;
+	}
+
+	public void setFechaCaudidad(Date fechaCaudidad) {
+		this.fechaCaudidad = fechaCaudidad;
+	}
+
+	public double getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(double precio) {
+		this.precio = precio;
+	}
+
+	@Override
+	public String toString() {
+		return "Productos \033[32m \ncodigo:" + codigo + "\n \\033[33m \n nombre=" + nombre + "\n \033[34m marca=" + marca + "\n \033[35m sabor=" + sabor
+				+ "\033[36m cantidad=" + cantidad + ", \n fechaCaudidad=" + fechaCaudidad + ", precio=" + precio + "]";
+	}
+
+	
+}

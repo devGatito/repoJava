@@ -1,0 +1,132 @@
+package ejemplo5;
+
+import java.time.LocalDateTime;
+
+public class Celulares {
+	
+	String codigo;
+	String marca;
+	String modelo;
+	String color;
+	int capacidad;
+	int inventario;
+	int cantidadVendidas;
+	LocalDateTime fechaVenta;
+	double precio;
+	double ganancias;
+	
+	public Celulares() {
+		
+	}
+
+	public Celulares(String codigo) {
+		super();
+		this.codigo = codigo;
+	}
+
+	public Celulares(String codigo, String marca, String modelo, String color, int capacidad, int inventario,
+			int cantidadVendidas, LocalDateTime fechaVenta, double precio, double ganancias) {
+		super();
+		this.codigo = codigo;
+		this.marca = marca;
+		this.modelo = modelo;
+		this.color = color;
+		this.capacidad = capacidad;
+		this.inventario = inventario;
+		this.cantidadVendidas = cantidadVendidas;
+		this.fechaVenta = fechaVenta;
+		this.precio = precio;
+		this.ganancias = ganancias;
+	}
+
+	public String getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
+
+	public String getMarca() {
+		return marca;
+	}
+
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
+
+	public String getModelo() {
+		return modelo;
+	}
+
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public int getCapacidad() {
+		return capacidad;
+	}
+
+	public void setCapacidad(int capacidad) {
+		this.capacidad = capacidad;
+	}
+
+	public int getInventario() {
+		return inventario;
+	}
+
+	public void setInventario(int inventario) {
+		this.inventario = inventario;
+	}
+
+	public int getCantidadVendidas() {
+		return cantidadVendidas;
+	}
+
+	public void setCantidadVendidas(int cantidadVendidas) {
+		this.cantidadVendidas = cantidadVendidas;
+	}
+
+	public LocalDateTime getFechaVenta() {
+		return fechaVenta;
+	}
+
+	public void setFechaVenta(LocalDateTime fechaVenta) {
+		this.fechaVenta = fechaVenta;
+	}
+
+	public double getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(double precio) {
+		this.precio = precio;
+	}
+
+	public double getGanancias() {
+		return ganancias;
+	}
+
+	public void setGanancias(double ganancias) {
+		this.ganancias = ganancias;
+	}
+
+	@Override
+	public String toString() {
+		return "Celulares [codigo=" + codigo + ", marca=" + marca + ", modelo=" + modelo + ", color=" + color
+				+ ", capacidad=" + capacidad + ", inventario=" + inventario + ", cantidadVendidas=" + cantidadVendidas
+				+ ", fechaVenta=" + fechaVenta + ", precio=" + precio + ", ganancias=" + ganancias + "]";
+	}
+	
+	
+	
+
+}

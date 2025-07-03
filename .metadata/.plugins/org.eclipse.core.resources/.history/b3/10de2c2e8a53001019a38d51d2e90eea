@@ -1,0 +1,74 @@
+package ejercicio5;
+
+import java.time.LocalDateTime;
+import java.util.Scanner;
+
+import ejemplo5.Implementacion;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		String codigo;
+		String nombre;
+		String tipo;
+		String color;
+		int inventario;
+		int cantidadVendida;
+		LocalDateTime fechaVenta;
+		double precio;
+		double ganancias;
+
+		int menu;
+
+		LocalDateTime hoy = LocalDateTime.now();
+
+		Scanner lec = new Scanner(System.in);
+
+		Videojuegos v = new Videojuegos("v1", "ZELDA", "VIOELENCIA", "GRIS", 12, 30, hoy, 900, 50);
+
+		Implementacion imp = new Implementacion();
+		
+		do {
+			
+			System.out.println("\n===MENU===");
+			System.out.println("1.- Alta CD");
+			System.out.println("2.- Guardar");
+			System.out.println("3.- Buscar por ID");
+			System.out.println("4.- Editar");
+			System.out.println("5.- Eliminar");
+			System.out.println("6.- LISTAR");
+			System.out.println("7.- Realizar pedido (comprar)");
+			System.out.println("8.- Buscar por fecha");
+			System.out.println("9.- Salir..");
+			System.out.println("10.- Seleccione una opcion");
+		menu = lec.nextInt();
+		
+		switch(menu) {
+		case 1:
+			break;
+			
+		case 2:
+			break;
+		case 3:
+			break;
+		case 4:
+			break;
+		case 5:
+			break;
+		case 6:
+			break;
+		case 7:
+			break;
+		case 8:
+			break;
+		case 9:
+			break;
+	
+		
+		}
+		}while(menu != 9);
+
+	}
+
+}

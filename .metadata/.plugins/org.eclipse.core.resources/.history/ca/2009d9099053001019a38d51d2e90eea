@@ -1,0 +1,243 @@
+package ejercicio5;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+import java.util.Scanner;
+
+
+
+
+
+
+
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		String codigo;
+		String nombre;
+		String tipo;
+		String color;
+		int inventario;
+		int cantidadVendida;
+		LocalDateTime fechaVenta;
+		double precio;
+		double ganancias;
+
+		int menu;
+
+		LocalDateTime hoy = LocalDateTime.now();
+
+		Scanner lec = new Scanner(System.in);
+
+		Videojuegos v = new Videojuegos("v1", "ZELDA", "VIOELENCIA", "GRIS", 12, 30, hoy, 900, 50);
+		Videojuegos v1 = new Videojuegos("v2", "FORZA", "VIOELENCIA", "GRIS", 12, 30, hoy, 900, 50);
+		Videojuegos v2 = new Videojuegos("v3", "MINECRAFT", "VIOELENCIA", "GRIS", 12, 30, hoy, 900, 50);
+		Videojuegos v3 = new Videojuegos("v4", "ZELDA", "VIOELENCIA", "GRIS", 12, 30, hoy, 900, 50);
+
+
+
+		Implementacion imp = new Implementacion();
+		
+		do {
+			
+			
+			System.out.println("\n===MENU===");
+			System.out.println("1.- Alta CD");
+			System.out.println("2.- Guardar");
+			System.out.println("3.- Buscar por ID");
+			System.out.println("4.- Editar");
+			System.out.println("5.- Eliminar");
+			System.out.println("6.- LISTAR");
+			System.out.println("7.- Realizar pedido (comprar)");
+			System.out.println("8.- Buscar por fecha");
+			System.out.println("10.- Seleccione una opcion");
+		lec = new Scanner(System.in);
+		menu = lec.nextInt();
+		
+		if(menu < 0 || menu >10) {
+			System.out.print("Porfavor escoje una variable real dentro del 1 al 10");
+		}else {
+			
+		
+		switch(menu) {
+		case 1:
+			imp.guardar(v);
+			imp.guardar(v1);
+			imp.guardar(v2);
+			imp.guardar(v3);
+			break;
+			
+		case 2:
+			System.out.print("Guardar datos CD");
+			System.out.print("\nIngresa el codigo:");
+			lec = new Scanner(System.in);
+			codigo = lec.nextLine();
+			
+			System.out.print("\nIngresa el nombre:");
+			lec = new Scanner(System.in);
+			nombre = lec.nextLine();
+			
+			System.out.print("\nIngresa el tipo:");
+			lec = new Scanner(System.in);
+			tipo = lec.nextLine();
+			
+			System.out.print("\nIngresa el color:");
+			lec = new Scanner(System.in);
+			color = lec.nextLine();
+			
+			System.out.print("\n Cuantas cantidades quieres anadir");
+			lec = new Scanner(System.in);
+			inventario = lec.nextInt();
+			
+			System.out.print("\n Ingresa la cantidad de ventas");
+			lec = new Scanner(System.in);
+			cantidadVendida = lec.nextInt();
+			
+			System.out.print("\n Ingresa el precio del juego");
+			lec = new Scanner(System.in);
+			precio = lec.nextDouble();
+			
+			System.out.print("\n Ingresa las ganancias");
+			lec = new Scanner(System.in);
+			ganancias = lec.nextDouble();
+
+			Videojuegos v5 = new Videojuegos(codigo, nombre, tipo,color, inventario, cantidadVendida, hoy, precio, ganancias);
+			imp.guardar(v5);
+
+
+			
+			
+			//LocalDateTime fechaVenta;
+			
+
+
+			break;
+		case 3:
+			
+			System.out.print("Ingrese el codigo a buscar");
+			lec = new Scanner(System.in);
+			String codigoBuscar = lec.nextLine();
+			Videojuegos encontrados = imp.buscarId(codigoBuscar);
+			System.out.print(encontrados != null ? encontrados : "Videojuego no encontrado");
+			break;
+		case 4:
+			
+			System.out.print("Ingrese el codigo del videojuego");
+			lec =  new Scanner(System.in);
+			String codigoEditar = lec.nextLine();
+			Videojuegos editar = imp.buscarId(codigoEditar);
+
+			if (editar == null) {
+				System.out.print("videojuego no encontrado");
+				break;
+			} else {
+				
+				lec = new Scanner(System.in);
+				System.out.print("Ingrese el nuevo nombre");
+				nombre = lec.nextLine();
+
+				System.out.print("Ingrese el nuevo tipo");
+				lec = new Scanner(System.in);
+				tipo = lec.nextLine();
+
+				System.out.print("Ingrese el nuevo inventario");
+				lec = new Scanner(System.in);
+				inventario = lec.nextInt();
+
+				System.out.print("Ingrese el nuevo precio");
+				precio = lec.nextInt();
+
+				editar.setNombre(nombre);
+				editar.setTipo(tipo);
+				editar.setInventario(inventario);
+				editar.setPrecio(precio);
+
+				imp.editar(editar);
+				System.out.print("El precio se actualizo se edito con exito");
+
+			}
+			break;
+		case 5:
+			System.out.print("Ingrese el codigo a eliminar");
+			codigo = lec.nextLine();
+			Videojuegos eliminar = imp.buscarId(codigo);
+
+			if (eliminar == null) {
+				System.out.print("videojuego no encontrado");
+				break;
+			} else {
+				imp.eliminar(eliminar);
+				System.out.print("videojuego eliminado con exito");
+
+			}
+			break;
+		case 6:
+			System.out.print("\nLista de Celulares" + "\n" + imp.listar());
+
+			break;
+		case 7:
+			
+			System.out.print("\nIngrese el codigo al celular a comprar");
+			codigo = lec.nextLine();
+			Videojuegos codCp = imp.buscarId(codigo);
+			if (codCp == null) {
+				System.out.print("Codigo no encontrado");
+			} else {
+				System.out.print("Videojuego encontrado" + codCp);
+				if (codCp.getInventario() > 0) {
+					System.out.print("Ingresa el codigo a ingresar");
+					int cantidad = lec.nextInt();
+					if (cantidad > codCp.getInventario()) {
+						System.out.print(
+								"Stock insufiente, solo hay" + codCp.getInventario() + "unidades disponibles");
+
+					} else {
+						codCp.setInventario(codCp.getInventario() - cantidad);
+						codCp.setCantidadVendida(codCp.getCantidadVendida() + cantidad);
+						
+						ganancias = codCp.getPrecio() * cantidad;
+						codCp.setGanancias(codCp.getGanancias() + ganancias);
+						codCp.setFechaVenta(LocalDateTime.now());
+						
+						imp.editar(codCp);
+						System.out.print("Compra realizada con exito");
+					}
+				}
+			}
+
+			break;
+		case 8:
+			System.out.print("Ingrese la cantidad de fecha de venta(yyyy-MM-dd)");
+			codigo = lec.nextLine();
+			
+			try {
+				LocalDate fecha = LocalDate.parse(codigo,DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+				List<Videojuegos> resp = imp.buscarPorFecha(fecha);
+				
+				if(resp.isEmpty()) {
+					System.out.print("no se encontraron celulares");
+				}else {
+					System.out.print("se encontro" + resp);
+				}
+				
+			}catch(Exception e) {
+				System.out.print("Error encontrado:" + e);
+				
+			}
+			break;
+		case 9:
+			System.out.print("Saliendo del programa:" );
+
+			break;
+	
+		}
+		}
+		}while(menu != 9);
+
+	}
+
+}

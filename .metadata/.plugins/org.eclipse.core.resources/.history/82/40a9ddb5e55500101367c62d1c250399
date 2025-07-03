@@ -1,0 +1,155 @@
+package ejemplo06;
+
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		// valores cliente
+		String nombreC;
+		String appC;
+		LocalDateTime fechaNacimientoC;
+		int edadC = 0;
+		String sexoC;
+		String correoC;
+		long telefonoC;
+
+		String nombreP;
+		String marcaP;
+		String saborP;
+		int cantidadP;
+		double precioP;
+
+		Clientes c = null;
+		Productos p = null;
+
+		Implementacion imp = new Implementacion();
+
+		Scanner lec;
+		int indice, menu, menuC, menuP;
+		DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+		do {
+			System.out.print("\n MENU");
+			System.out.print("\n 1.- modulo clientes");
+			System.out.print("\n 2.- modulo productos");
+			System.out.print("\n 3.- salir");
+
+			lec = new Scanner(System.in);
+			menu = lec.nextInt();
+
+			if (menu < 0 || menu > 3) {
+				System.out.print("SELECCIONA UNA OPCION VALIDA");
+
+			} else {
+				switch (menu) {
+				case 1:
+					do {
+						System.out.print("Lista de Opciones");
+						System.out.print("1. alta codigo DR");
+						System.out.print("2 guardar");
+						System.out.print("3. buscar");
+						System.out.print("4. editar");
+						System.out.print("5. eliminar");
+						System.out.print("6. listar");
+
+						System.out.print("7. salir");
+						lec = new Scanner(System.in);
+						menuC = lec.nextInt();
+
+						switch (menuC) {
+						case 1:
+							Clientes cliente = new Clientes("Juan", "Morales", LocalDateTime.now(), 30, "M",
+									"elias@gmail.com", 7621240911L);
+							Clientes cliente1 = new Clientes("Juana", "Ortega", LocalDateTime.now(), 30, "M",
+									"elias@gmail.com", 5524240911L);
+							Clientes cliente2 = new Clientes("Victor", "Morales", LocalDateTime.now(), 30, "M",
+									"elias@gmail.com", 3221240911L);
+							Clientes cliente3 = new Clientes("Maria", "Morales", LocalDateTime.now(), 30, "M",
+									"elias@gmail.com", 1621240911L);
+							imp.guardar(cliente, "cliente");
+							imp.guardar(cliente1, "cliente");
+							imp.guardar(cliente2, "cliente");
+							imp.guardar(cliente3, "cliente");
+
+							break;
+						case 2:
+							System.out.print("Ingresa el nombre");
+							lec = new Scanner(System.in);
+							nombreC = lec.nextLine();
+
+							System.out.print("Ingresa el apellido");
+							lec = new Scanner(System.in);
+							appC = lec.nextLine();
+
+							System.out.print("Ingresa la fecha");
+							lec = new Scanner(System.in);
+							String fechaString = lec.nextLine();
+
+							LocalDate fechaConvertir = LocalDate.parse(fechaString, formatoFecha);
+							LocalDateTime formatoFechaSalida = fechaConvertir.atStartOfDay();
+							fechaNacimientoC = formatoFechaSalida;
+
+							System.out.print("Ingresa la edad");
+							lec = new Scanner(System.in);
+							edadC = lec.nextInt();
+
+							System.out.print("Ingresa el sexo");
+							lec = new Scanner(System.in);
+							sexoC = lec.nextLine();
+
+							System.out.print("Ingresa el correo");
+							lec = new Scanner(System.in);
+							correoC = lec.nextLine();
+
+							System.out.print("Ingresa el apellido");
+							lec = new Scanner(System.in);
+							telefonoC = lec.nextLong();
+
+							cliente = new Clientes(nombreC, appC, fechaNacimientoC, edadC, sexoC, correoC, telefonoC);
+
+							imp.guardar(cliente, "cliente");
+
+							break;
+						case 3:
+							System.out.print("Ingresa el id");
+							lec = new Scanner(System.in);
+							int id = lec.nextInt();
+							
+							cliente = (Clientes) imp.buscar(id, "cliente");
+							System.out.print("Se encontro el cliente" + cliente);
+							
+							
+							break;
+						case 4:
+							break;
+						case 5:
+							break;
+						case 6:
+							break;
+						case 7:
+							break;
+
+						}
+
+					} while (menuC != 7);
+					break;
+				case 2:
+					break;
+				case 3:
+					break;
+
+				}
+			}
+
+		} while (menu != 3);
+		lec.close();
+
+	}
+
+}

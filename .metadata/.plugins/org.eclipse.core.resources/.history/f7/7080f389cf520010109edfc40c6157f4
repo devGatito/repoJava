@@ -1,0 +1,39 @@
+package ejercicio4;
+
+import java.util.HashMap;
+
+public class Implementacion implements metodos{
+	HashMap<Integer,Computadoras> hash = new HashMap<Integer,Computadoras>();
+
+	@Override
+	public void eliminar(Computadoras computadora) {
+		if(hash.isEmpty()) {
+			System.out.print("Que voy a borrar si no hay nada");
+		}
+	}
+
+	@Override
+	public void editar(Computadoras computadora) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void guardar(Computadoras computadora) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Computadoras buscarComputadoras(Computadoras computadora) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HashMap<Integer, Computadoras> listar() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

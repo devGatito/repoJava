@@ -1,0 +1,111 @@
+package libros;
+
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner lec = new Scanner(System.in);
+
+		Empleados e = null;
+		Libros l = null;
+		int menu, menuC, menuP, id;
+
+		String nombre;
+		String app;
+		LocalDateTime fechaNacimiento;
+
+		int edad;
+		String sexo;
+		String correo;
+		int telefono;
+
+		Implementacion imp = new Implementacion();
+
+		DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+		do {
+			System.out.print("\n MENU");
+			System.out.print("\n1.-Empleados");
+			System.out.print("\n 2.-Libros");
+			System.out.print("\n 3.-Salir ");
+
+			menu = lec.nextInt();
+			if (menu < 0 || menu > 3) {
+				System.out.print("\033[34m SELECCIONA UNA OPCION VALIDA \033[0m");
+
+			} else {
+				switch (menu) {
+				case 1:
+					do {
+						System.out.print("\n Lista de Opciones");
+						System.out.print("\n 1. alta codigo DR");
+						System.out.print("\n 2 guardar");
+						System.out.print("\n 3. buscar");
+						System.out.print("\n 4. editar");
+						System.out.print("\n 5. eliminar");
+						System.out.print("\n 6. listar");
+
+						System.out.print("\n 7. salir");
+						menuC = lec.nextInt();
+
+						if (menuC < 0 || menuC > 7) {
+							System.out.print("\033[34m SELECCIONA UNA OPCION VALIDA \033[0m");
+
+						} else {
+							switch (menuC) {
+							case 1:
+								 System.out.print("\n 1. alta codigo DR");
+				                    Libros l1 = new Libros("Cien años de soledad", "Gabriel García Márquez", 432, "Azul", 
+				                                          LocalDateTime.now(), "Ficción");
+				                    imp.guardar(l1, "libros");
+				                    System.out.print("Datos Guardados");
+				                    
+								break;
+
+							case 2:
+								
+
+							case 3:
+								System.out.print("\n Ingresa la posicion a buscar:");
+								id = lec.nextInt();
+
+								e = (Empleados) imp.buscar(id, "empleado");
+								System.out.print(e);
+
+								break;
+							case 4:
+								System.out.print("\n Posicion a editar:");
+								id = lec.nextInt();
+								
+								
+								
+								
+								 imp.editar(id, e, "empleado");
+								break;
+
+							}
+
+						}
+
+					} while (menuC != 7);
+					break;
+				case 2:
+					break;
+				case 3:
+					System.out.print("Saliendo del programa");
+					break;
+				}
+			}
+
+		} while (menu != 3);
+		lec.close();
+
+	}
+
+}

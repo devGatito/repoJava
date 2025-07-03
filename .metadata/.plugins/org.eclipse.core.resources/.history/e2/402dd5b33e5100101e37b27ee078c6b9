@@ -1,0 +1,38 @@
+package ejemplo02;
+
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Herramientas herramientas = null;
+		Scanner lec = null;
+		int menu, submenu, indice;
+		List<Herramientas> lista = new ArrayList<Herramientas>();
+		
+		
+		do {
+			System.out.println("Seleccion del uno al 7");
+			
+			lec = new Scanner(System.in);
+			menu = lec.nextInt();
+			
+			if(menu <1 || menu >7) {
+				System.out.print("Selecciona una opcion valida");
+			}else {
+				switch(menu) {
+				case 1: 
+					Herramientas herramienta1 = new Herramientas(1,"TRUPER","JARDINERIA","NARANJA","TIJERAS",10,150);
+					break;
+				}
+			}
+				
+		}while(menu !=7);
+
+	}	
+	
+
+}

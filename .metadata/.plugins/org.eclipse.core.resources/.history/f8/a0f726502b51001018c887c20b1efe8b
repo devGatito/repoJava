@@ -1,0 +1,56 @@
+package ejercicio_02;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Contacto newContacto = new Contacto(1,"\n Elias", "Soto", "7621240911","eliasmisaelsotojimenez1@gmail.com","calle de lomas","");
+		Contacto newContacto3 = new Contacto(2,"\n Lola", "Soto", "7621240911","eliasmisaelsotojimenez1@gmail.com","calle de lomas","");
+
+		Contacto newContacto1 = new Contacto(3,"\n Steren", "", "305684","test@gmail.com","calle de pedro martin","");
+		Contacto newContacto2 = new Contacto(4,"\n Batman", "", "34335656","eliasmisaelsotojimenez1@gmail.com","calle de pedro martin","");
+
+
+		System.out.println(newContacto);
+		List<Contacto> lista = new ArrayList<Contacto>();
+		lista.add(newContacto);
+		lista.add(newContacto1);
+		lista.add(newContacto2);
+		lista.add(newContacto3);
+
+
+		
+		System.out.println( "\n"+lista);
+		
+		Contacto buscarContacto = lista.get(1);
+		System.out.println("BUSCANDO CONTACTO \n" + buscarContacto);
+		
+		System.out.println("METODO EDITAR\n");
+		Contacto contatoEditar = lista.get(1);
+		contatoEditar.setId(1);
+
+		lista.set(0, contatoEditar);
+		System.out.print("\nSe encontro el el numero que quiere editar" + contatoEditar);
+		lista.remove(1);
+		System.out.println("\n Metodo Actualizado" + lista );
+		
+		String buscarNumero = "7621240911";
+	
+		System.out.print( "\n Metodo para buscar "+ buscarNumero);
+		lista.stream().filter(a-> a.getTelefono() == buscarNumero).forEach(b -> {
+			System.out.println("\n se encontro el telefono por numero de puertas" + b);
+		});;
+		
+
+		
+
+		
+
+	}
+
+}

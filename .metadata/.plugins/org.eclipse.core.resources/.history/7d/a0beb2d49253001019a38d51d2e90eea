@@ -1,0 +1,211 @@
+package ejemplo5;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		String codigo;
+		String marca;
+		String modelo;
+		String color;
+		int capacidad;
+		int inventario;
+		int cantidadVendidas;
+		double precio;
+		double ganancias;
+		int menu;
+
+		LocalDateTime fechaVenta;
+		LocalDateTime hoy = LocalDateTime.now();
+
+		Scanner lec = new Scanner(System.in);
+
+		Celulares cel = new Celulares("cel01", "MOTOROLA", "DELL", "ROJO", 12, 30, 40, hoy, 900, 0);
+		Celulares cel1 = new Celulares("cel02", "POCO", "DELL", "ROJO", 12, 30, 40, hoy, 900, 0);
+		Celulares cel2 = new Celulares("cel03", "MOTOROLA", "DELL", "ROJO", 12, 30, 40, hoy, 900, 0);
+		Celulares cel3 = new Celulares("cel04", "LENOVO", "DELL", "ROJO", 12, 30, 40, hoy, 900, 0);
+
+		Implementacion imp = new Implementacion();
+
+		do {
+			System.out.print("\n==Bievenido==");
+			System.out.print("\n 1.- ALTA");
+			System.out.print("\n 2.- Guardar");
+			System.out.print("\n 3.- Buscar por id");
+			System.out.print("\n 4.- Editar");
+			System.out.print("\n 5.- Eliminar");
+			System.out.print("\n 6.- Listar");
+			System.out.print("\n 7.- Realizar pedido (comprar)");
+			System.out.print("\n 8.- Buscar por fecha");
+			System.out.print("\n 9.- Salir");
+
+			menu = lec.nextInt();
+			lec.nextLine();
+
+			switch (menu) {
+			case 1:
+				imp.guardar(cel);
+				imp.guardar(cel1);
+				imp.guardar(cel2);
+				imp.guardar(cel3);
+
+				break;
+
+			case 2:
+				System.out.print("Ingresa el codigo");
+				codigo = lec.nextLine();
+
+				System.out.print("Ingresa la marca");
+				marca = lec.nextLine();
+
+				System.out.print("Ingresa el modelo");
+				modelo = lec.nextLine();
+
+				System.out.print("Ingresa el color");
+				color = lec.nextLine();
+
+				System.out.print("Ingresa la ca" + "pacidad");
+				capacidad = lec.nextInt();
+
+				System.out.print("Ingresa el inventario");
+				inventario = lec.nextInt();
+
+				System.out.print("Ingresa la cantidades Vendidas");
+				cantidadVendidas = lec.nextInt();
+
+				System.out.print("Ingresa las ganancias");
+				cantidadVendidas = lec.nextInt();
+
+				// LocalDateTime fechaVenta;
+
+				System.out.print("Ingresa el precio");
+				precio = lec.nextInt();
+
+				Celulares nuevoCel = new Celulares(codigo, marca, modelo, color, capacidad, inventario,
+						cantidadVendidas, hoy, cantidadVendidas, precio);
+
+				imp.guardar(nuevoCel);
+
+				break;
+			case 3:
+				System.out.print("Ingrese el codigo a buscar");
+				String codigoBuscar = lec.nextLine();
+				Celulares encontrados = imp.buscarId(codigoBuscar);
+				System.out.print(encontrados != null ? encontrados : "Celular no encontrado");
+				break;
+			case 4:
+
+				System.out.print("Ingrese el codigo de celular");
+				String codigoEditar = lec.nextLine();
+				Celulares editar = imp.buscarId(codigoEditar);
+
+				if (editar == null) {
+					System.out.print("Celular no encontrado");
+					break;
+				} else {
+					System.out.print("Ingrese el nuevo modelo");
+					modelo = lec.nextLine();
+
+					System.out.print("Ingrese el nuevo color");
+					color = lec.nextLine();
+
+					System.out.print("Ingrese el nuevo inventario");
+					inventario = lec.nextInt();
+
+					System.out.print("Ingrese el nuevo precio");
+					precio = lec.nextInt();
+
+					editar.setModelo(modelo);
+					editar.setColor(color);
+					editar.setInventario(inventario);
+					editar.setPrecio(precio);
+
+					imp.editar(editar);
+					System.out.print("El celular se edito con exito");
+
+				}
+				break;
+			case 5:
+				System.out.print("Ingrese el codigo a eliminar");
+				codigo = lec.nextLine();
+				Celulares eliminar = imp.buscarId(codigo);
+
+				if (eliminar == null) {
+					System.out.print("Celular no encontrado");
+					break;
+				} else {
+					imp.eliminar(eliminar);
+					System.out.print("Celular eliminado con exito");
+
+				}
+
+				break;
+			case 6:
+				System.out.print("\nLista de Celulares" + "\n" + imp.listar());
+				break;
+			case 7:
+				System.out.print("\nIngrese el codigo al celular a comprar");
+				codigo = lec.nextLine();
+				Celulares codCp = imp.buscarId(codigo);
+				if (codCp == null) {
+					System.out.print("Codigo no encontrado");
+				} else {
+					System.out.print("Celular encontrado" + codCp);
+					if (codCp.getInventario() > 0) {
+						System.out.print("Ingresa el codigo a ingresar");
+						int cantidad = lec.nextInt();
+						if (cantidad > codCp.getInventario()) {
+							System.out.print(
+									"Stock insufiente, solo hay" + codCp.getInventario() + "unidades disponibles");
+
+						} else {
+							codCp.setInventario(codCp.getInventario() - cantidad);
+							codCp.setCantidadVendidas(codCp.getCantidadVendidas() + cantidad);
+							
+							ganancias = codCp.getPrecio() * cantidad;
+							codCp.setGanancias(codCp.getGanancias() + ganancias);
+							codCp.setFechaVenta(LocalDateTime.now());
+							
+							imp.editar(codCp);
+							System.out.print("Compra realizada con exito");
+						}
+					}
+				}
+				break;
+			case 8:
+				System.out.print("Ingrese la cantidad de fecha de venta(yyyy-MM-dd)");
+				codigo = lec.nextLine();
+				
+				try {
+					LocalDate fecha = LocalDate.parse(codigo,DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+					List<Celulares> resp = imp.buscarPorFecha(fecha);
+					
+					if(resp.isEmpty()) {
+						System.out.print("no se encontraron celulares");
+					}else {
+						System.out.print("se encontro" + resp);
+					}
+					
+				}catch(Exception e) {
+					System.out.print("Error encontrado:" + e);
+					
+				}
+
+				break;
+			case 9:
+				System.out.print("Saliendo el programa" );
+
+				break;
+			}
+		} while (menu != 9);
+		lec.close();
+
+	}
+
+}

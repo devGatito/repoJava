@@ -1,0 +1,45 @@
+package ejemplo06;
+
+import java.time.LocalDateTime;
+
+public class Clientes {
+
+	String nombre;
+	String app;
+	LocalDateTime fechaNacimiento;
+	int edad;
+	String sexo;
+	String correo;
+	long telefono;
+
+	public Clientes() {
+	}
+
+	public Clientes(String nombre) {
+
+	}
+
+	public Clientes(int id) {
+
+	}
+
+	public Clientes(String nombre, String app, LocalDateTime fechaNacimiento, int edad, String sexo, String correo,
+			long telefono) {
+		super();
+		this.nombre = nombre;
+		this.app = app;
+		this.fechaNacimiento = fechaNacimiento;
+		this.edad = edad;
+		this.sexo = sexo;
+		this.correo = correo;
+		this.telefono = telefono;
+	}
+
+	@Override
+	public String toString() {
+		return "Clientes \n nombre: " + nombre + "\n app:" + app + "\n fechaNacimiento:" + fechaNacimiento + "\n edad: " + edad
+				+ "\n sexo:" + sexo + "\n correo=" + correo + "\n telefono=" + telefono;
+	}
+
+	
+}

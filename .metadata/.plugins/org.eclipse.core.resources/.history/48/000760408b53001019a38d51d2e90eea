@@ -1,0 +1,119 @@
+package ejercicio5;
+
+import java.time.LocalDateTime;
+import java.util.Scanner;
+
+import ejemplo5.Implementacion;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		String codigo;
+		String nombre;
+		String tipo;
+		String color;
+		int inventario;
+		int cantidadVendida;
+		LocalDateTime fechaVenta;
+		double precio;
+		double ganancias;
+
+		int menu;
+
+		LocalDateTime hoy = LocalDateTime.now();
+
+		Scanner lec = new Scanner(System.in);
+
+		Videojuegos v = new Videojuegos("v1", "ZELDA", "VIOELENCIA", "GRIS", 12, 30, hoy, 900, 50);
+		Videojuegos v1 = new Videojuegos("v1", "ZELDA", "VIOELENCIA", "GRIS", 12, 30, hoy, 900, 50);
+		Videojuegos v2 = new Videojuegos("v1", "ZELDA", "VIOELENCIA", "GRIS", 12, 30, hoy, 900, 50);
+		Videojuegos v3 = new Videojuegos("v1", "ZELDA", "VIOELENCIA", "GRIS", 12, 30, hoy, 900, 50);
+
+
+
+
+		Implementacion imp = new Implementacion();
+		
+		do {
+			
+			System.out.println("\n===MENU===");
+			System.out.println("1.- Alta CD");
+			System.out.println("2.- Guardar");
+			System.out.println("3.- Buscar por ID");
+			System.out.println("4.- Editar");
+			System.out.println("5.- Eliminar");
+			System.out.println("6.- LISTAR");
+			System.out.println("7.- Realizar pedido (comprar)");
+			System.out.println("8.- Buscar por fecha");
+			System.out.println("9.- Salir..");
+			System.out.println("10.- Seleccione una opcion");
+		menu = lec.nextInt();
+		
+		switch(menu) {
+		case 1:
+			System.out.print("Dar de Alta CD");
+			imp.guardar(v);
+			imp.guardar(v1);
+			imp.guardar(v2);
+			imp.guardar(v3);
+			break;
+			
+		case 2:
+			System.out.print("Guardar datos CD");
+			System.out.print("\nIngresa el codigo:");
+			codigo = lec.nextLine();
+			
+			System.out.print("\nIngresa el nombre:");
+			nombre = lec.nextLine();
+			
+			System.out.print("\nIngresa el tipo:");
+			tipo = lec.nextLine();
+			
+			System.out.print("\nIngresa el color:");
+			color = lec.nextLine();
+			
+			System.out.print("\n Cuantas cantidades quieres anadir");
+			inventario = lec.nextInt();
+			
+			System.out.print("\n Ingresa la cantidad de ventas");
+			cantidadVendida = lec.nextInt();
+			
+			System.out.print("\n Ingresa el precio del juego");
+			precio = lec.nextDouble();
+			
+			System.out.print("\n Ingresa las ganancias");
+			ganancias = lec.nextDouble();
+
+			Videojuegos v5 = new Videojuegos(codigo, nombre, tipo,color, inventario, cantidadVendida, hoy, precio, ganancias);
+
+
+			
+			
+			//LocalDateTime fechaVenta;
+			
+
+
+			break;
+		case 3:
+			break;
+		case 4:
+			break;
+		case 5:
+			break;
+		case 6:
+			break;
+		case 7:
+			break;
+		case 8:
+			break;
+		case 9:
+			break;
+	
+		
+		}
+		}while(menu != 9);
+
+	}
+
+}

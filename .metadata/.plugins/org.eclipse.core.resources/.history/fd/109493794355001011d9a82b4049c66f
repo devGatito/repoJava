@@ -1,0 +1,66 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		Libros libro = null;
+		Scanner lec;
+
+		int ID;
+
+		char genero;
+
+		int yearPublicacion;
+		int menu;
+
+		boolean Disponible;
+
+		double Precio;
+
+		String Título;
+
+		String Autor;
+		
+		do {
+			System.out.print("\n ###MENU###");
+			System.out.print("\n 1.-Alta de libros con código duro");
+			System.out.print("\n 2.-Agregar nuevo libro");
+			System.out.print("\n 3.-Buscar libro");
+			System.out.print("\n 4.-Editar libro");
+			System.out.print("\n 5.-Eliminar libro");
+			System.out.print("\n 6.-Listar todos los libros");
+			System.out.print("\n 7.- Salir");
+			
+		lec = new Scanner(System.in); //limpiar el bufer
+		menu = lec.nextInt();
+			
+		switch(menu) {
+		case 1:
+			Libros v1 = new Libros();
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		case 4:
+			break;
+		case 5:
+			break;
+		case 6:
+			break;
+		case 7:
+			System.out.print("Saliendo");
+			break;
+		
+			
+		
+		}
+			
+		}while(menu != 7);
+		
+		lec.close();
+
+	}
+
+}

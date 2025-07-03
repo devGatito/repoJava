@@ -1,0 +1,14 @@
+package ejercicio6;
+
+import java.util.List;
+
+public interface metodos {
+	
+	public void guardar(Vuelos vuelo);
+	public void eliminar(Vuelos vuelo);
+	public void editar(Vuelos vuelo);
+	
+	public Vuelos buscarVuelo(Vuelos vuelo);
+	List<String,Object> listar();
+
+}

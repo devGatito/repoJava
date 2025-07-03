@@ -1,0 +1,40 @@
+package ejemplo04;
+
+import java.util.HashMap;
+
+public class Implementacion implements metodos {
+	HashMap<Integer, Productos> hash = new HashMap<Integer,Productos>();
+
+	@Override
+	public void guardar(Productos productos) {
+		
+		
+		
+	}
+
+	@Override
+	public void editar(Productos productos) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void eliminar(Productos productos) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Productos buscar(Productos producto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HashMap<Integer, Productos> listar() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+
+}

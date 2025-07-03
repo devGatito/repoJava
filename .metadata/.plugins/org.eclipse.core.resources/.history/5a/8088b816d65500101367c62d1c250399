@@ -1,0 +1,10 @@
+package ejemplo06;
+
+public class Productos {
+	String nombre;
+	String marca;
+	String sabor;
+	int cantidad;
+	int precio;
+
+}

@@ -1,0 +1,57 @@
+package ejemplo5;
+
+import java.time.LocalDateTime;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		String codigo;
+		String marca;
+		String modelo;
+		String color;
+		int capacidad;
+		int inventario;
+		int cantidadVendidas;
+		double precio;
+		double ganancias;
+		int menu;
+		
+		LocalDateTime fechaVenta;
+		LocalDateTime hoy = LocalDateTime.now();
+		
+		Scanner lec = new Scanner(System.in);
+
+		Celulares cel = new Celulares("cel01","MOTOROLA","DELL","ROJO",12,30,40,hoy,900,0);
+		Celulares cel1 = new Celulares("cel02","POCO","DELL","ROJO",12,30,40,hoy,900,0);
+		Celulares cel2 = new Celulares("cel03","MOTOROLA","DELL","ROJO",12,30,40,hoy,900,0);
+		Celulares cel3 = new Celulares("cel04","LENOVO","DELL","ROJO",12,30,40,hoy,900,0);
+		
+		Implementacion imp = new Implementacion();
+		imp.guardar(cel);
+		imp.guardar(cel1);
+		imp.guardar(cel2);
+		imp.guardar(cel3);
+		
+		
+		do {
+			System.out.print("\n==Bievenido==");
+			System.out.print("\n 1.-");
+			System.out.print("\n 2.-");
+			System.out.print("\n 3.-");
+			System.out.print("\n 4.-");
+			System.out.print("\n 5.-");
+			System.out.print("\n 6.-");
+			System.out.print("\n 7.-");
+		}while(menu != 7);
+		
+		
+		
+		
+		
+		
+
+	}
+
+}

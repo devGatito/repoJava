@@ -1,0 +1,26 @@
+package ejercicio6;
+
+import java.time.LocalDateTime;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int codigo;
+		String nombreCliente;
+		String app;
+		LocalDateTime fechaNacimiento;
+		int edad = 0;
+		String tipoVuelo;
+		LocalDateTime fechaLlegada;
+		String destino;
+		int horaVuelo = 0;
+		double precio;
+		double ganancias;
+		
+		
+
+	}
+
+}

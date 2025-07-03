@@ -1,0 +1,99 @@
+package libros;
+
+import java.time.LocalDateTime; 
+import java.util.ArrayList;
+import java.util.List;
+
+
+
+
+public class Implementacion implements metodos {
+
+	List<Empleados> listaEmpleados = new ArrayList<Empleados>();
+	List<Libros> listaLibros = new ArrayList<Libros>();
+	
+	Libros libro = new Libros(); 
+	Empleados empleado = new Empleados();  
+
+
+	@Override
+	public void guardar(Object obj, String nombre) {
+		
+ 
+		
+			switch(nombre) {
+			case "empleado":
+				
+				LocalDateTime hoy = LocalDateTime.now();
+				int fechaNacimiento = hoy.getYear() - empleado.getEdad();
+				empleado.setEdad(fechaNacimiento);
+				listaEmpleados.add(empleado);
+				System.out.print("Se guardo la lista de empleados");
+				
+				break;
+				
+			case "libros":
+				 hoy = LocalDateTime.now();
+				 fechaNacimiento = hoy.getYear() - libro.getFechaPublicacion().getYear();
+				libro.setFechaPublicacion(hoy);
+				listaLibros.add(libro);
+				System.out.print("Se guardo la lista de libros");
+				break;
+				
+			
+			
+
+		
+		}
+
+	}
+
+	@Override
+	public void editar(int indice, Object obj, String nombre) {
+		switch(nombre) {
+		case "empleado":
+			empleado = (Empleados) obj;
+			listaEmpleados.set(indice, empleado);
+			System.out.print("\n Se edito el cliente");
+			
+			break;
+		}
+		
+
+	}
+
+	@Override
+	public void eliminar(int indice, Object obj, String nombre) {
+		switch (nombre) {
+		case "empleado":
+			listaEmpleados.remove(indice);
+			System.out.print("\n Se borro el empleado");
+			break;
+
+		case "nombre":
+			listaLibros.remove(indice);
+			System.out.print("\n Se elimino el empleado");
+			break;
+		}
+	}
+
+	@Override
+	public Object buscar(int indice, String nombre) {
+	    if (nombre.equals("empleado")) {
+	        return listaEmpleados.get(indice); 
+	    } else if(nombre.equals("libros")) { 
+	        return listaLibros.get(indice);
+	    }
+	    return null;
+	}
+	
+	@Override
+	public List<Object> listar(String nombre) {
+	    if(nombre.equals("empleado")) { 
+	        System.out.print("\n Lista de empleados: " + listaEmpleados);
+	    } else if(nombre.equals("libros")) { 
+	        System.out.print("\n Lista de libros: " + listaLibros);
+	    }
+	    return null;
+	}
+}

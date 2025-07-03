@@ -1,0 +1,11 @@
+package com.mx.dominio;
+
+public class Ropa {
+String marca;
+String modelo;
+String color;
+double precio;
+
+
+
+}

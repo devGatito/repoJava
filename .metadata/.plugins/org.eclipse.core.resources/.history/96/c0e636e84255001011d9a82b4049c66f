@@ -1,0 +1,52 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		Libros libro = null;
+		Scanner lec;
+
+		int ID;
+
+		char genero;
+
+		int yearPublicacion;
+		int menu;
+
+		boolean Disponible;
+
+		double Precio;
+
+		String Título;
+
+		String Autor;
+		
+		do {
+			System.out.print("\n ###MENU###");
+			System.out.print("\n 1.-");
+			System.out.print("\n 2.-");
+			System.out.print("\n 3.-");
+			System.out.print("\n 4.-");
+			System.out.print("\n 5.-");
+			System.out.print("\n 6.-");
+			System.out.print("\n 7.-");
+			System.out.print("\n 8.-");
+			System.out.print("\n 9.-");
+			System.out.print("\n 10.- Salir");
+			
+		lec = new Scanner(System.in); //limpiar el bufer
+		menu = lec.nextInt();
+			
+		switch(menu) {
+		
+		
+		}
+			
+		}while(menu != 10);
+		
+		lec.close();
+
+	}
+
+}

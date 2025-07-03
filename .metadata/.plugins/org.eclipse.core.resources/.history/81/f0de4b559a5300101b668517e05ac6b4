@@ -1,0 +1,115 @@
+package ejercicio6;
+
+import java.time.LocalDateTime;
+
+public class Vuelos {
+	int codigo;
+	String nombreCliente;
+	String app;
+	LocalDateTime fechaNacimiento;
+	int edad = 0;
+	String tipoVuelo;
+	LocalDateTime fechaLlegada;
+	String destino;
+	int horaVuelo = 0;
+	double precio;
+	double ganancias;
+
+	public Vuelos() {
+
+	}
+
+	public Vuelos(int codigo) {
+		super();
+		this.codigo = codigo;
+	}
+
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
+
+	public String getNombreCliente() {
+		return nombreCliente;
+	}
+
+	public void setNombreCliente(String nombreCliente) {
+		this.nombreCliente = nombreCliente;
+	}
+
+	public String getApp() {
+		return app;
+	}
+
+	public void setApp(String app) {
+		this.app = app;
+	}
+
+	public LocalDateTime getFechaNacimiento() {
+		return fechaNacimiento;
+	}
+
+	public void setFechaNacimiento(LocalDateTime fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
+	}
+
+	public int getEdad() {
+		return edad;
+	}
+
+	public void setEdad(int edad) {
+		this.edad = edad;
+	}
+
+	public String getTipoVuelo() {
+		return tipoVuelo;
+	}
+
+	public void setTipoVuelo(String tipoVuelo) {
+		this.tipoVuelo = tipoVuelo;
+	}
+
+	public LocalDateTime getFechaLlegada() {
+		return fechaLlegada;
+	}
+
+	public void setFechaLlegada(LocalDateTime fechaLlegada) {
+		this.fechaLlegada = fechaLlegada;
+	}
+
+	public String getDestino() {
+		return destino;
+	}
+
+	public void setDestino(String destino) {
+		this.destino = destino;
+	}
+
+	public int getHoraVuelo() {
+		return horaVuelo;
+	}
+
+	public void setHoraVuelo(int horaVuelo) {
+		this.horaVuelo = horaVuelo;
+	}
+
+	public double getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(double precio) {
+		this.precio = precio;
+	}
+
+	public double getGanancias() {
+		return ganancias;
+	}
+
+	public void setGanancias(double ganancias) {
+		this.ganancias = ganancias;
+	}
+
+}

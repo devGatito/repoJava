@@ -1,0 +1,48 @@
+package ejercicio4;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner lec;
+		
+		int menu = 10,submenu;
+		
+		
+		lec = new Scanner(System.in);
+		
+		System.out.print("Ingresa un numero");
+		menu = lec.nextInt();
+	
+		do{
+		
+			System.out.println("Opciones ");
+			System.out.println("1.- Alta codigo duro ");
+			System.out.println("2.- Guardar ");
+			System.out.println("3.- Buscar");
+			System.out.println("4.- Editar");
+			System.out.println("5.- Eliminar");
+			System.out.println("6.- Listar");
+			System.out.println("7.- Buscar por modelo -> expresion lamda");
+			System.out.println("8.- key value");
+			System.out.println("9.- Buscar por color -> forEach");
+		  System.out.println("10.- Cerrar sesion");
+		  if(menu < 0 || menu >10) {
+			  System.out.print("Escoje una opcion valida");
+		  }else {
+			  switch(menu) {
+			  
+			  
+			  }
+		  }
+		  
+		  
+		}while(menu != 5);
+		// TODO Auto-generated method stub
+		
+		
+
+	}
+
+}

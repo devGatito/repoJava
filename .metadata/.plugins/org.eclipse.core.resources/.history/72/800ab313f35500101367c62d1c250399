@@ -1,0 +1,17 @@
+package libros;
+
+import java.time.LocalDateTime;
+
+public class Empleados {
+String nombre;
+String app;
+LocalDateTime fechaNacimiento;
+
+int edad;
+String sexo;
+String correo;
+int telefono;
+
+
+
+}

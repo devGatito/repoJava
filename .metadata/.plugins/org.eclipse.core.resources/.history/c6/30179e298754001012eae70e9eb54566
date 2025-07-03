@@ -1,0 +1,23 @@
+package java0;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Implementacion imp = new Implementacion();
+		Scanner lec;
+		int menu;
+		
+		do {
+			System.out.print("Selecciona un menu");
+			Scanner scanner = lec = new Scanner(System.in); //limpiar el buffer
+			menu = lec.nextInt();
+			
+		}while(menu != 3);
+
+	}
+
+}

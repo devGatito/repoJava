@@ -1,0 +1,170 @@
+package libros;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Implementacion implements metodos {
+    List<Empleados> listaEmpleados = new ArrayList<>();
+    List<Libros> listaLibros = new ArrayList<>();
+
+    @Override
+    public void guardar(Object obj, String nombre) {
+        try {
+            switch(nombre.toLowerCase()) {
+                case "empleado":
+                    Empleados emp = (Empleados) obj;
+                    // Calcular edad automáticamente
+                    LocalDate hoy = LocalDate.now();
+                    int edad = hoy.getYear() - emp.getFechaNacimiento().getYear();
+                    emp.setEdad(edad);
+                    listaEmpleados.add(emp);
+                    System.out.println("Empleado guardado correctamente");
+                    break;
+                    
+                case "libro":
+                    Libros libro = (Libros) obj;
+                    listaLibros.add(libro);
+                    System.out.println("Libro guardado correctamente");
+                    break;
+                    
+                default:
+                    System.out.println("Tipo de objeto no reconocido");
+            }
+        } catch (Exception e) {
+            System.out.println("Error al guardar: " + e.getMessage());
+        }
+    }
+
+    @Override
+    public void editar(int indice, Object obj, String nombre) {
+        try {
+            switch(nombre.toLowerCase()) {
+                case "empleado":
+                    if(indice >= 0 && indice < listaEmpleados.size()) {
+                        listaEmpleados.set(indice, (Empleados) obj);
+                        System.out.println("Empleado editado correctamente");
+                    } else {
+                        System.out.println("Índice no válido");
+                    }
+                    break;
+                    
+                case "libro":
+                    if(indice >= 0 && indice < listaLibros.size()) {
+                        listaLibros.set(indice, (Libros) obj);
+                        System.out.println("Libro editado correctamente");
+                    } else {
+                        System.out.println("Índice no válido");
+                    }
+                    break;
+                    
+                default:
+                    System.out.println("Tipo de objeto no reconocido");
+            }
+        } catch (Exception e) {
+            System.out.println("Error al editar: " + e.getMessage());
+        }
+    }
+
+    @Override
+    public void eliminar(int indice, String nombre) {
+        try {
+            switch(nombre.toLowerCase()) {
+                case "empleado":
+                    if(indice >= 0 && indice < listaEmpleados.size()) {
+                        listaEmpleados.remove(indice);
+                        System.out.println("Empleado eliminado correctamente");
+                    } else {
+                        System.out.println("Índice no válido");
+                    }
+                    break;
+                    
+                case "libro":
+                    if(indice >= 0 && indice < listaLibros.size()) {
+                        listaLibros.remove(indice);
+                        System.out.println("Libro eliminado correctamente");
+                    } else {
+                        System.out.println("Índice no válido");
+                    }
+                    break;
+                    
+                default:
+                    System.out.println("Tipo de objeto no reconocido");
+            }
+        } catch (Exception e) {
+            System.out.println("Error al eliminar: " + e.getMessage());
+        }
+    }
+
+    @Override
+    public Object buscar(int indice, String nombre) {
+        try {
+            switch(nombre.toLowerCase()) {
+                case "empleado":
+                    if(indice >= 0 && indice < listaEmpleados.size()) {
+                        return listaEmpleados.get(indice);
+                    }
+                    break;
+                    
+                case "libro":
+                    if(indice >= 0 && indice < listaLibros.size()) {
+                        return listaLibros.get(indice);
+                    }
+                    break;
+                    
+                default:
+                    System.out.println("Tipo de objeto no reconocido");
+            }
+        } catch (Exception e) {
+            System.out.println("Error al buscar: " + e.getMessage());
+        }
+        return null;
+    }
+
+    @Override
+    public void listar(String nombre) {
+        try {
+            switch(nombre.toLowerCase()) {
+                case "empleados":
+                    if(listaEmpleados.isEmpty()) {
+                        System.out.println("No hay empleados registrados");
+                    } else {
+                        System.out.println("\n=== LISTA DE EMPLEADOS ===");
+                        for(int i = 0; i < listaEmpleados.size(); i++) {
+                            System.out.println("[" + i + "] " + listaEmpleados.get(i));
+                        }
+                    }
+                    break;
+                    
+                case "libros":
+                    if(listaLibros.isEmpty()) {
+                        System.out.println("No hay libros registrados");
+                    } else {
+                        System.out.println("\n=== LISTA DE LIBROS ===");
+                        for(int i = 0; i < listaLibros.size(); i++) {
+                            System.out.println("[" + i + "] " + listaLibros.get(i));
+                        }
+                    }
+                    break;
+                    
+                default:
+                    System.out.println("Tipo de lista no reconocido");
+            }
+        } catch (Exception e) {
+            System.out.println("Error al listar: " + e.getMessage());
+        }
+    }
+
+	@Override
+	public void eliminar(int indice, Object obj, String nombre) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Object> listar(String nombre) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

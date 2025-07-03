@@ -1,0 +1,18 @@
+package java0;
+
+public class Implementacion implements metodos {
+
+	@Override
+	public void mostrar(Atributos autos) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void holaMundo() {
+		// TODO Auto-generated method stub
+		System.out.print("hola mundo");
+		
+	}
+
+}

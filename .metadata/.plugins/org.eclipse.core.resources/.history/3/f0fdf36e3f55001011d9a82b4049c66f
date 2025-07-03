@@ -1,0 +1,54 @@
+package java0;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Implementacion imp = new Implementacion();
+		Scanner lec;
+		int menu;
+		
+		List<Atributos> autos = new ArrayList<Atributos>();
+
+		do {
+			System.out.println("\n Selecciona un menu");
+			lec = new Scanner(System.in); // limpiar el buffer
+			menu = lec.nextInt();
+
+			switch (menu) {
+			case 1:
+				imp.incrementarFor();
+				break;
+			case 2:
+				imp.incrementarForExample();
+				break;
+			case 3:
+				imp.While();
+
+				break;
+			case 4:
+				imp.incrementForEch();
+
+				break;
+
+			case 5:
+				imp.recorrerLista();
+
+				break;
+
+			case 10:
+				imp.Salir();
+				break;
+
+			}
+		} while (menu != 10);
+		lec.close();
+
+	}
+
+}

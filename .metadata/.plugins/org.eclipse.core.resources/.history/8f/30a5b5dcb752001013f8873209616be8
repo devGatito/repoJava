@@ -1,0 +1,36 @@
+package ejemplo04;
+
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Productos productos = null;
+		Scanner lec = null;
+		int menu,submenu;
+		Implementacion newImplementacion = new Implementacion();
+		
+		DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		do {
+			System.out.print("\n =====Productos 3B=====");
+			System.out.print("\n =====Opcion 1: Alta de Productos =====");
+			System.out.print("\n =====Opcion 2: Guardar Productos =====");
+			System.out.print("\n =====Opcion 3: Editar  Productos =====");
+			System.out.print("\n =====Opcion 4: Eliminar Productos=====");
+			System.out.print("\n =====Opcion 5: Listar   Productos=====");
+			System.out.print("\n =====Opcion 6: Buscar 	 Productos=====");
+			System.out.print("\n =====Opcion 7: key value         =====");
+			System.out.print("\n =====Opcion 8: Buscar por Sabor  =====");
+			System.out.print("\n =====Opcion 9: Salir=====");
+			
+			menu = lec.nextInt();
+			
+
+		}while(	menu != 10);
+		
+	}
+
+}

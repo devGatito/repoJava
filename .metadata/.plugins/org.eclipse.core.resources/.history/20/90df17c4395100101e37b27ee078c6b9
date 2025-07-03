@@ -1,0 +1,10 @@
+package ejemplo02;
+
+public class Herramientas {
+	int id;
+	String marca;
+	String tipo;
+	String color;
+	
+
+}

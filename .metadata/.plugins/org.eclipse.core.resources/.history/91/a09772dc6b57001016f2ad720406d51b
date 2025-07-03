@@ -1,0 +1,12 @@
+package com.mx.dominio;
+
+import ClaseAbstracta.SuperMercado;
+
+public class Ropa extends SuperMercado{
+	String marca;
+	String modelo;
+	String color;
+	double precio;
+	
+
+}

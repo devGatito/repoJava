@@ -1,0 +1,114 @@
+package ejercicio4;
+
+import java.sql.Date;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner lec;
+		Implementacion newImplementacion = new Implementacion();
+		int menu = 10, submenu;
+
+		int id;
+		String modelo;
+		String marca;
+		String so;
+		int capacidadRAm;
+		String color;
+		Date fechaHoraVenta;
+		double precio;
+
+		DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+		do {
+
+			
+			System.out.println("Opciones ");
+			System.out.println("1.- Alta codigo duro ");
+			System.out.println("2.- Guardar ");
+			System.out.println("3.- Buscar");
+			System.out.println("4.- Editar");
+			System.out.println("5.- Eliminar");
+			System.out.println("6.- Listar");
+			System.out.println("7.- Buscar por modelo -> expresion lamda");
+			System.out.println("8.- key value");
+			System.out.println("9.- Buscar por color -> forEach");
+			System.out.println("10.- Cerrar sesion");
+
+			System.out.print("\n Ingresa un numero");
+			lec = new Scanner(System.in);
+
+			menu = lec.nextInt();
+			if (menu < 0 || menu > 10) {
+				System.out.print("Escoje una opcion valida");
+			} else {
+				switch (menu) {
+				case 1:
+					System.out.print("Dar de Alta");
+					Computadoras newComputadoras = new Computadoras(1, "36B", "ASUS", "Windows", 12, "negra",
+							java.sql.Date.valueOf("2021-03-12"), 23000);
+					Computadoras newComputadoras1 = new Computadoras(2, "Gaming", "Thinkpad", "Windows", 12, "amarilla",
+							java.sql.Date.valueOf("2021-03-12"), 23000);
+					newImplementacion.guardar(newComputadoras);
+
+					break;
+
+				case 2:
+					System.out.print("Vas a cargar la computadra");
+					
+					System.out.print("ingresa el id de la computadora a cargar");
+					lec = new Scanner(System.in);
+					id = lec.nextInt();
+					
+					System.out.print("ingresa el modelo de la computadora a cargar");
+					lec = new Scanner(System.in);
+					modelo = lec.nextLine();
+					
+					System.out.print("ingresa la marca de computadora a cargar");
+					lec = new Scanner(System.in);
+					marca = lec.nextLine();
+					
+					System.out.print("ingresa el Sistema operativo a cargar");
+					lec = new Scanner(System.in);
+					so = lec.nextLine();
+					
+					
+
+					
+					break;
+
+				case 3:
+					break;
+
+				case 4:
+					break;
+
+				case 5:
+					break;
+
+				case 6:
+					break;
+
+				case 7:
+					break;
+				case 8:
+					break;
+
+				case 9:
+					break;
+
+				case 10:
+					System.out.print("Saliendo del programa");
+					break;
+
+				}
+			}
+
+		} while (menu != 10);
+		// TODO Auto-generated method stub
+
+	}
+
+}

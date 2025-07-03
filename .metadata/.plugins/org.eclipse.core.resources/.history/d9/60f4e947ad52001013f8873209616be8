@@ -1,0 +1,119 @@
+package Estudios;
+
+public class Documentacion {
+
+	public static void main(String[] args) {
+		System.out.println("Hola mundo");
+		// ejecuciones con colores
+
+		System.out.print("\033[32m" + "Green" + "\033[0m");
+		System.out.print("\n \033[33m" + "Yellow");
+		System.out.print("\n \033[34m" + "blueDark");
+		System.out.print("\n \033[35m" + "rosa");
+		System.out.print("\n \033[36m" + "azulLight");
+		System.out.print("\n \033[37m" + "blanco");
+		// musica
+		
+		System.out.println("\n \u266A");
+		System.out.println("\n \u266B");
+
+		System.out.printf("\n El numero %d no tiene decimales", 21);
+		System.out.printf("\n El numero %f  tiene decimales", 21.4);
+		System.out.printf("\n El numero %.1f tiene exactamente 1 decimal", 300.4);
+
+
+
+		/* ====== TIPOS DE VARIABLES ====== */
+
+		// NUMEROS ENTEROS - int
+		// declara la variable sin valor asignar
+		int x;
+		long limLong = Long.MAX_VALUE;
+		long minLong = Long.MIN_VALUE;
+
+		// se inicializa el valor
+		x = 5;
+
+		// imprimos el valor
+		System.out.printf("El valor de x es: " + x);
+		System.out.print("\n  \033[32m el valor maximo: \033[0m" + limLong);
+		System.out.print(" \n el valor minimo: " + minLong);
+
+		// codigo incorrecto;
+		double y, z;
+		// codigo limpio;
+		double a;
+		double b;
+		int suma;
+		int resta;
+		int mult;
+		double dividir;
+		double modulo;
+		double increment,decrement;
+		
+
+		// cadenas de caracteres
+
+		String miPalabra = "hola";
+		String oracion = "pepe juega a la pelota";
+
+		// tambien podemos inicializarla pero vacia y despues se puede inicializarla
+
+		String textoVacio = "";
+		textoVacio = "segundo caso";
+
+		System.out.print("\n" + miPalabra);
+		System.out.print("\n" + oracion);
+		System.out.print("\n" + textoVacio);
+
+		char caracter =  'C';
+		char caracter1 = 'A';
+		char caracter2 = 'S';
+		char caracter3 = 'A';
+		
+		System.out.print("\n Union de Caracteres: " + caracter + caracter1 + caracter2 + caracter3 );
+		System.out.print("\n" + caracter + "" + caracter1 );
+		System.out.println( caracter + caracter1 );
+		
+		//boolean indentifica si es verdadera o falsa
+		boolean condicion = true;
+		
+		//byte indentifica si es numerico de 128 -127
+		byte num = 12;
+		
+		//soporta -32,768 a 32,767		
+		short value = 20000;
+		
+		int numeroEntero = 200000000;
+		long numeroGrande = 230803433;
+		float numeroFlotante = 9.5f;
+		double numeroDecimal = 30.4d;
+		
+		
+		//Operadores aritmeticos
+		
+		suma = 15 + 20;
+		resta = 15 - 20;
+		mult = 15 *30;
+		dividir = 4/2;
+		modulo = 4 % 2;
+		increment = num++;
+		decrement = num--;
+		x =100;
+		System.out.print("\n"+ x + "\n" + (x +5) + "\n" + (x-5));
+		System.out.print("\n"+ x + "\n" + (x * 5) + "\n" + (x/5) + "\n" + (x % 5));
+		
+		
+		//lecturas de texto
+		String nombre = "";
+		System.out.print("\n Como te llamas?");
+		System.out.print("felicidades te llamas" + nombre);
+		
+		
+		
+		
+
+
+	}
+
+}

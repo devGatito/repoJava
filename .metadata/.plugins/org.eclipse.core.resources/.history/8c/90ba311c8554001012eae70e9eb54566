@@ -1,0 +1,8 @@
+package java0;
+
+public interface metodos {
+	
+	public void mostrar(Atributos autos);
+	public void holaMundo();
+
+}

@@ -1,0 +1,28 @@
+package Estudios;
+
+import java.util.Scanner;
+
+public class FUN1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner lec;
+		double a,b,suma,resta,div,mult;
+		System.out.print("Ingresa el valor del numero 1: \n");
+		lec = new Scanner(System.in);
+		a = lec.nextInt();
+		System.out.print("El valor ingresado del numero 1 es: " + a);
+		
+		System.out.print("Ingresa el valor del numero 2: \n");
+		lec = new Scanner(System.in);
+		b = lec.nextDouble();
+
+		
+		
+		
+		
+		
+
+	}
+
+}

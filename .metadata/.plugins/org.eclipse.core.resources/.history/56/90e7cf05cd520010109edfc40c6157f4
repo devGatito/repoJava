@@ -1,0 +1,8 @@
+package ejercicio4;
+
+public interface metodos {
+public void crear(Computadoras computadora);
+public void eliminar(Computadoras computadora);
+public void editr(Computadoras computadora);
+public void guardar(Computadoras computadora);
+}

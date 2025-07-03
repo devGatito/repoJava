@@ -1,0 +1,18 @@
+package com.mx.controller;
+
+import com.mx.dominio.Electronica;
+import com.mx.servicio.Implementacion;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Implementacion imp = new Implementacion();
+		
+		Electronica e1 = new Electronica();
+		
+
+	}
+
+}

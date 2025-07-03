@@ -1,0 +1,31 @@
+import java.util.ArrayList;
+
+import java.util.List;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner lec;
+		
+		 int id;
+		 String nombre;
+		 String plataforma;
+		 String genero;
+		 int añoLanzamiento;
+		 boolean multiplayer;
+		 double precio;
+		 
+		 Videojuegos v = new Videojuegos();
+		 
+		 
+		 int menu;
+		
+		 
+		 do {
+			 
+		 }while(menu !=7);
+		
+	}
+
+}

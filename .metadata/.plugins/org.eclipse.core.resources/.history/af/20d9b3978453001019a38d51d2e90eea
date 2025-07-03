@@ -1,0 +1,9 @@
+package ejercicio5;
+
+public interface metodos {
+	public void guardar(Videojuegos videojuegos);
+	public void eliminar(Videojuegos videojuegos);
+	public void editar(Videojuegos videojuegos);
+	public Videojuegos buscarId(String nombre);
+
+}

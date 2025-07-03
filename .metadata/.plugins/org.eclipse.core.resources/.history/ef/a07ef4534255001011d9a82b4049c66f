@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		Libros libro = null;
+		Scanner lec;
+
+		int ID;
+
+		char genero;
+
+		int yearPublicacion;
+
+		boolean Disponible;
+
+		double Precio;
+
+		String Título;
+
+		String Autor;
+
+	}
+
+}

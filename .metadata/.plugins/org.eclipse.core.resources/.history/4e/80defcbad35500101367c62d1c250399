@@ -1,0 +1,99 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Scanner lec;
+		int menu;
+
+		Libros l = new Libros();
+		List<Libros> lista = new ArrayList<Libros>();
+
+		int id;
+		String titulo;
+		String autor;
+		String genero;
+		int añoPublicacion;
+		boolean disponible;
+		double precio;
+
+		do {
+			System.out.print("\n MENU");
+			System.out.print("\n 1.Agregar libro");
+			System.out.print("\n 2.Mostrar todos los libros");
+			System.out.print("\n 3.Buscar libro por título");
+			System.out.print("\n 4.Buscar libros por autor");
+			System.out.print("\n 5.Actualizar información de un libro (Update)");
+			System.out.print("\n 6.Eliminar libro (Delete)");
+			System.out.print("\n 7.Salir del programa");
+
+			lec = new Scanner(System.in);
+			menu = lec.nextInt();
+
+			if (menu < 0 || menu > 7) {
+				System.out.print("\033[33m Ingresa un numero entre 1 y 7 \033[0m");
+
+			} else {
+				switch (menu) {
+
+				case 1:
+					Libros libro = new Libros(1, "Cronicas", "Pepe", "eventos", 2021, true, 2500);
+					Libros libro1 = new Libros(2, "X", "Pepe", "eventos", 2021, true, 2500);
+					Libros libro2 = new Libros(3, "Z", "Pepe", "eventos", 2021, false, 2500);
+					lista.add(libro);
+					lista.add(libro1);
+					lista.add(libro2);
+					System.out.print("Libros cargados");
+					break;
+
+				case 2:
+					System.out.print(lista);
+					break;
+
+				case 3:
+					System.out.print("Ingresa el titulo a buscar");
+					lec = new Scanner(System.in);
+					titulo = lec.nextLine();
+
+					for (Libros r : lista) {
+						if (r.getTitulo().equalsIgnoreCase(titulo)) {
+							System.out.print("Se encontro titulo" + r);
+
+						}
+
+					}
+
+					break;
+				case 4:
+					System.out.print("Ingresa el nombre del autor");
+					lec = new Scanner(System.in);
+					autor = lec.nextLine();
+
+					for (Libros r : lista) {
+						if (r.getAutor().equalsIgnoreCase(autor)) {
+							System.out.print("Se encontro el autor" + r);
+
+						}
+					}
+					break;
+				case 5:
+					System.out.print("Ingrese el ID a editar");
+					break;
+				case 6:
+					break;
+				case 7:
+					System.out.print("Saliendo del progrsms");
+					break;
+
+				}
+			}
+		} while (menu != 7);
+		lec.close();
+
+	}
+
+}

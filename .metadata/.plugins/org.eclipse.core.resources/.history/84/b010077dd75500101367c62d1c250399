@@ -1,0 +1,7 @@
+package ejemplo06;
+
+public interface metodos {
+public void guardar();
+public void eliminar();
+public void editar();
+}

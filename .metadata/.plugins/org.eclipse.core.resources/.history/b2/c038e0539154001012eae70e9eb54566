@@ -1,0 +1,35 @@
+package java0;
+
+public class Implementacion implements metodos {
+	Atributos newAtributos = null;
+
+	
+	
+	public void Salir() {
+		// TODO Auto-generated method stub
+		System.out.print("\n Saliendo del programa");
+
+	}
+	public void incrementarFor() {
+		for(int i = 0; i < 10; i++) {
+			System.out.print("valor: " + i + "\n");
+			
+		}
+	}
+	
+	public void incrementarForExample() {
+		int suma = 0;
+		for(int i = 0; i< 10; i++) {
+			if(i ==1) {
+				System.out.print("\n La posicion es: " + i);
+				continue;
+			}if(i==3) {
+				System.out.print("\n La posicion es: " + i);
+				break;
+				
+			}
+		}
+	}
+
+
+}

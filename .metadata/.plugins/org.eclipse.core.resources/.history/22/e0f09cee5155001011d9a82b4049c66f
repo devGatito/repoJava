@@ -1,0 +1,14 @@
+
+public class Peliculas {
+    
+
+int id;
+String titulo;
+String director;
+String genero;
+int duracion;
+boolean cartelera;
+
+	
+	
+}

@@ -1,0 +1,24 @@
+package ejercicio01;
+
+public class Autos {
+	String nombre;
+	String marca;
+	String modelo;
+	String numPuertas;
+	double precio;
+	
+	public Autos() {
+		
+	}
+	
+	public Autos(String nombre, String marca, String modelo, String numPuertas, double precio) {
+		this.nombre = nombre;
+		this.marca = marca;
+		this.modelo = modelo;
+		this.numPuertas = numPuertas;
+		this.precio = precio;
+	}
+	
+	
+
+}

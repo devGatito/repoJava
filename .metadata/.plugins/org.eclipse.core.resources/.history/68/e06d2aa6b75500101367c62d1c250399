@@ -1,0 +1,14 @@
+
+public class Videojuegos {
+	 private int id;
+	    private String nombre;
+	    private String plataforma; 
+	    private String genero; 
+	    private int añoLanzamiento;
+	    private boolean multiplayer;
+	    private double precio;
+
+
+	    
+	    
+}

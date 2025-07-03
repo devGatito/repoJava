@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		int id;
+		String titulo;
+		String director;
+		String genero;
+		int duracion;
+		boolean cartelera;
+
+		int menu;
+		Scanner lec = null;
+		Peliculas pe = new Peliculas(1, "Zombies", "Johan", "Violencia", 300, false);
+		Peliculas p = null;
+		// System.out.print(pe);
+		
+		lec = new Scanner(System.in);
+		menu = lec.nextInt();
+
+
+		if (menu < 0 || menu > 16) {
+			System.out.print("Porfavor selecciona un indice valido");
+
+		} else {
+			do {
+
+				System.out.print("MENU");
+				System.out.print("1.Agregar películas precargadas");
+				System.out.print("1. Agregar nueva película");
+				System.out.print("1.Buscar película por ID");
+				System.out.print("1. Editar película (por ID)");
+				System.out.print("1. Eliminar película (por ID)");
+				System.out.print("6.Mostrar todas las películas");
+				System.out.print("6.Salir");
+
+				
+			} while (menu != 6);
+			lec.close();
+		}
+
+		// TODO Auto-generated method stub
+
+	}
+
+}

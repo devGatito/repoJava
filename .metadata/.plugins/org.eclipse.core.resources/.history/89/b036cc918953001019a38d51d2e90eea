@@ -1,0 +1,35 @@
+package ejercicio5;
+
+import java.time.LocalDateTime;
+import java.util.Scanner;
+
+import ejemplo5.Celulares;
+import ejemplo5.Implementacion;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		String codigo;
+		String nombre;
+		String tipo;
+		String color;
+		int inventario;
+		int cantidadVendida;
+		LocalDateTime fechaVenta;
+		double precio;
+		double ganancias;
+
+		int menu;
+
+		LocalDateTime hoy = LocalDateTime.now();
+
+		Scanner lec = new Scanner(System.in);
+
+		Videojuegos v = new Videojuegos("v1", "ZELDA", "VIOELENCIA", "GRIS", 12, 30, hoy, 900, 50);
+
+		Implementacion imp = new Implementacion();
+
+	}
+
+}

@@ -1,0 +1,21 @@
+package com.mx.controller;
+
+import com.mx.dominio.Electronica;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Electronica laptop = new Electronica(1,"","",4343L,"3","","",3200);
+		Electronica laptop1 = new Electronica(2,"","",4343L,"3","","",3200);
+		Electronica laptop2 = new Electronica(3,"","",4343L,"3","","",3200);
+		Electronica laptop3 = new Electronica(3,"","",4343L,"3","","",3200);
+		
+		
+		
+		
+
+
+	}
+
+}

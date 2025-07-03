@@ -1,0 +1,61 @@
+package com.mx.controller;
+
+import com.mx.dominio.Electronica;
+import com.mx.dominio.Farmacia;
+import com.mx.dominio.Ropa;
+import com.mx.servicio.Implementacion;
+
+public class Main {
+
+    public static void main(String[] args) {
+        
+        Implementacion imp = new Implementacion();
+        
+        // Creación de objetos
+        Electronica laptop = new Electronica(1, "WALMART", "TOLUCA", 4343L, "compuDell", "DELL", "zs400", 3200);
+        Farmacia medicamento = new Farmacia(2,"ASPIRINA ","HOSPITAL GENERAL,", 43343L,"ELIAS","MARCA","300",240);
+        Farmacia medicamento1 = new Farmacia(3,"HIBUPROFENO ","HOSPITAL GENERAL,", 43343L,"ELIAS","MARCA","300",240);
+        Ropa ropa = new Ropa(4, "WALMART", "CALLE", 423L,"LONG","ED","ROJO",240);
+        Ropa ropa1 = new Ropa(5, "WALMART", "MALZAS", 423232L,"23","ED","ROJO",240);
+        // Guardar objetos
+        imp.guardar(laptop, "electronica");
+        
+        imp.guardar(medicamento, "farmacia");
+        imp.guardar(medicamento1, "farmacia");
+        imp.guardar(ropa, "ropa");
+        imp.guardar(ropa1, "ropa");
+        
+        System.out.println("\n--- \033[32m LISTA DE PRODUCTOS \033[0m---");
+        imp.listar();
+        
+        System.out.println("\n--- BÚSQUEDA ---");
+        System.out.println("Producto : " + imp.buscar(1));
+        System.out.println("Producto : " + imp.buscar(2));
+        System.out.println("Producto : " + imp.buscar(3));
+        System.out.println("Producto : " + imp.buscar(4));
+        System.out.println("Producto : " + imp.buscar(5));
+        
+
+        
+        // Editar un producto
+        Electronica laptopActualizada = new Electronica(1, "BESTBUY", "QUERETARO", 4343L, "compuDell", "DELL", "zs400", 3500);
+        imp.editar(laptopActualizada, "electronica");
+        System.out.println("\n--- DESPUÉS DE EDITAR ---");
+        System.out.println("Producto actualizado: " + imp.buscar(1));
+        
+        Farmacia medicamentoActualizado = new Farmacia(5,"ASPIRINA ","HOSPITAL GENERAL,", 43343L,"ELIAS","MARCA","300",240);
+        imp.editar(medicamentoActualizado, "medicamento");
+        System.out.println("\n--- DESPUÉS DE EDITAR ---");
+        System.out.println("Producto actualizado: " + imp.buscar(2));
+        
+        Ropa ropa12 = new Ropa (4, "WALART", "CALLE", 423L,"LONG","ED","ROJO",240);
+        imp.editar(ropa12, "ropa");
+        System.out.println("\n--- DESPUÉS DE EDITAR ---");
+        System.out.println("Producto actualizado: " + imp.buscar(2));
+        
+        // Eliminar un producto
+        imp.eliminar(medicamento, "farmacia");
+        System.out.println("\n--- DESPUÉS DE ELIMINAR ---");
+        imp.listar();
+    }
+}

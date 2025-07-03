@@ -1,0 +1,17 @@
+package estudio;
+
+public class Cass {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int x = 2;
+		int z = 2;
+		
+		double division;
+		
+		division = (double) x /  (double) z;
+
+	}
+
+}

@@ -1,0 +1,15 @@
+package com.mx.dominio;
+
+import claseAbstracta.SuperMercado;
+
+public class Jugueteria extends SuperMercado {
+	
+	String nombreJuguete;
+	String marca;
+	int edadMinima;
+	double precio;
+	
+	
+	
+
+}

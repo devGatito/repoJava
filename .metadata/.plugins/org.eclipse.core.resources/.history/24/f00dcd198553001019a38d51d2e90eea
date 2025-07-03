@@ -1,0 +1,16 @@
+package ejercicio5;
+
+import java.time.LocalDateTime;
+
+public class Videojuegos {
+	String codigo;
+	String nombre;
+	String tipo;
+	String color;
+	int inventario;
+	int cantidadVendida;
+	LocalDateTime fechaVenta;
+	double precio;
+	double ganancias;
+	
+}

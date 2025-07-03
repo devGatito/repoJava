@@ -1,0 +1,25 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		int id;
+		String titulo;
+		String director;
+		String genero;
+		int duracion;
+		boolean cartelera;
+		
+		Peliculas pe = new Peliculas(1,"Zombies","Johan","Violencia", 300,false);
+		System.out.print(pe);
+		
+		
+
+	
+		
+		
+		// TODO Auto-generated method stub
+
+	}
+
+}

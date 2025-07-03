@@ -1,0 +1,43 @@
+package ejercicio6;
+
+import java.util.List;
+
+public class Main implements metodos{
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+
+	}
+
+	@Override
+	public void guardar(Vuelos vuelo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void eliminar(Vuelos vuelo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void editar(Vuelos vuelo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Vuelos buscarVuelo(int codigo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Object> listar() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

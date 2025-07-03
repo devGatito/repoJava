@@ -1,0 +1,77 @@
+package com.mx.servicio;
+
+import java.util.HashMap;
+
+import com.mx.dao.metodos;
+import com.mx.dominio.Electronica;
+import com.mx.dominio.Farmacia;
+import com.mx.dominio.Ropa;
+
+public class Implementacion implements metodos {
+
+    HashMap<Integer, Object> hash = new HashMap<Integer, Object>();
+
+    @Override
+    public void guardar(Object obj, String clase) {
+        int id = 0;
+        
+        switch (clase) {
+            case "electronica":
+                Electronica electronico = (Electronica) obj;
+                id = electronico.getId();
+                break;
+            case "farmacia":
+                Farmacia farmacia = (Farmacia) obj;
+                id = farmacia.getId();
+                break;
+            case "ropa":
+                Ropa ropa = (Ropa) obj;
+                id = ropa.getId();
+                break;
+            default:
+                System.out.println("Tipo de producto no válido");
+                return;
+        }
+        
+        hash.put(id, obj);
+        System.out.println("Producto guardado con ID: " + id);
+    }
+
+    @Override
+    public void eliminar(int id) {
+        if (hash.containsKey(id)) {
+            hash.remove(id);
+            System.out.println("Producto con ID " + id + " eliminado");
+        } else {
+            System.out.println("No se encontró producto con ID " + id);
+        }
+    }
+
+    @Override
+    public void editar(Object obj, String clase) {
+        guardar(obj, clase); // Editar es básicamente reemplazar el objeto
+        System.out.println("Producto actualizado");
+    }
+
+    @Override
+    public Object buscar(int id) {
+        Object obj = hash.get(id);
+        if (obj == null) {
+            System.out.println("No se encontró producto con ID " + id);
+        }
+        return obj;
+    }
+
+    @Override
+    public void listar() {
+        if (hash.isEmpty()) {
+            System.out.println("No hay productos registrados");
+            return;
+        }
+        
+        System.out.println("=== Lista de productos ===");
+        for (Integer key : hash.keySet()) {
+            System.out.println("ID: " + key + " - " + hash.get(key));
+        }
+    }
+}

@@ -1,0 +1,52 @@
+package proyecto_practica;
+
+import java.time.LocalDateTime;
+
+public class Cursos {
+	String nombre;
+	int duracionMeses;
+	LocalDateTime fechaInicio;
+
+	public Cursos() {
+
+	}
+
+	public Cursos(String nombre, int duracionMeses, LocalDateTime fechaInicio) {
+		super();
+		this.nombre = nombre;
+		this.duracionMeses = duracionMeses;
+		this.fechaInicio = fechaInicio;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public int getDuracionMeses() {
+		return duracionMeses;
+	}
+
+	public void setDuracionMeses(int duracionMeses) {
+		this.duracionMeses = duracionMeses;
+	}
+
+	public LocalDateTime getFechaInicio() {
+		return fechaInicio;
+	}
+
+	public void setFechaInicio(LocalDateTime fechaInicio) {
+		this.fechaInicio = fechaInicio;
+	}
+
+	@Override
+	public String toString() {
+		return "\n ===Cursos nombre: \n" + nombre + "\n duracionMeses: " + duracionMeses + "\n fechaInicio: " + fechaInicio ;
+	}
+	
+	
+
+}

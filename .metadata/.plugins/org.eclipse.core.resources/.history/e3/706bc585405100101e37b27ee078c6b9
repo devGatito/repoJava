@@ -1,0 +1,91 @@
+package ejemplo02;
+
+public class Herramientas {
+	int id;
+	String marca;
+	String tipo;
+	String color;
+	String descripcion;
+	int stock;
+	double precio;
+	
+	public Herramientas() {
+		
+	}
+	
+	public Herramientas(int id, String marca, String tipo, String color, String descripcion, int stock, double precio) {
+		this.id = id;
+		this.marca = marca;
+		this.tipo = tipo;
+		this.color = color;
+		this.descripcion = descripcion;
+		this.stock = stock;
+		this.precio = precio;
+	}
+
+	@Override
+	public String toString() {
+		return "Herramientas [id=" + id + ", marca=" + marca + ", tipo=" + tipo + ", color=" + color + ", descripcion="
+				+ descripcion + ", stock=" + stock + ", precio=" + precio + "]";
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getMarca() {
+		return marca;
+	}
+
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public int getStock() {
+		return stock;
+	}
+
+	public void setStock(int stock) {
+		this.stock = stock;
+	}
+
+	public double getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(double precio) {
+		this.precio = precio;
+	}
+	
+	
+	
+
+}

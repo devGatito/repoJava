@@ -1,0 +1,80 @@
+package ejercicio6;
+
+import java.sql.Date;
+import java.time.LocalDateTime;
+import java.util.Scanner;
+
+import javax.xml.crypto.Data;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int codigo;
+		String nombreCliente;
+		String app;
+		Date fechaNacimiento;
+		int edad = 0;
+		String tipoVuelo;
+		LocalDateTime fechaLlegada;
+		String destino;
+		int horaVuelo = 0;
+		double precio;
+		double ganancias;
+
+		Vuelos v = new Vuelos(1,"Elias","Soto",Date.valueOf("2023-04-21"),12,"lola",Date.valueOf(
+"2023-05-21"),"acapulco",12,500,12);
+		incrementacion imp = new incrementacion();
+		Scanner lec;
+		int menu;
+
+		do {
+			System.out.println("\n===MENU===");
+			System.out.println("1.- Alta CD");
+			System.out.println("2.- Guardar");
+			System.out.println("3.- eliminar");
+			System.out.println("4.- editar");
+			System.out.println("5.- buscar");
+			System.out.println("6.- listar");
+			System.out.println("7.- buscar Por Destino");
+			System.out.println("8.- buscar Por Tipo Vuelo");
+			System.out.println("9.- calcular Ganancias Totales");
+			System.out.println("10.- salir");
+
+			lec = new Scanner(System.in);
+			menu = lec.nextInt();
+			
+			switch(menu) {
+			case 1:
+				System.out.print("Dar de alta");
+			
+				
+				break;
+			case 2:
+				break;
+			case 3:
+				break;
+			case 4:
+				break;
+			case 5:
+				break;
+			case 6:
+				break;
+			case 7:
+				break;
+			case 8:
+				break;
+			case 9:
+				break;
+			case 10:
+				System.out.print("Saliendo del programa");
+				break;
+			
+			}
+
+		} while (menu != 10);
+
+	}
+
+}

@@ -1,0 +1,27 @@
+package java0;
+
+public class Implementacion implements metodos {
+	Atributos newAtributos = null;
+
+	@Override
+	public void mostrar() {
+		// TODO Auto-generated method stub
+		newAtributos = new Atributos(1, "vocho", 4, "red");
+
+	}
+
+	@Override
+	public void holaMundo() {
+		// TODO Auto-generated method stub
+		System.out.print("hola mundo");
+
+	}
+	
+	public void Salir() {
+		// TODO Auto-generated method stub
+		System.out.print("\n Saliendo del programa");
+
+	}
+
+
+}

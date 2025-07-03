@@ -1,0 +1,10 @@
+package com.mx.dominio;
+
+public class Jugueteria {
+	
+	String nombreJuguete;
+	String marca;
+	int edadMinima;
+	double precio;
+
+}

@@ -1,0 +1,39 @@
+package com.mx.servicio;
+
+import java.util.List;
+
+import com.mx.dao.Metodos;
+
+public class Implementacion implements Metodos {
+
+	@Override
+	public void guardar(Object obj, String clase) {
+
+		
+	}
+
+	@Override
+	public void eliminar(Object obj, String clase) {
+
+		
+	}
+
+	@Override
+	public void editar(Object obj, String clase) {
+
+		
+	}
+
+	@Override
+	public Object buscar(int indice) {
+
+		return null;
+	}
+
+	@Override
+	public List<Object> listar() {
+
+		return null;
+	}
+
+}

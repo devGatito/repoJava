@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		int id;
+		String titulo;
+		String director;
+		String genero;
+		int duracion;
+		boolean cartelera;
+
+		int menu;
+		Scanner lec = null;
+		Peliculas pe = new Peliculas(1, "Zombies", "Johan", "Violencia", 300, false);
+		Peliculas p = null;
+		// System.out.print(pe);
+		
+		
+		System.out.print("MENU");
+		System.out.print("\n 1.Agregar películas precargadas");
+		System.out.print("\n 2. Agregar nueva película");
+		System.out.print("\n 3.Buscar película por ID");
+		System.out.print("\n 4. Editar película (por ID)");
+		System.out.print("\n 5. Eliminar película (por ID)");
+		System.out.print("\n 6.Mostrar todas las películas");
+		System.out.print("\n 7.Salir");
+		lec = new Scanner(System.in);
+		menu = lec.nextInt();
+		
+		if(menu < 0 || menu >8) {
+			System.out.print("Selecciona un numero dentro del rango");
+		}else {
+			
+			do {
+				
+				
+			}while(menu !=5);
+		}
+
+		
+
+		// TODO Auto-generated method stub
+
+	}
+
+}

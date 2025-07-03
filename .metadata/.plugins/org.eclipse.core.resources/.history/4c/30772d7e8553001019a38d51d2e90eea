@@ -1,0 +1,38 @@
+package ejercicio5;
+
+import java.util.List;
+
+public class Implementacion implements metodos {
+	
+	Videojuegos newVideojuegos = null;
+
+	@Override
+	public void guardar(Videojuegos videojuegos) {
+				
+	}
+
+	@Override
+	public void eliminar(Videojuegos videojuegos) {
+		
+		
+	}
+
+	@Override
+	public void editar(Videojuegos videojuegos) {
+		
+		
+	}
+
+	@Override
+	public Videojuegos buscarId(String codigo) {
+		
+		return null;
+	}
+
+	@Override
+	public List<Videojuegos> listar() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

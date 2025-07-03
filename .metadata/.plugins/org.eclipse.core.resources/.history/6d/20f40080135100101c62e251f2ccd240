@@ -1,0 +1,35 @@
+package ejercicio01;
+
+import java.util.List;
+import java.util.ArrayList;
+
+
+public class Main {
+
+	public static void main(String[] args) {
+		Autos newAutos = new Autos("Vocho", "Volvagen","Vocho","4",3200);
+		Autos newAutos1 = new Autos("Vocho", "Volvagen","Vocho","4",3200);
+		Autos newAutos2 = new Autos("Vocho", "Volvagen","Vocho","4",3200);
+		Autos newAutos3 = new Autos("Vocho", "Volvagen","Vocho","4",3200);
+		Autos newAutos4 = new Autos("Vocho", "Volvagen","Vocho","4",3200);
+
+		
+		List<Autos> lista = new ArrayList<Autos>();
+		
+		lista.add(newAutos);
+		lista.add(newAutos1);
+		lista.add(newAutos2);
+		lista.add(newAutos3);
+		lista.add(newAutos4);
+		
+		System.out.print("Autos\n");
+		
+		Autos autoBuscar = lista.get(4);
+	
+		
+		
+	
+
+	}
+
+}

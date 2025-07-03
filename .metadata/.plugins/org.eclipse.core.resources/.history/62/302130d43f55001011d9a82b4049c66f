@@ -1,0 +1,31 @@
+package java0;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Scanner lec;
+		int menu;
+		
+		do {
+			System.out.print("Selecciona una opcion");
+			lec = new Scanner(System.in);
+			menu = lec.nextInt();
+			
+			switch(menu) {
+			case 1:
+				break;
+			
+			}
+			
+		}while(menu != 10);
+
+
+	}
+
+}

@@ -1,0 +1,30 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Scanner lec;
+		int num;
+
+		Libros l = new Libros();
+		List<Libros> lista = new ArrayList<Libros>();
+
+		int id;
+		String titulo;
+		String autor;
+		String genero;
+		int añoPublicacion;
+		boolean disponible;
+		double precio;
+		
+		do {
+			System.out.print("\n MENU");
+		}while(menu != 5);
+
+	}
+
+}
